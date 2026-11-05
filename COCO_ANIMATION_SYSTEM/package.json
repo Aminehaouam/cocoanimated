@@ -1,0 +1,15 @@
+{
+  "name": "coco-animation-system",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Coco the African grey parrot: master character, Rev2D rig, animation library, exports and web player.",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "node ${REV2D_HOME:-../../Rev2D}/node_modules/tsx/dist/cli.mjs rev2d/source/build.ts",
+    "qc": "node ${REV2D_HOME:-../../Rev2D}/node_modules/tsx/dist/cli.mjs rev2d/source/qc.ts"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
