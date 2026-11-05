@@ -1,0 +1,19 @@
+analysis of emo_confused (2.8s): 169 frames over t=0..2.8s
+
+PARAMETERS (min..max over the frames, [range])
+  AngleZ  -16..0  [-30..30]
+  EyeBallX  -0.3..0  [-1..1]
+  EyeBallY  0..0.5  [-1..1]
+  BrowRY  0..0.4  [-1..1]
+  BrowRAngle  0..0.9  [-1..1]
+  MouthForm  -0.5..0  [-1..1]
+  WingLRaise  0..1  [-0.5..1]  reaches max
+  WingLSpread  0..0.2  [0..1]  reaches min
+  FxQuestion  0..1  [0..1]  reaches min, reaches max
+  constant: AngleX=0, AngleY=0, EyeROpen=1, EyeRSmile=0, EyeWide=0, MouthOpen=0, Blush=0, Breath=0, BodyAngleX=0, BodyAngleZ=0, Squash=0, BodyX=0, BodyY=0, Shadow=1, WingRRaise=0, WingRSpread=0, WingRCurl=0, TailSwing=0, TailLift=0, TailFan=0, ... (+60)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 0 at t=0s vs range -30..30
+
+BOUNDS
+  visible parts over all frames: [337, 193.9, 511.4, 714.1] (canvas 1024x1024)

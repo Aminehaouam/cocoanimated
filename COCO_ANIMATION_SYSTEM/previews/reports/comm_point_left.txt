@@ -8,11 +8,11 @@ PARAMETERS (min..max over the frames, [range])
   BodyAngleZ  -3.3..0  [-10..10]
   WingRRaise  0..0.55  [-1.5..1]
   WingRSpread  0..0.11  [0..1]  reaches min
-  TailSwing  0..3.96  [-30..30]
-  constant: AngleY=0, AngleZ=0, EyeROpen=1, EyeWide=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, MouthOpen=0, Blush=0, Breath=0, BodyAngleX=0, Squash=0, BodyX=0, BodyY=0, Shadow=1, WingRCurl=0, WingLRaise=0, WingLSpread=0, TailLift=0, TailFan=0, ... (+23)
+  TailSwing  0..3.564  [-30..30]
+  constant: AngleY=0, AngleZ=0, EyeROpen=1, EyeWide=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, MouthOpen=0, Blush=0, Breath=0, BodyAngleX=0, Squash=0, BodyX=0, BodyY=0, Shadow=1, WingRCurl=0, WingLRaise=0, WingLSpread=0, TailLift=0, TailFan=0, ... (+61)
 
 PHYSICS (raw output before clamping)
-  tailPhysics: TailSwing never clamped, peak raw 3.96 at t=0.2s vs range -30..30
+  tailPhysics: TailSwing never clamped, peak raw 3.564 at t=0.2s vs range -30..30
 
 BOUNDS
   visible parts over all frames: [192, 257.3, 509, 650.7] (canvas 1024x1024)

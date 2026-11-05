@@ -1,0 +1,17 @@
+analysis of trv_raincoat (3s loop): 180 frames over t=0..3s after 9s warm-up
+
+PARAMETERS (min..max over the frames, [range])
+  AngleY  6..10  [-30..30]
+  BodyAngleZ  -2..2  [-10..10]
+  TailSwing  -2.16..2.16  [-30..30]
+  constant: AngleX=0, AngleZ=0, EyeROpen=1, EyeRSmile=0.6, EyeWide=0, EyeBallX=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, MouthOpen=0, MouthForm=0.8, Blush=0, Breath=0, BodyAngleX=0, Squash=0, BodyX=0, BodyY=0, Shadow=1, WingRRaise=0, WingRSpread=0, ... (+66)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw -2.16 at t=1.5s vs range -30..30
+
+LOOP SEAM (end of the loop extrapolated to t=3 vs t=0)
+  parameters and bones close the loop
+  pixels: 0% differ between t=0 and one loop later (threshold 8, max delta 0)
+
+BOUNDS
+  visible parts over all frames: [337, 128.7, 632.5, 779.3] (canvas 1024x1024)

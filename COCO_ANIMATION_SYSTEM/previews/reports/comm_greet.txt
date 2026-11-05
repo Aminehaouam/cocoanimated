@@ -10,7 +10,7 @@ PARAMETERS (min..max over the frames, [range])
   BodyY  -28..0  [-520..60]
   WingLRaise  0..0.95  [-0.5..1]
   WingLSpread  0..1  [0..1]  reaches min, reaches max
-  constant: AngleX=0, EyeROpen=1, EyeWide=0, EyeBallX=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, Blush=0, Breath=0, BodyAngleX=0, BodyAngleZ=0, BodyX=0, Shadow=1, WingRRaise=0, WingRSpread=0, WingRCurl=0, TailSwing=0, TailLift=0, TailFan=0, FootRX=0, ... (+22)
+  constant: AngleX=0, EyeROpen=1, EyeWide=0, EyeBallX=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, Blush=0, Breath=0, BodyAngleX=0, BodyAngleZ=0, BodyX=0, Shadow=1, WingRRaise=0, WingRSpread=0, WingRCurl=0, TailSwing=0, TailLift=0, TailFan=0, FootRX=0, ... (+60)
 
 PHYSICS (raw output before clamping)
   tailPhysics: TailSwing never clamped, peak raw 0 at t=0s vs range -30..30

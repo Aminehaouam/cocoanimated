@@ -1,0 +1,20 @@
+analysis of rx_peek (3s): 181 frames over t=0..3s
+
+PARAMETERS (min..max over the frames, [range])
+  AngleX  -6..12  [-30..30]
+  AngleZ  0..10  [-30..30]
+  EyeROpen  0.055..1  [0..1]  reaches max
+  EyeBallX  0..0.9  [-1..1]
+  MouthForm  0..0.5  [-1..1]
+  BodyAngleZ  0..8  [-10..10]
+  BodyX  -260..-150  [-800..800]
+  TailSwing  -7.905..0  [-30..30]
+  constant: AngleY=0, EyeRSmile=0, EyeWide=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, MouthOpen=0, Blush=0, Breath=0, BodyAngleX=0, Squash=0, BodyY=0, Shadow=1, WingRRaise=0, WingRSpread=0, WingRCurl=0, WingLRaise=0, WingLSpread=0, TailLift=0, TailFan=0, ... (+61)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw -7.905 at t=2.117s vs range -30..30
+
+BOUNDS
+  visible parts over all frames: [0, -3, 638, 1030] (canvas 1024x1024)
+  wallPanel extends beyond the canvas in every frame (up to 3 px)
+  wallEdge extends beyond the canvas in every frame (up to 3 px)

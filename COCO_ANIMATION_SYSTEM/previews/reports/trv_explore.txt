@@ -1,0 +1,19 @@
+analysis of trv_explore (4s loop): 240 frames over t=0..4s after 8s warm-up
+
+PARAMETERS (min..max over the frames, [range])
+  AngleX  -10..14  [-30..30]
+  EyeBallX  -0.7..0.8  [-1..1]
+  WingRRaise  -1..0  [-1.5..1]
+  WingRSpread  0..0.1  [0..1]  reaches min
+  TailSwing  -5.4..-5.4  [-30..30]
+  constant: AngleY=0, AngleZ=16, EyeROpen=1, EyeRSmile=0, EyeWide=0.35, EyeBallY=0.2, BrowRY=0.6, BrowRAngle=0.2, MouthOpen=0, MouthForm=0.2, Blush=0, Breath=0, BodyAngleX=0, BodyAngleZ=5, Squash=0, BodyX=0, BodyY=0, Shadow=1, WingRCurl=0, WingLRaise=0, ... (+64)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw -5.4 at t=3.967s vs range -30..30
+
+LOOP SEAM (end of the loop extrapolated to t=4 vs t=0)
+  parameters and bones close the loop
+  pixels: 0% differ between t=0 and one loop later (threshold 8, max delta 0)
+
+BOUNDS
+  visible parts over all frames: [309.7, 174.6, 466.5, 733.4] (canvas 1024x1024)

@@ -181,7 +181,8 @@ async function anims(): Promise<void> {
     const issues: string[] = [];
     if (a.loop && an.seam && !an.seam.ok) issues.push(`loop seam: ${an.seam.params.map((p) => `${p.id} jumps ${p.jump.toFixed(3)}`).concat(an.seam.bones.map((b) => `bone ${b.id} ${b.distance.toFixed(2)} px`)).join(', ')}`);
     for (const p of an.physics) if (p.clampedShare > 0.05) issues.push(`physics ${p.param} clamped in ${Math.round(p.clampedShare * 100)}% of frames`);
-    for (const o of an.outsideCanvas) if (!o.always) issues.push(`${o.part} leaves the canvas (${o.maxOverflow.toFixed(0)} px)`);
+    const offscreen = /off-screen/.test(`${c.from ?? ''} ${c.to ?? ''}`);
+    if (!offscreen) for (const o of an.outsideCanvas) if (!o.always) issues.push(`${o.part} leaves the canvas (${o.maxOverflow.toFixed(0)} px)`);
     if (!a.loop && 'tracks' in c) {
       if (!c.to) issues.push(...restIssues(c, 'end').map((s) => `does not end at rest: ${s}`));
       if (!c.from) issues.push(...restIssues(c, 'start').map((s) => `does not start at rest: ${s}`));

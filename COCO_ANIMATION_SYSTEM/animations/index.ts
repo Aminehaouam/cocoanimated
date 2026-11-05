@@ -5,9 +5,13 @@
 import { IDLE_CLIPS, IDLE_COMPOSED } from './idle/idle.ts';
 import { COMMUNICATION_CLIPS } from './communication/communication.ts';
 import { EDUCATION_CLIPS } from './education/education.ts';
+import { EMOTION_CLIPS } from './emotions/emotions.ts';
+import { REACTION_CLIPS } from './reactions/reactions.ts';
+import { REWARD_CLIPS } from './rewards/rewards.ts';
+import { TRAVEL_CLIPS } from './travel/travel.ts';
 import type { Clip, ComposedClip } from './lib.ts';
 
-export const CLIPS: Clip[] = [...IDLE_CLIPS, ...COMMUNICATION_CLIPS, ...EDUCATION_CLIPS];
+export const CLIPS: Clip[] = [...IDLE_CLIPS, ...COMMUNICATION_CLIPS, ...EDUCATION_CLIPS, ...EMOTION_CLIPS, ...TRAVEL_CLIPS, ...REWARD_CLIPS, ...REACTION_CLIPS];
 export const COMPOSED: ComposedClip[] = [...IDLE_COMPOSED];
 
 const ids = new Set<string>();

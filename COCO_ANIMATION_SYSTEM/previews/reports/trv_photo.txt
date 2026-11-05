@@ -1,0 +1,17 @@
+analysis of trv_photo (2.6s): 157 frames over t=0..2.6s
+
+PARAMETERS (min..max over the frames, [range])
+  EyeRSmile  0..0.8  [0..1]  reaches min
+  MouthForm  0..1  [-1..1]  reaches max
+  Squash  0..0.06  [-1..1]
+  WingRRaise  -1.3..0  [-1.5..1]
+  WingRCurl  0..0.9  [0..1]  reaches min
+  AccCamera  0..1  [0..1]  reaches min, reaches max
+  FxFlash  0..1  [0..1]  reaches min, reaches max
+  constant: AngleX=0, AngleY=0, AngleZ=0, EyeROpen=1, EyeWide=0, EyeBallX=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, MouthOpen=0, Blush=0, Breath=0, BodyAngleX=0, BodyAngleZ=0, BodyX=0, BodyY=0, Shadow=1, WingRSpread=0, WingLRaise=0, WingLSpread=0, ... (+62)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 0 at t=0s vs range -30..30
+
+BOUNDS
+  visible parts over all frames: [335.8, 257.5, 416.8, 650.5] (canvas 1024x1024)

@@ -1,0 +1,19 @@
+analysis of trv_fly (0.8s loop): 48 frames over t=0..0.8s after 8s warm-up
+
+PARAMETERS (min..max over the frames, [range])
+  Squash  -0.05..0  [-1..1]
+  BodyY  -172..-160  [-520..60]
+  WingRRaise  0.25..1  [-1.5..1]  reaches max
+  WingLRaise  0.3..1  [-0.5..1]  reaches max
+  TailSwing  -10.8..-10.799  [-30..30]
+  constant: AngleX=0, AngleY=0, AngleZ=0, EyeROpen=1, EyeRSmile=0.5, EyeWide=0, EyeBallX=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, MouthOpen=0, MouthForm=1, Blush=0, Breath=0, BodyAngleX=0, BodyAngleZ=10, BodyX=0, Shadow=1, WingRSpread=1, WingRCurl=0, ... (+64)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw -10.8 at t=0.767s vs range -30..30
+
+LOOP SEAM (end of the loop extrapolated to t=0.8 vs t=0)
+  parameters and bones close the loop
+  pixels: 0% differ between t=0 and one loop later (threshold 8, max delta 0)
+
+BOUNDS
+  visible parts over all frames: [200.3, 87.7, 740.5, 817.7] (canvas 1024x1024)

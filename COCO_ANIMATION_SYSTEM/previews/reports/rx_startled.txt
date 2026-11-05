@@ -1,0 +1,20 @@
+analysis of rx_startled (1.4s): 85 frames over t=0..1.4s
+
+PARAMETERS (min..max over the frames, [range])
+  EyeWide  0..0.996  [0..1]  reaches min
+  BrowRY  0..0.996  [-1..1]
+  MouthOpen  0..0.498  [0..1]  reaches min
+  Squash  -0.393..0.292  [-1..1]
+  WingRRaise  0..0.498  [-1.5..1]
+  WingRSpread  0..0.996  [0..1]  reaches min
+  WingLRaise  0..0.498  [-0.5..1]
+  WingLSpread  0..0.996  [0..1]  reaches min
+  TailFan  0..0.996  [0..1]  reaches min
+  FxAlert  0..0.996  [0..1]  reaches min
+  constant: AngleX=0, AngleY=0, AngleZ=0, EyeROpen=1, EyeRSmile=0, EyeBallX=0, EyeBallY=0, BrowRAngle=0, MouthForm=0, Blush=0, Breath=0, BodyAngleX=0, BodyAngleZ=0, BodyX=0, BodyY=0, Shadow=1, WingRCurl=0, TailSwing=0, TailLift=0, FootRX=0, ... (+59)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 0 at t=0s vs range -30..30
+
+BOUNDS
+  visible parts over all frames: [167.5, 192.9, 698.9, 715.1] (canvas 1024x1024)

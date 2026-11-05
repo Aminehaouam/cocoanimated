@@ -1,0 +1,20 @@
+analysis of emo_embarrassed (2.8s): 169 frames over t=0..2.8s
+
+PARAMETERS (min..max over the frames, [range])
+  AngleY  -12..0  [-30..30]
+  AngleZ  -10..0  [-30..30]
+  EyeROpen  0.45..1  [0..1]  reaches max
+  EyeRSmile  0..0.7  [0..1]  reaches min
+  EyeBallX  -0.5..0  [-1..1]
+  MouthForm  0..0.4  [-1..1]
+  Blush  0..1  [0..1]  reaches min, reaches max
+  WingRRaise  -1.45..0  [-1.5..1]
+  WingRSpread  0..0.6  [0..1]  reaches min
+  FxSweat  0..1  [0..1]  reaches min, reaches max
+  constant: AngleX=0, EyeWide=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, MouthOpen=0, Breath=0, BodyAngleX=0, BodyAngleZ=0, Squash=0, BodyX=0, BodyY=0, Shadow=1, WingRCurl=0, WingLRaise=0, WingLSpread=0, TailSwing=0, TailLift=0, TailFan=0, FootRX=0, ... (+59)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 0 at t=0s vs range -30..30
+
+BOUNDS
+  visible parts over all frames: [337, 257.5, 453.6, 650.5] (canvas 1024x1024)

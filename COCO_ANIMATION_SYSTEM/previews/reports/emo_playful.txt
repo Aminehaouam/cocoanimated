@@ -1,0 +1,17 @@
+analysis of emo_playful (2.4s): 145 frames over t=0..2.4s
+
+PARAMETERS (min..max over the frames, [range])
+  AngleZ  0..12  [-30..30]
+  EyeROpen  0..1  [0..1]  reaches min, reaches max
+  EyeRSmile  0..1  [0..1]  reaches min, reaches max
+  MouthOpen  0..0.2  [0..1]  reaches min
+  MouthForm  0..1  [-1..1]  reaches max
+  BodyY  -10..0  [-520..60]
+  TailLift  -0.2..0.45  [-1..1]
+  constant: AngleX=0, AngleY=0, EyeWide=0, EyeBallX=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, Blush=0, Breath=0, BodyAngleX=0, BodyAngleZ=0, Squash=0, BodyX=0, Shadow=1, WingRRaise=0, WingRSpread=0, WingRCurl=0, WingLRaise=0, WingLSpread=0, TailSwing=0, ... (+62)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 0 at t=0s vs range -30..30
+
+BOUNDS
+  visible parts over all frames: [321.2, 247.8, 388.2, 660.2] (canvas 1024x1024)

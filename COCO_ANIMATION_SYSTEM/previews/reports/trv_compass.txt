@@ -1,0 +1,19 @@
+analysis of trv_compass (3s loop): 180 frames over t=0..3s after 9s warm-up
+
+PARAMETERS (min..max over the frames, [range])
+  AngleY  -10..0  [-30..30]
+  EyeRSmile  0..0.5  [0..1]  reaches min
+  EyeBallY  -0.7..0  [-1..1]
+  BodyAngleX  -6..6  [-10..10]
+  TailSwing  -3.56..5.285  [-30..30]
+  constant: AngleX=0, AngleZ=0, EyeROpen=1, EyeWide=0, EyeBallX=0, BrowRY=0.3, BrowRAngle=0, MouthOpen=0, MouthForm=0, Blush=0, Breath=0, BodyAngleZ=0, Squash=0, BodyX=0, BodyY=0, Shadow=1, WingRRaise=-0.9, WingRSpread=0, WingRCurl=0.5, WingLRaise=0, ... (+64)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 5.285 at t=1.517s vs range -30..30
+
+LOOP SEAM (end of the loop extrapolated to t=3 vs t=0)
+  parameters and bones close the loop
+  pixels: 0% differ between t=0 and one loop later (threshold 8, max delta 0)
+
+BOUNDS
+  visible parts over all frames: [332.3, 257.5, 423.5, 650.5] (canvas 1024x1024)

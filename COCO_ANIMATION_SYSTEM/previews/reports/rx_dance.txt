@@ -1,0 +1,23 @@
+analysis of rx_dance (2s loop): 120 frames over t=0..2s after 8s warm-up
+
+PARAMETERS (min..max over the frames, [range])
+  AngleZ  -8..8  [-30..30]
+  BodyAngleZ  -7..7  [-10..10]
+  BodyY  -12..0  [-520..60]
+  WingRRaise  0..0.45  [-1.5..1]
+  WingLRaise  0..0.45  [-0.5..1]
+  TailSwing  -7.56..7.56  [-30..30]
+  FootRY  -18..3  [-80..20]
+  FootLY  -18..3  [-80..20]
+  FxNotesRise  0..1  [0..1]  reaches min, reaches max
+  constant: AngleX=0, AngleY=0, EyeROpen=0.15, EyeRSmile=1, EyeWide=0, EyeBallX=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, MouthOpen=0.3, MouthForm=1, Blush=0, Breath=0, BodyAngleX=0, Squash=0, BodyX=0, Shadow=1, WingRSpread=0.6, WingRCurl=0, WingLSpread=0.6, ... (+60)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw -7.56 at t=0.5s vs range -30..30
+
+LOOP SEAM (end of the loop extrapolated to t=2 vs t=0)
+  parameters and bones close the loop
+  pixels: 0% differ between t=0 and one loop later (threshold 8, max delta 0)
+
+BOUNDS
+  visible parts over all frames: [158.6, 161.7, 704.3, 746.3] (canvas 1024x1024)

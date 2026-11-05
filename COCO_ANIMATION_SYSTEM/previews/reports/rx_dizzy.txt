@@ -1,0 +1,21 @@
+analysis of rx_dizzy (2.4s loop): 144 frames over t=0..2.4s after 9.6s warm-up
+
+PARAMETERS (min..max over the frames, [range])
+  AngleX  -12..12  [-30..30]
+  AngleY  -8..8  [-30..30]
+  EyeBallX  -0.6..0.6  [-1..1]
+  EyeBallY  -0.6..0.6  [-1..1]
+  BodyAngleZ  -5..5  [-10..10]
+  TailSwing  -5.4..5.4  [-30..30]
+  FxDizzySpin  0..0.25  [0..1]  reaches min
+  constant: AngleZ=0, EyeROpen=0.75, EyeRSmile=0, EyeWide=0, BrowRY=0, BrowRAngle=0, MouthOpen=0.15, MouthForm=-0.3, Blush=0, Breath=0, BodyAngleX=0, Squash=0, BodyX=0, BodyY=0, Shadow=1, WingRRaise=0, WingRSpread=0, WingRCurl=0, WingLRaise=0, WingLSpread=0, ... (+62)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 5.4 at t=1.2s vs range -30..30
+
+LOOP SEAM (end of the loop extrapolated to t=2.4 vs t=0)
+  parameters and bones close the loop
+  pixels: 0% differ between t=0 and one loop later (threshold 8, max delta 0)
+
+BOUNDS
+  visible parts over all frames: [336.9, 153.1, 424.4, 754.9] (canvas 1024x1024)

@@ -1,0 +1,22 @@
+analysis of rx_lose_balance (2.4s): 145 frames over t=0..2.4s
+
+PARAMETERS (min..max over the frames, [range])
+  EyeRSmile  0..0.6  [0..1]  reaches min
+  EyeWide  0..0.8  [0..1]  reaches min
+  MouthOpen  0..0.5  [0..1]  reaches min
+  MouthForm  0..0.6  [-1..1]
+  BodyAngleZ  -10..9  [-10..10]  reaches min
+  WingRRaise  -0.3..0.7  [-1.5..1]
+  WingRSpread  0..1  [0..1]  reaches min, reaches max
+  WingLRaise  0..0.8  [-0.5..1]
+  WingLSpread  0..1  [0..1]  reaches min, reaches max
+  TailSwing  -9.72..10.8  [-30..30]
+  FootRY  -28..0  [-80..20]
+  FxSweat  0..1  [0..1]  reaches min, reaches max
+  constant: AngleX=0, AngleY=0, AngleZ=0, EyeROpen=1, EyeBallX=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, Blush=0, Breath=0, BodyAngleX=0, Squash=0, BodyX=0, BodyY=0, Shadow=1, WingRCurl=0, TailLift=0, TailFan=0, FootRX=0, FootLX=0, ... (+57)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 10.8 at t=0.55s vs range -30..30
+
+BOUNDS
+  visible parts over all frames: [113.9, 256.9, 814.7, 651.1] (canvas 1024x1024)

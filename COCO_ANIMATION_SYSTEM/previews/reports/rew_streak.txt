@@ -1,0 +1,21 @@
+analysis of rew_streak (2.8s): 169 frames over t=0..2.8s
+
+PARAMETERS (min..max over the frames, [range])
+  AngleY  0..12  [-30..30]
+  EyeROpen  0..1  [0..1]  reaches min, reaches max
+  EyeRSmile  0..1  [0..1]  reaches min, reaches max
+  MouthOpen  0..0.8  [0..1]  reaches min
+  MouthForm  0..1  [-1..1]  reaches max
+  Blush  0..0.6  [0..1]  reaches min
+  Squash  -0.3..0.25  [-1..1]
+  BodyY  -40..0  [-520..60]
+  WingLRaise  0..0.95  [-0.5..1]
+  AccStreakBadge  0..1  [0..1]  reaches min, reaches max
+  FxStars  0..1  [0..1]  reaches min, reaches max
+  constant: AngleX=0, AngleZ=0, EyeWide=0, EyeBallX=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, Breath=0, BodyAngleX=0, BodyAngleZ=0, BodyX=0, Shadow=1, WingRRaise=0, WingRSpread=0, WingRCurl=0, WingLSpread=0, TailSwing=0, TailLift=0, TailFan=0, FootRX=0, ... (+58)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 0 at t=0s vs range -30..30
+
+BOUNDS
+  visible parts over all frames: [219.6, 75.2, 736.9, 832.8] (canvas 1024x1024)

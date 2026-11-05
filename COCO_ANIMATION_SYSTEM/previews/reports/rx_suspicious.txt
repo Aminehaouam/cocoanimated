@@ -1,0 +1,18 @@
+analysis of rx_suspicious (3.2s loop): 192 frames over t=0..3.2s after 9.6s warm-up
+
+PARAMETERS (min..max over the frames, [range])
+  EyeROpen  0.35..0.45  [0..1]
+  EyeBallX  -0.8..-0.4  [-1..1]
+  BodyAngleZ  -3..1  [-10..10]
+  TailSwing  -1.08..3.24  [-30..30]
+  constant: AngleX=-10, AngleY=0, AngleZ=0, EyeRSmile=0, EyeWide=0, EyeBallY=0, BrowRY=-0.6, BrowRAngle=-0.8, MouthOpen=0, MouthForm=-0.3, Blush=0, Breath=0, BodyAngleX=0, Squash=0, BodyX=0, BodyY=0, Shadow=1, WingRRaise=-1.2, WingRSpread=0, WingRCurl=0.8, ... (+65)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 3.24 at t=0s vs range -30..30
+
+LOOP SEAM (end of the loop extrapolated to t=3.2 vs t=0)
+  parameters and bones close the loop
+  pixels: 0% differ between t=0 and one loop later (threshold 8, max delta 0)
+
+BOUNDS
+  visible parts over all frames: [337, 257.4, 392.1, 650.6] (canvas 1024x1024)

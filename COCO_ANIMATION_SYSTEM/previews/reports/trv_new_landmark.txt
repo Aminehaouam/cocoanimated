@@ -1,0 +1,20 @@
+analysis of trv_new_landmark (2.8s): 169 frames over t=0..2.8s
+
+PARAMETERS (min..max over the frames, [range])
+  AngleX  -10..14  [-30..30]
+  EyeWide  0..0.7  [0..1]  reaches min
+  EyeBallX  -0.6..0.8  [-1..1]
+  MouthOpen  0..0.799  [0..1]  reaches min
+  MouthForm  0..1  [-1..1]  reaches max
+  Squash  -0.2..0.25  [-1..1]
+  BodyY  -30..0  [-520..60]
+  WingRRaise  -1..0  [-1.5..1]
+  WingRSpread  0..0.1  [0..1]  reaches min
+  FxSparkle  0..1  [0..1]  reaches min, reaches max
+  constant: AngleY=0, AngleZ=0, EyeROpen=1, EyeRSmile=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, Blush=0, Breath=0, BodyAngleX=0, BodyAngleZ=0, BodyX=0, Shadow=1, WingRCurl=0, WingLRaise=0, WingLSpread=0, TailSwing=0, TailLift=0, TailFan=0, FootRX=0, ... (+59)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 0 at t=0s vs range -30..30
+
+BOUNDS
+  visible parts over all frames: [288.5, 120.6, 471.2, 787.4] (canvas 1024x1024)

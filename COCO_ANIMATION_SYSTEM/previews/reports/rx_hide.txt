@@ -1,0 +1,17 @@
+analysis of rx_hide (2.6s): 157 frames over t=0..2.6s
+
+PARAMETERS (min..max over the frames, [range])
+  EyeROpen  0.3..1  [0..1]  reaches max
+  EyeBallX  -0.4..0.6  [-1..1]
+  Squash  0..0.3  [-1..1]
+  BodyY  0..12  [-520..60]
+  WingRRaise  -1.5..0  [-1.5..1]  reaches min
+  WingRSpread  0..0.7  [0..1]  reaches min
+  FxSweat  0..1  [0..1]  reaches min, reaches max
+  constant: AngleX=0, AngleY=0, AngleZ=0, EyeRSmile=0, EyeWide=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, MouthOpen=0, MouthForm=0, Blush=0, Breath=0, BodyAngleX=0, BodyAngleZ=0, BodyX=0, Shadow=1, WingRCurl=0, WingLRaise=0, WingLSpread=0, TailSwing=0, ... (+62)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 0 at t=0s vs range -30..30
+
+BOUNDS
+  visible parts over all frames: [330.7, 257.5, 480, 650.5] (canvas 1024x1024)

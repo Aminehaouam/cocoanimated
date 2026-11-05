@@ -1,0 +1,20 @@
+analysis of emo_love (2.8s): 169 frames over t=0..2.8s
+
+PARAMETERS (min..max over the frames, [range])
+  AngleY  0..6  [-30..30]
+  EyeROpen  0..1  [0..1]  reaches min, reaches max
+  EyeRSmile  0..1  [0..1]  reaches min, reaches max
+  MouthOpen  0..0.25  [0..1]  reaches min
+  MouthForm  0..1  [-1..1]  reaches max
+  Blush  0..0.6  [0..1]  reaches min
+  BodyAngleZ  -4..4  [-10..10]
+  TailSwing  -4.32..4.32  [-30..30]
+  FxHearts  0..1  [0..1]  reaches min, reaches max
+  FxHeartsRise  0..1  [0..1]  reaches min, reaches max
+  constant: AngleX=0, AngleZ=0, EyeWide=0, EyeBallX=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, Breath=0, BodyAngleX=0, Squash=0, BodyX=0, BodyY=0, Shadow=1, WingRRaise=0, WingRSpread=0, WingRCurl=0, WingLRaise=0, WingLSpread=0, TailLift=0, TailFan=0, ... (+59)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw -4.32 at t=0.4s vs range -30..30
+
+BOUNDS
+  visible parts over all frames: [336.6, 155.1, 418.4, 752.9] (canvas 1024x1024)

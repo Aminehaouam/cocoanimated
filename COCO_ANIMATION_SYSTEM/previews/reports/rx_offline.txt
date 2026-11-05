@@ -1,0 +1,18 @@
+analysis of rx_offline (3.2s loop): 192 frames over t=0..3.2s after 9.6s warm-up
+
+PARAMETERS (min..max over the frames, [range])
+  AngleX  -12..12  [-30..30]
+  AngleZ  -14..14  [-30..30]
+  EyeROpen  0.055..1  [0..1]  reaches max
+  EyeBallX  -0.6..0.6  [-1..1]
+  constant: AngleY=0, EyeRSmile=0, EyeWide=0, EyeBallY=0.5, BrowRY=0.4, BrowRAngle=0.9, MouthOpen=0, MouthForm=-0.5, Blush=0, Breath=0, BodyAngleX=0, BodyAngleZ=0, Squash=0, BodyX=0, BodyY=0, Shadow=1, WingRRaise=-0.3, WingRSpread=0.5, WingRCurl=0, WingLRaise=0.25, ... (+65)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 0 at t=0s vs range -30..30
+
+LOOP SEAM (end of the loop extrapolated to t=3.2 vs t=0)
+  parameters and bones close the loop
+  pixels: 0% differ between t=0 and one loop later (threshold 8, max delta 0)
+
+BOUNDS
+  visible parts over all frames: [337, 196.4, 436.7, 711.6] (canvas 1024x1024)

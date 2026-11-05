@@ -1,0 +1,17 @@
+analysis of rew_heart (3s loop): 180 frames over t=0..3s after 9s warm-up
+
+PARAMETERS (min..max over the frames, [range])
+  BodyAngleZ  -3..3  [-10..10]
+  TailSwing  -3.24..3.24  [-30..30]
+  FxHeartsRise  0..1  [0..1]  reaches min, reaches max
+  constant: AngleX=0, AngleY=0, AngleZ=0, EyeROpen=0, EyeRSmile=1, EyeWide=0, EyeBallX=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, MouthOpen=0, MouthForm=1, Blush=1, Breath=0, BodyAngleX=0, Squash=0, BodyX=0, BodyY=0, Shadow=1, WingRRaise=-0.9, ... (+66)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw -3.24 at t=1.5s vs range -30..30
+
+LOOP SEAM (end of the loop extrapolated to t=3 vs t=0)
+  parameters and bones close the loop
+  pixels: 0% differ between t=0 and one loop later (threshold 8, max delta 0)
+
+BOUNDS
+  visible parts over all frames: [336.9, 166, 424.4, 742] (canvas 1024x1024)

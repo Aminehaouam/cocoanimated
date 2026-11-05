@@ -1,0 +1,24 @@
+analysis of rew_level_up (2.8s): 169 frames over t=0..2.8s
+
+PARAMETERS (min..max over the frames, [range])
+  AngleY  0..12  [-30..30]
+  EyeROpen  0..1  [0..1]  reaches min, reaches max
+  EyeRSmile  0..1  [0..1]  reaches min, reaches max
+  MouthOpen  0..0.8  [0..1]  reaches min
+  MouthForm  0..1  [-1..1]  reaches max
+  Blush  0..0.6  [0..1]  reaches min
+  BodyY  -70..0  [-520..60]
+  WingRRaise  0..0.75  [-1.5..1]
+  WingRSpread  0..1  [0..1]  reaches min, reaches max
+  WingLRaise  0..0.75  [-0.5..1]
+  WingLSpread  0..1  [0..1]  reaches min, reaches max
+  LegTuck  0..0.5  [0..1]  reaches min
+  FxGlow  0..1  [0..1]  reaches min, reaches max
+  FxSparkle  0..1  [0..1]  reaches min, reaches max
+  constant: AngleX=0, AngleZ=0, EyeWide=0, EyeBallX=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, Breath=0, BodyAngleX=0, BodyAngleZ=0, Squash=0, BodyX=0, Shadow=1, WingRCurl=0, TailSwing=0, TailLift=0, TailFan=0, FootRX=0, FootRY=0, FootLX=0, ... (+55)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 0 at t=0s vs range -30..30
+
+BOUNDS
+  visible parts over all frames: [161.9, 141.5, 728.7, 766.5] (canvas 1024x1024)

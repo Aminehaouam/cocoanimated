@@ -1,0 +1,23 @@
+analysis of emo_mischievous (2.6s): 157 frames over t=0..2.6s
+
+PARAMETERS (min..max over the frames, [range])
+  AngleX  0..10  [-30..30]
+  AngleZ  -8..0  [-30..30]
+  EyeROpen  0.55..1  [0..1]  reaches max
+  EyeRSmile  0..0.25  [0..1]  reaches min
+  EyeBallX  0..0.7  [-1..1]
+  BrowRY  -0.2..0  [-1..1]
+  BrowRAngle  -0.7..0  [-1..1]
+  MouthOpen  0..0.2  [0..1]  reaches min
+  MouthForm  0..1  [-1..1]  reaches max
+  BodyAngleZ  -4..0  [-10..10]
+  WingRRaise  -0.75..0  [-1.5..1]
+  WingRCurl  0..0.6  [0..1]  reaches min
+  TailSwing  0..4.32  [-30..30]
+  constant: AngleY=0, EyeWide=0, EyeBallY=0, Blush=0, Breath=0, BodyAngleX=0, Squash=0, BodyX=0, BodyY=0, Shadow=1, WingRSpread=0, WingLRaise=0, WingLSpread=0, TailLift=0, TailFan=0, FootRX=0, FootRY=0, FootLX=0, FootLY=0, LegTuck=0, ... (+56)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 4.32 at t=0.4s vs range -30..30
+
+BOUNDS
+  visible parts over all frames: [336.9, 255.3, 378.9, 652.7] (canvas 1024x1024)

@@ -52,7 +52,7 @@ export const PARAMETERS: ParamDef[] = [
   { id: 'BodyAngleX', min: -10, max: 10, group: 'Body', description: 'Body turn; + = toward the screen right.' },
   { id: 'BodyAngleZ', min: -10, max: 10, group: 'Body', description: 'Lean about the hips (degrees, + = clockwise); the feet stay planted.' },
   { id: 'Squash', min: -1, max: 1, group: 'Body', description: 'Squash (+) and stretch (-) about the feet.' },
-  { id: 'BodyX', min: -420, max: 420, group: 'Body', description: 'Whole-body position, px; + = screen right.' },
+  { id: 'BodyX', min: -800, max: 800, group: 'Body', description: 'Whole-body position, px; + = screen right (±800 leaves the 1024 px canvas: fly in / out).' },
   { id: 'BodyY', min: -520, max: 60, group: 'Body', description: 'Whole-body height, px; - = up (jumps, flight). The shadow stays on the ground.' },
   { id: 'Shadow', min: 0, max: 1, default: 1, group: 'Body', description: 'Contact shadow opacity (0 hides it).' },
   // Wings
@@ -209,13 +209,15 @@ export function controlOps(): Op[] {
       op: 'add', kind: 'physics',
       value: {
         id: 'tailPhysics',
+        // Whole-body moves are scaled down so long flights (BodyX ±800) do not pin the swing at its limit.
         inputs: [
-          { param: 'BodyX', type: 'x', weight: 1 },
-          { param: 'BodyY', type: 'y', weight: 1 },
+          { param: 'BodyX', type: 'x', weight: 0.15 },
+          { param: 'BodyY', type: 'y', weight: 0.3 },
           { param: 'BodyAngleZ', type: 'angle', weight: 1.5 },
           { param: 'BodyAngleX', type: 'x', weight: 2 },
         ],
-        outputs: [{ param: 'TailSwing', type: 'angle', scale: 0.8 }],
+        // 0.72: the largest scale that keeps the fastest clip (trv_fly_in, peak raw 32.6 at 0.8) inside ±30 (analyze, RECIPES 20).
+        outputs: [{ param: 'TailSwing', type: 'angle', scale: 0.72 }],
         segments: [{ length: 110, mass: 1 }],
         damping: 0.14,
       },

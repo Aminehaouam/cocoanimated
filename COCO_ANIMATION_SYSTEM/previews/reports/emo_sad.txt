@@ -1,0 +1,20 @@
+analysis of emo_sad (2.8s): 169 frames over t=0..2.8s
+
+PARAMETERS (min..max over the frames, [range])
+  AngleY  -16..0  [-30..30]
+  AngleZ  -6..0  [-30..30]
+  EyeROpen  0.055..1  [0..1]  reaches max
+  EyeBallY  -0.6..0  [-1..1]
+  BrowRY  -0.2..0  [-1..1]
+  BrowRAngle  0..1  [-1..1]  reaches max
+  MouthForm  -1..0  [-1..1]  reaches min
+  Squash  0..0.1  [-1..1]
+  FxTear  0..1  [0..1]  reaches min, reaches max
+  FxTearFall  0..1  [0..1]  reaches min, reaches max
+  constant: AngleX=0, EyeRSmile=0, EyeWide=0, EyeBallX=0, MouthOpen=0, Blush=0, Breath=0, BodyAngleX=0, BodyAngleZ=0, BodyX=0, BodyY=0, Shadow=1, WingRRaise=0, WingRSpread=0, WingRCurl=0, WingLRaise=0, WingLSpread=0, TailSwing=0, TailLift=0, TailFan=0, ... (+59)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 0 at t=0s vs range -30..30
+
+BOUNDS
+  visible parts over all frames: [334.9, 257.5, 367.2, 650.5] (canvas 1024x1024)

@@ -1,0 +1,22 @@
+analysis of trv_take_off (1.6s): 97 frames over t=0..1.6s
+
+PARAMETERS (min..max over the frames, [range])
+  EyeRSmile  0..0.5  [0..1]  reaches min
+  MouthForm  0..1  [-1..1]  reaches max
+  BodyAngleZ  0..10  [-10..10]  reaches max
+  Squash  -0.3..0.4  [-1..1]
+  BodyY  -160..0  [-520..60]
+  WingRRaise  0..1  [-1.5..1]  reaches max
+  WingRSpread  0..1  [0..1]  reaches min, reaches max
+  WingLRaise  0..1  [-0.5..1]  reaches max
+  WingLSpread  0..1  [0..1]  reaches min, reaches max
+  TailSwing  -10.8..0  [-30..30]
+  TailLift  0..0.5  [-1..1]
+  LegTuck  0..1  [0..1]  reaches min, reaches max
+  constant: AngleX=0, AngleY=0, AngleZ=0, EyeROpen=1, EyeWide=0, EyeBallX=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, MouthOpen=0, Blush=0, Breath=0, BodyAngleX=0, BodyX=0, Shadow=1, WingRCurl=0, TailFan=0, FootRX=0, FootRY=0, FootLX=0, ... (+57)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw -10.8 at t=1.6s vs range -30..30
+
+BOUNDS
+  visible parts over all frames: [180.9, 87.7, 759.5, 820.3] (canvas 1024x1024)

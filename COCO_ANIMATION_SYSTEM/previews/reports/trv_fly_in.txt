@@ -1,0 +1,57 @@
+analysis of trv_fly_in (2.4s): 145 frames over t=0..2.4s
+
+PARAMETERS (min..max over the frames, [range])
+  EyeRSmile  0..0.5  [0..1]  reaches min
+  MouthForm  0..1  [-1..1]  reaches max
+  BodyAngleZ  -3..10  [-10..10]  reaches max
+  Squash  0..0.3  [-1..1]
+  BodyX  -800..0  [-800..800]  reaches min
+  BodyY  -170..0  [-520..60]
+  WingRRaise  0..1  [-1.5..1]  reaches max
+  WingRSpread  0..1  [0..1]  reaches min, reaches max
+  WingLRaise  0..1  [-0.5..1]  reaches max
+  WingLSpread  0..1  [0..1]  reaches min, reaches max
+  TailSwing  0..29.316  [-30..30]
+  TailLift  0..0.5  [-1..1]
+  LegTuck  0..1  [0..1]  reaches min, reaches max
+  constant: AngleX=0, AngleY=0, AngleZ=0, EyeROpen=1, EyeWide=0, EyeBallX=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, MouthOpen=0, Blush=0, Breath=0, BodyAngleX=0, Shadow=1, WingRCurl=0, TailFan=0, FootRX=0, FootRY=0, FootLX=0, FootLY=0, ... (+56)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 29.316 at t=1s vs range -30..30
+
+BOUNDS
+  visible parts over all frames: [-523.6, 77.7, 1393, 830.3] (canvas 1024x1024)
+  shadow leaves the canvas in 28 of 145 frames (19%), up to 386.3 px at t=0s
+  tailF3 leaves the canvas in 29 of 145 frames (20%), up to 401 px at t=0s
+  tailF2 leaves the canvas in 32 of 145 frames (22%), up to 438.8 px at t=0s
+  tailF1 leaves the canvas in 36 of 145 frames (25%), up to 484.1 px at t=0s
+  wingL leaves the canvas in 14 of 145 frames (10%), up to 173.5 px at t=0s
+  wingLCovert leaves the canvas in 14 of 145 frames (10%), up to 173.5 px at t=0s
+  legL leaves the canvas in 19 of 145 frames (13%), up to 271.7 px at t=0s
+  footL leaves the canvas in 20 of 145 frames (14%), up to 295.8 px at t=0s
+  legR leaves the canvas in 24 of 145 frames (17%), up to 342.8 px at t=0s
+  footR leaves the canvas in 26 of 145 frames (18%), up to 380.9 px at t=0s
+  body leaves the canvas in 25 of 145 frames (17%), up to 353.3 px at t=0s
+  thighShade leaves the canvas in 20 of 145 frames (14%), up to 281.1 px at t=0s
+  chestScallops leaves the canvas in 16 of 145 frames (11%), up to 224.2 px at t=0s
+  wingR leaves the canvas in 46 of 145 frames (32%), up to 523.6 px at t=0s
+  wingRCovert leaves the canvas in 40 of 145 frames (28%), up to 489.7 px at t=0s
+  napeLobes leaves the canvas in 27 of 145 frames (19%), up to 351.5 px at t=0s
+  head leaves the canvas in 27 of 145 frames (19%), up to 343.9 px at t=0s
+  crownLight leaves the canvas in 27 of 145 frames (19%), up to 343.9 px at t=0s
+  headScallops leaves the canvas in 25 of 145 frames (17%), up to 314.9 px at t=0s
+  facePatch leaves the canvas in 21 of 145 frames (14%), up to 270.5 px at t=0s
+  eyeRing leaves the canvas in 19 of 145 frames (13%), up to 243.5 px at t=0s
+  eye leaves the canvas in 17 of 145 frames (12%), up to 226.1 px at t=0s
+  eyeHighlight leaves the canvas in 15 of 145 frames (10%), up to 192.2 px at t=0s
+  eyeHighlight2 leaves the canvas in 17 of 145 frames (12%), up to 216.6 px at t=0s
+  mouthInside leaves the canvas in 10 of 145 frames (7%), up to 129.3 px at t=0s
+  tongue leaves the canvas in 9 of 145 frames (6%), up to 119.8 px at t=0s
+  beakLower leaves the canvas in 10 of 145 frames (7%), up to 135.5 px at t=0s
+  mouthLine leaves the canvas in 10 of 145 frames (7%), up to 125.8 px at t=0s
+  beakUpper leaves the canvas in 10 of 145 frames (7%), up to 132 px at t=0s
+  beakSheen leaves the canvas in 9 of 145 frames (6%), up to 114.8 px at t=0s
+  nostril leaves the canvas in 8 of 145 frames (6%), up to 100.9 px at t=0s
+
+NOTES
+  - parts leave the canvas: shadow (28 of 145 frames (19%), up to 386.3 px), tailF3 (29 of 145 frames (20%), up to 401 px), tailF2 (32 of 145 frames (22%), up to 438.8 px), tailF1 (36 of 145 frames (25%), up to 484.1 px), wingL (14 of 145 frames (10%), up to 173.5 px), wingLCovert (14 of 145 frames (10%), up to 173.5 px), legL (19 of 145 frames (13%), up to 271.7 px), footL (20 of 145 frames (14%), up to 295.8 px), legR (24 of 145 frames (17%), up to 342.8 px), footR (26 of 145 frames (18%), up to 380.9 px), body (25 of 145 frames (17%), up to 353.3 px), thighShade (20 of 145 frames (14%), up to 281.1 px), ... (+19); enlarge meta.width/height or keep the motion inside

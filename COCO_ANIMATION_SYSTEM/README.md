@@ -47,8 +47,8 @@ then `rev2d_validate`, `rev2d_render`, `rev2d_sheet`, `rev2d_inspect`, `rev2d_an
 | 2 | Master rig: parameters, bindings, physics | ✅ done | `documentation/rig_reference.md`, `previews/rig/*.png` |
 | 3 | Expressions + idle animations | ✅ done | `character/expressions/coco_expressions.png`, `documentation/animation_catalog.md`, `previews/contact_sheets/idle/`, `exports/gifs/` |
 | 4 | Communication + education | ✅ done | `previews/review/communication_*.png`, `previews/review/education_*.png`, catalogue |
-| 5 | Travel, rewards, reactions | ⏳ next | |
-| 6 | Accessories | 🔄 framework + education props + marks done; travel / clothing / rewards next | `accessories/` |
+| 5 | Emotions, travel, rewards, reactions | ✅ done | `previews/review/*.png`, catalogue (90 animations, all verified) |
+| 6 | Accessories | ✅ done (47 accessories, effects and scene props) | `accessories/`, `character/expressions/marks.ts` |
 | 7 | Exports + web player + app integration | ⏳ (needs the app repository) | |
 | 8 | Scenario tests + final catalogue | ⏳ | |
 
@@ -111,6 +111,24 @@ then `rev2d_validate`, `rev2d_render`, `rev2d_sheet`, `rev2d_inspect`, `rev2d_an
   introduce. **10 education clips**: read book, teach, hold card, write, point at the board, explain
   grammar, pronounce ("ee" / "oo" / "ah" shapes), present a new word, correct an answer, celebrate a
   correct answer. 38 animations in total, all passing the automatic QC.
+
+### Phases 5–6 notes
+
+- **52 more clips**: 14 emotions (happy, excited, proud, curious, confused, surprised, worried,
+  disappointed, embarrassed, playful, reassuring, mischievous, sad, love), 16 travel (backpack,
+  passport, map, suitcase, photo with flash, binoculars, boarding pass, explore, raincoat, compass,
+  take off, fly, land, fly in, fly out, new landmark), 11 rewards (jump, fly excited, celebrate with
+  confetti and stars, trophy, medal, crown, heart, confetti, gift, streak, level up) and 11 reactions
+  (startled, suspicious, hide, peek, lose balance, dizzy, fall asleep, disappointed, dramatic
+  surprise, dance, offline). **90 animations in total, 90 verified** by the automatic QC.
+- **47 accessories**: education (8), travel (9: backpack, suitcase, passport, map, camera,
+  binoculars, boarding pass, compass, umbrella), clothing (8: explorer hat, pilot cap, graduation
+  cap, sunglasses, headphones, scarf, raincoat + hood), rewards (6 props + stars, hearts, confetti,
+  glow), 11 expression marks and a wall for peeking. Hats, the crown, headphones and sunglasses ride
+  the turning head through Rev2D `follow` (residual ≤ 0.22 px); the raincoat and hood deform inside
+  the body and head warps.
+- Tuned with `analyze`: the tail pendulum's inputs and output scale were set so even the fastest
+  clip (flying in from off-screen) never pins the tail at its limit.
 
 See `documentation/implementation_plan.md` for the architecture, the rig controls, the animation
 naming convention, the app presets and the export/integration evaluation.

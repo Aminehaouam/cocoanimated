@@ -1,0 +1,23 @@
+analysis of emo_surprised (1.8s): 109 frames over t=0..1.8s
+
+PARAMETERS (min..max over the frames, [range])
+  AngleY  0..6  [-30..30]
+  EyeWide  0..1  [0..1]  reaches min, reaches max
+  BrowRY  0..1  [-1..1]  reaches max
+  MouthOpen  0..0.65  [0..1]  reaches min
+  Squash  -0.35..0.243  [-1..1]
+  BodyX  -12..0  [-800..800]
+  BodyY  -18..0  [-520..60]
+  WingRRaise  0..0.3  [-1.5..1]
+  WingRSpread  0..0.6  [0..1]  reaches min
+  WingLRaise  0..0.3  [-0.5..1]
+  WingLSpread  0..0.6  [0..1]  reaches min
+  TailSwing  -0.622..0.314  [-30..30]
+  FxAlert  0..1  [0..1]  reaches min, reaches max
+  constant: AngleX=0, AngleZ=0, EyeROpen=1, EyeRSmile=0, EyeBallX=0, EyeBallY=0, BrowRAngle=0, MouthForm=0, Blush=0, Breath=0, BodyAngleX=0, BodyAngleZ=0, Shadow=1, WingRCurl=0, TailLift=0, TailFan=0, FootRX=0, FootRY=0, FootLX=0, FootLY=0, ... (+56)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw -0.622 at t=0.2s vs range -30..30
+
+BOUNDS
+  visible parts over all frames: [199.4, 176.7, 581.9, 731.3] (canvas 1024x1024)

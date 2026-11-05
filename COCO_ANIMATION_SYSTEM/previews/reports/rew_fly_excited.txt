@@ -1,0 +1,19 @@
+analysis of rew_fly_excited (1.6s loop): 96 frames over t=0..1.6s after 8s warm-up
+
+PARAMETERS (min..max over the frames, [range])
+  BodyX  -40..40  [-800..800]
+  BodyY  -205..-135  [-520..60]
+  WingRRaise  0.2..1  [-1.5..1]  reaches max
+  WingLRaise  0.2..1  [-0.5..1]  reaches max
+  TailSwing  -13.159..-8.468  [-30..30]
+  constant: AngleX=0, AngleY=12, AngleZ=0, EyeROpen=0, EyeRSmile=1, EyeWide=0, EyeBallX=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, MouthOpen=0.8, MouthForm=1, Blush=0.6, Breath=0, BodyAngleX=0, BodyAngleZ=10, Squash=0, Shadow=1, WingRSpread=1, WingRCurl=0, ... (+64)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw -13.159 at t=1.167s vs range -30..30
+
+LOOP SEAM (end of the loop extrapolated to t=1.6 vs t=0)
+  parameters and bones close the loop
+  pixels: 0% differ between t=0 and one loop later (threshold 8, max delta 0)
+
+BOUNDS
+  visible parts over all frames: [165, 4.9, 813, 900.9] (canvas 1024x1024)

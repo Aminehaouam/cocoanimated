@@ -1,0 +1,20 @@
+analysis of emo_worried (2.8s): 169 frames over t=0..2.8s
+
+PARAMETERS (min..max over the frames, [range])
+  AngleY  -8..0  [-30..30]
+  EyeROpen  0.85..1  [0..1]  reaches max
+  EyeBallX  -0.5..0.4  [-1..1]
+  EyeBallY  -0.3..0  [-1..1]
+  BrowRY  0..0.3  [-1..1]
+  BrowRAngle  0..1  [-1..1]  reaches max
+  MouthForm  -0.6..0  [-1..1]
+  WingRRaise  -0.4..0  [-1.5..1]
+  WingRCurl  0..0.4  [0..1]  reaches min
+  FxSweat  0..1  [0..1]  reaches min, reaches max
+  constant: AngleX=0, AngleZ=0, EyeRSmile=0, EyeWide=0, MouthOpen=0, Blush=0, Breath=0, BodyAngleX=0, BodyAngleZ=0, Squash=0, BodyX=0, BodyY=0, Shadow=1, WingRSpread=0, WingLRaise=0, WingLSpread=0, TailSwing=0, TailLift=0, TailFan=0, FootRX=0, ... (+59)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 0 at t=0s vs range -30..30
+
+BOUNDS
+  visible parts over all frames: [337, 257.5, 365, 650.5] (canvas 1024x1024)

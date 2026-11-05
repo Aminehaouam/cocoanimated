@@ -1,0 +1,22 @@
+analysis of emo_excited (2.4s): 145 frames over t=0..2.4s
+
+PARAMETERS (min..max over the frames, [range])
+  AngleY  0..10  [-30..30]
+  EyeWide  0..0.6  [0..1]  reaches min
+  BrowRY  0..0.7  [-1..1]
+  MouthOpen  0..0.75  [0..1]  reaches min
+  MouthForm  0..1  [-1..1]  reaches max
+  Squash  -0.12..0.18  [-1..1]
+  BodyY  -22..0  [-520..60]
+  WingRRaise  0..0.55  [-1.5..1]
+  WingRSpread  0..1  [0..1]  reaches min, reaches max
+  WingLRaise  0..0.6  [-0.5..1]
+  WingLSpread  0..1  [0..1]  reaches min, reaches max
+  TailFan  0..1  [0..1]  reaches min, reaches max
+  constant: AngleX=0, AngleZ=0, EyeROpen=1, EyeRSmile=0, EyeBallX=0, EyeBallY=0, BrowRAngle=0, Blush=0, Breath=0, BodyAngleX=0, BodyAngleZ=0, BodyX=0, Shadow=1, WingRCurl=0, TailSwing=0, TailLift=0, FootRX=0, FootRY=0, FootLX=0, FootLY=0, ... (+57)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 0 at t=0s vs range -30..30
+
+BOUNDS
+  visible parts over all frames: [153.3, 224.3, 741.5, 683.7] (canvas 1024x1024)

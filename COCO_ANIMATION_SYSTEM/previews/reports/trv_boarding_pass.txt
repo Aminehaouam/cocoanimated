@@ -1,0 +1,18 @@
+analysis of trv_boarding_pass (3s loop): 180 frames over t=0..3s after 9s warm-up
+
+PARAMETERS (min..max over the frames, [range])
+  AngleX  -0.841..8  [-30..30]
+  EyeBallX  -0.095..0.9  [-1..1]
+  BodyY  -8..0  [-520..60]
+  WingLRaise  0.8..0.86  [-0.5..1]
+  constant: AngleY=0, AngleZ=0, EyeROpen=1, EyeRSmile=0.6, EyeWide=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, MouthOpen=0, MouthForm=1, Blush=0, Breath=0, BodyAngleX=0, BodyAngleZ=0, Squash=0, BodyX=0, Shadow=1, WingRRaise=0, WingRSpread=0, WingRCurl=0, ... (+65)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 0 at t=0s vs range -30..30
+
+LOOP SEAM (end of the loop extrapolated to t=3 vs t=0)
+  parameters and bones close the loop
+  pixels: 0% differ between t=0 and one loop later (threshold 8, max delta 0)
+
+BOUNDS
+  visible parts over all frames: [337, 249.5, 591, 658.5] (canvas 1024x1024)

@@ -1,0 +1,20 @@
+analysis of emo_curious (2.6s): 157 frames over t=0..2.6s
+
+PARAMETERS (min..max over the frames, [range])
+  AngleZ  0..19  [-30..30]
+  EyeWide  0..0.6  [0..1]  reaches min
+  EyeBallX  0..0.5  [-1..1]
+  EyeBallY  0..0.2  [-1..1]
+  BrowRY  0..0.6  [-1..1]
+  BrowRAngle  0..0.2  [-1..1]
+  MouthForm  0..0.2  [-1..1]
+  BodyAngleZ  0..6  [-10..10]
+  BodyX  0..14  [-800..800]
+  TailSwing  -6.371..0  [-30..30]
+  constant: AngleX=0, AngleY=0, EyeROpen=1, EyeRSmile=0, MouthOpen=0, Blush=0, Breath=0, BodyAngleX=0, Squash=0, BodyY=0, Shadow=1, WingRRaise=0, WingRSpread=0, WingRCurl=0, WingLRaise=0, WingLSpread=0, TailLift=0, TailFan=0, FootRX=0, FootRY=0, ... (+59)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw -6.371 at t=2s vs range -30..30
+
+BOUNDS
+  visible parts over all frames: [337, 257.5, 433.6, 650.5] (canvas 1024x1024)

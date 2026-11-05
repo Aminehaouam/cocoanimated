@@ -15,7 +15,7 @@
 import type { Part } from '../character/parts/types.ts';
 import { mapPath, type Pt } from '../rev2d/source/lib/geom.ts';
 
-export type AccCategory = 'education' | 'travel' | 'clothing' | 'rewards' | 'marks';
+export type AccCategory = 'education' | 'travel' | 'clothing' | 'rewards' | 'marks' | 'scene';
 
 /** An accessory part: a Rev2D part plus an optional own visibility curve. */
 export type AccPart = Part & {
@@ -41,10 +41,14 @@ export interface Accessory {
   parts: AccPart[];
   /** Worn on the turning head: its own warp (setup rect) kept on `target` at `at` by Rev2D's follow op. */
   follow?: { target: 'headWarp' | 'faceWarp'; rect: [number, number, number, number]; at: Pt; rotate?: boolean };
+  /** Clothing that must deform exactly with the body or head: parts go straight into this rig warp (rest-pose art). */
+  warp?: 'bodyWarp' | 'headWarp' | 'faceWarp';
   /** Marks: scale in from 60 % (and rise 10 px) as the parameter goes 0 → 1. */
   pop?: boolean;
   /** Extra parameters the accessory defines (e.g. AccBoardText). */
   extraParams?: Array<{ id: string; description: string }>;
+  /** Extra ops once the accessory exists (e.g. a motion parameter bound to its bone, `acc_<id>`). */
+  extraOps?: (bone: string) => Array<Record<string, unknown>>;
 }
 
 type Mat = [number, number, number, number, number, number];
@@ -92,7 +96,9 @@ export function accessoryOps(acc: Accessory, rig: RigLike, math: Rev2DMath): Op[
   ];
 
   let parent: string;
-  if (acc.follow) {
+  if (acc.warp) {
+    parent = acc.warp;
+  } else if (acc.follow) {
     parent = `${acc.id}Warp`;
     ops.push({ op: 'add', kind: 'warp', value: { id: parent, parent: acc.attach, rect: acc.follow.rect, cols: 2, rows: 1, description: `${acc.title}: follows ${acc.follow.target}.` } });
   } else {
@@ -129,5 +135,6 @@ export function accessoryOps(acc: Accessory, rig: RigLike, math: Rev2DMath): Op[
   }
 
   if (acc.follow) ops.push({ op: 'follow', warp: parent, follow: acc.follow.target, at: acc.follow.at, ...(acc.follow.rotate ? { rotate: true } : {}) });
+  if (acc.extraOps) ops.push(...acc.extraOps(parent));
   return ops;
 }

@@ -1,0 +1,19 @@
+analysis of rew_jump (1.4s): 85 frames over t=0..1.4s
+
+PARAMETERS (min..max over the frames, [range])
+  AngleY  0..12  [-30..30]
+  EyeROpen  0..1  [0..1]  reaches min, reaches max
+  EyeRSmile  0..1  [0..1]  reaches min, reaches max
+  MouthOpen  0..0.8  [0..1]  reaches min
+  MouthForm  0..1  [-1..1]  reaches max
+  Blush  0..0.6  [0..1]  reaches min
+  Squash  -0.45..0.4  [-1..1]
+  BodyY  -110..0  [-520..60]
+  TailFan  0..1  [0..1]  reaches min, reaches max
+  constant: AngleX=0, AngleZ=0, EyeWide=0, EyeBallX=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, Breath=0, BodyAngleX=0, BodyAngleZ=0, BodyX=0, Shadow=1, WingRRaise=0, WingRSpread=0, WingRCurl=0, WingLRaise=0, WingLSpread=0, TailSwing=0, TailLift=0, FootRX=0, ... (+60)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 0 at t=0s vs range -30..30
+
+BOUNDS
+  visible parts over all frames: [313.3, 110.7, 395.1, 797.3] (canvas 1024x1024)

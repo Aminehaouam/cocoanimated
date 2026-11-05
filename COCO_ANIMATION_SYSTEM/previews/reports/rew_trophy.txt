@@ -1,0 +1,16 @@
+analysis of rew_trophy (3s loop): 180 frames over t=0..3s after 9s warm-up
+
+PARAMETERS (min..max over the frames, [range])
+  AngleY  12..16  [-30..30]
+  WingLRaise  0.8..0.9  [-0.5..1]
+  constant: AngleX=8, AngleZ=0, EyeROpen=0.7, EyeRSmile=0.8, EyeWide=0, EyeBallX=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, MouthOpen=0, MouthForm=0.9, Blush=0, Breath=1, BodyAngleX=0, BodyAngleZ=0, Squash=0, BodyX=0, BodyY=0, Shadow=1, WingRRaise=0, ... (+67)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 0 at t=0s vs range -30..30
+
+LOOP SEAM (end of the loop extrapolated to t=3 vs t=0)
+  parameters and bones close the loop
+  pixels: 0% differ between t=0 and one loop later (threshold 8, max delta 0)
+
+BOUNDS
+  visible parts over all frames: [337, 207.4, 584.4, 700.6] (canvas 1024x1024)
