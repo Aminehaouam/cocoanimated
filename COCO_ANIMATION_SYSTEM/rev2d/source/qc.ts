@@ -12,6 +12,9 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { R, sys } from './lib/rev2d.ts';
 import { MODEL_FILE } from './build.ts';
+import { EXPRESSIONS } from '../../character/expressions/expressions.ts';
+import { CLIPS, COMPOSED } from '../../animations/index.ts';
+import { DEFAULTS, clipParams, type Clip, type ComposedClip } from '../../animations/lib.ts';
 
 const VIEW: [number, number, number, number] = [300, 240, 430, 680];
 
@@ -109,10 +112,126 @@ async function rig(): Promise<void> {
   }
 }
 
-const jobs: Record<string, () => Promise<void>> = { master, layers, rig };
+/** Expression sheet: every preset of character/expressions/expressions.ts on the head. */
+async function expressions(): Promise<void> {
+  const m = await R.loadModelFile(MODEL_FILE);
+  if (!m.rig) throw new Error(R.formatDiagnostics(m.diagnostics));
+  const cells = Object.entries(EXPRESSIONS).map(([name, e]) => ({
+    image: R.renderFrame(m, { params: e.params, viewBox: [360, 230, 380, 330], scale: 0.62, background: '#ffffff', physics: false } as never).image,
+    caption: name,
+  }));
+  const sheet = R.composeSheet(cells, { columns: 7, padding: 8, title: 'Coco expressions (parameter presets on the master rig)', background: R.resolveColor('#f4f4f7') } as never);
+  write(sys('character', 'expressions', 'coco_expressions.png'), R.encodePNG(sheet));
+}
+
+interface ClipReport {
+  id: string;
+  category: string;
+  kind: string;
+  title: string;
+  description: string;
+  duration: number;
+  loop: boolean;
+  params: string[];
+  accessories: string[];
+  scenarios: string[];
+  next?: string;
+  status: string;
+  issues: string[];
+}
+
+/** Parameters a one-shot does not start (index 0) or end (last key) at their default. */
+function restIssues(c: Clip, which: 'start' | 'end'): string[] {
+  const off: string[] = [];
+  for (const [target, keys] of Object.entries(c.tracks)) {
+    if (target.includes(':')) continue;
+    const k = which === 'start' ? keys[0] : keys[keys.length - 1];
+    if (which === 'start' && k.t > 1e-6) continue;
+    if (Math.abs(k.v - (DEFAULTS[target] ?? 0)) > 1e-6) off.push(`${target} ${which}s at ${k.v}`);
+  }
+  return off;
+}
+
+/**
+ * Per animation: contact sheet (previews/contact_sheets/<category>/<id>.png), GIF preview
+ * (exports/gifs/<id>.gif), Rev2D analyze report (previews/reports/<id>.txt) and a QC status; then
+ * the catalogue (documentation/animation_catalog.md).
+ */
+async function anims(): Promise<void> {
+  const m = await R.loadModelFile(MODEL_FILE);
+  if (!m.rig || !m.model) throw new Error(R.formatDiagnostics(m.diagnostics));
+  const only = process.argv.slice(3).filter((a) => !a.startsWith('-'));
+  const reports: ClipReport[] = [];
+  const all: Array<Clip | ComposedClip> = [...CLIPS, ...COMPOSED];
+  for (const c of all) {
+    const a = m.model.animations.find((x) => x.id === c.id);
+    if (!a) throw new Error(`animation ${c.id} is not in the model (rebuild)`);
+    const params = 'tracks' in c ? clipParams(c) : [...new Set(a.tracks.map((t) => t.target.replace(/^param:/, '')))];
+    const warmup = a.loop ? Math.max(8, a.duration * 2) : undefined;
+    if (!only.length || only.includes(c.id)) {
+      const sheet = R.renderSheet(m, { animation: c.id, frames: a.loop ? 10 : 12, columns: a.loop ? 5 : 6, warmup, viewBox: 'fit', scale: 0.3, background: '#ffffff' } as never);
+      write(sys('previews', 'contact_sheets', c.category, `${c.id}.png`), R.encodePNG(sheet));
+      // Small GIF previews (12 fps, ~250 px tall): catalogue and docs, not production assets.
+      const seq = R.renderSequence(m, { animation: c.id, fps: 12, warmup, viewBox: 'fit', scale: 0.24, background: '#ffffff' } as never);
+      write(sys('exports', 'gifs', `${c.id}.gif`), R.encodeGIF(seq.frames.map((f) => f.image), { fps: 12, loop: true }));
+    }
+    const an = R.analyzeAnimation(m, { animation: c.id, warmup });
+    if (!only.length || only.includes(c.id)) write(sys('previews', 'reports', `${c.id}.txt`), `${R.formatAnalysis(an)}\n`);
+
+    const issues: string[] = [];
+    if (a.loop && an.seam && !an.seam.ok) issues.push(`loop seam: ${an.seam.params.map((p) => `${p.id} jumps ${p.jump.toFixed(3)}`).concat(an.seam.bones.map((b) => `bone ${b.id} ${b.distance.toFixed(2)} px`)).join(', ')}`);
+    for (const p of an.physics) if (p.clampedShare > 0.05) issues.push(`physics ${p.param} clamped in ${Math.round(p.clampedShare * 100)}% of frames`);
+    for (const o of an.outsideCanvas) if (!o.always) issues.push(`${o.part} leaves the canvas (${o.maxOverflow.toFixed(0)} px)`);
+    if (!a.loop && 'tracks' in c) {
+      if (!c.next?.startsWith('hold:')) issues.push(...restIssues(c, 'end').map((s) => `does not end at rest: ${s}`));
+      if (!c.from) issues.push(...restIssues(c, 'start').map((s) => `does not start at rest: ${s}`));
+    }
+    reports.push({
+      id: c.id, category: c.category, kind: c.kind, title: c.title, description: c.description, duration: a.duration, loop: a.loop,
+      params, accessories: c.accessories ?? [], scenarios: c.scenarios, next: c.next,
+      status: issues.length ? '⚠ check' : '✅ verified', issues,
+    });
+    console.log(`  ${c.id}: ${issues.length ? `ISSUES: ${issues.join('; ')}` : 'ok'}`);
+  }
+  writeFileSync(sys('documentation', 'animation_catalog.md'), catalog(reports));
+  console.log(`  documentation/animation_catalog.md (${reports.length} animations)`);
+}
+
+function catalog(reports: ClipReport[]): string {
+  const cats = [...new Set(reports.map((r) => r.category))];
+  const lines = [
+    '# Coco animation catalogue',
+    '',
+    'Generated by `npm run qc -- anims` from the clip definitions (`animations/`) and Rev2D\'s analysis of the',
+    'built model. **Status** is ✅ only when the clip passed the automatic checks: loop seam closed (loops),',
+    'physics never clamped for more than 5 % of the frames, no part leaving the canvas, one-shots ending at',
+    'rest. Every clip also has a contact sheet (`previews/contact_sheets/`), a GIF preview (`exports/gifs/`) and a',
+    'full analysis report (`previews/reports/`).',
+    '',
+    `Total: **${reports.length}** animations, ${reports.filter((r) => r.status.startsWith('✅')).length} verified.`,
+    '',
+  ];
+  for (const cat of cats) {
+    lines.push(`## ${cat[0].toUpperCase()}${cat.slice(1)}`, '');
+    lines.push('| ID | Kind | Duration | Loop | Parameters | Accessories | Scenario | Then | Status | Preview |');
+    lines.push('| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |');
+    for (const r of reports.filter((x) => x.category === cat)) {
+      const status = r.issues.length ? `${r.status}: ${r.issues.join('; ')}` : r.status;
+      lines.push(
+        `| \`${r.id}\` — ${r.title} | ${r.kind} | ${r.duration} s | ${r.loop ? 'loop' : 'one-shot'} | ${r.params.map((p) => `\`${p}\``).join(' ')} | ${r.accessories.map((p) => `\`${p}\``).join(' ') || '—'} | ${r.scenarios.join('; ')} | ${r.next ? `\`${r.next}\`` : '—'} | ${status} | [sheet](../previews/contact_sheets/${r.category}/${r.id}.png) · [gif](../exports/gifs/${r.id}.gif) |`,
+      );
+    }
+    lines.push('');
+  }
+  return lines.join('\n');
+}
+
+const jobs: Record<string, () => Promise<void>> = { master, layers, rig, expressions, anims };
 
 async function main(): Promise<number> {
-  const names = process.argv.slice(2).filter((a) => !a.startsWith('-'));
+  // `qc anims idle_main idle_blink` = only those clips; other jobs take no arguments.
+  const first = process.argv[2];
+  const names = first === 'anims' ? ['anims'] : process.argv.slice(2).filter((a) => !a.startsWith('-'));
   for (const name of names.length ? names : Object.keys(jobs)) {
     if (!jobs[name]) {
       console.error(`unknown qc job "${name}" (available: ${Object.keys(jobs).join(', ')})`);

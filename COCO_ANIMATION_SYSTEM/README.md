@@ -45,8 +45,8 @@ then `rev2d_validate`, `rev2d_render`, `rev2d_sheet`, `rev2d_inspect`, `rev2d_an
 | --- | --- | --- | --- |
 | 1 | Inspection, source-art assessment, master spec, layered vector master | ✅ done | `documentation/character_specification.md`, `character/master/coco_master_compare.png`, `character/parts/coco_layers.png` |
 | 2 | Master rig: parameters, bindings, physics | ✅ done | `documentation/rig_reference.md`, `previews/rig/*.png` |
-| 3 | Expressions + idle animations | ⏳ next | |
-| 4 | Communication + education | ⏳ | |
+| 3 | Expressions + idle animations | ✅ done | `character/expressions/coco_expressions.png`, `documentation/animation_catalog.md`, `previews/contact_sheets/idle/`, `exports/gifs/` |
+| 4 | Communication + education | ⏳ next | |
 | 5 | Travel, rewards, reactions | ⏳ | |
 | 6 | Accessories | ⏳ | |
 | 7 | Exports + web player + app integration | ⏳ (needs the app repository) | |
@@ -78,6 +78,21 @@ then `rev2d_validate`, `rev2d_render`, `rev2d_sheet`, `rev2d_inspect`, `rev2d_an
   under breathing, lean and body turn.
 - Deferred to later phases: sitting pose, head-feather ruffle physics, tears / sweat (effects,
   Phase 5), accessories (Phase 6).
+
+### Phase 3 notes
+
+- **21 expressions** as parameter presets of the one rig (`character/expressions/expressions.ts`):
+  neutral, happy, joyful, excited, proud, curious, confused, surprised, worried, sad, disappointed,
+  embarrassed, playful (wink), reassuring, mischievous, determined, thinking, suspicious, listening,
+  sleepy, asleep.
+- **9 idle animations**: breathe, blink (single + double), look around (the eye leads the head),
+  curious head tilt, relaxed sway (the tail follows through physics), feather ruffle, sleep, wake up
+  (flutter, stretch, yawn, settle) and `idle_main`, the composed 8 s loop the app plays by default.
+- Every clip has a contact sheet, a GIF preview and a Rev2D `analyze` report; `npm run qc -- anims`
+  checks loop seams, physics clamping, canvas overflow and that one-shots start and end at rest, and
+  writes `documentation/animation_catalog.md`. All 9 pass.
+- Found and fixed by the QC: Rev2D holds a track's first key before it, so one-shot tracks now get
+  an explicit rest key at t = 0 (the wake-up showed its stretch pose from the start).
 
 See `documentation/implementation_plan.md` for the architecture, the rig controls, the animation
 naming convention, the app presets and the export/integration evaluation.

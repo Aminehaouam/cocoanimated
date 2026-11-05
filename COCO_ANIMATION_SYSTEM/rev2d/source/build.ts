@@ -16,6 +16,8 @@ import { CANVAS } from '../../character/master/landmarks.ts';
 import { characterParts } from '../../character/parts/index.ts';
 import { controlOps } from '../rigs/controls.ts';
 import { skeletonOps } from '../rigs/skeleton.ts';
+import { CLIPS, COMPOSED } from '../../animations/index.ts';
+import { animationOp, composeOp } from '../../animations/lib.ts';
 
 type Op = Record<string, unknown> & { op: string };
 
@@ -26,6 +28,8 @@ export function modelOps(): Op[] {
     ...(skeletonOps() as Op[]),
     ...characterParts().map((value) => ({ op: 'add', kind: 'part', value })),
     ...(controlOps() as Op[]),
+    ...(CLIPS.map(animationOp) as Op[]),
+    ...(COMPOSED.map(composeOp) as Op[]),
   ];
 }
 
@@ -43,7 +47,7 @@ async function main(): Promise<number> {
   }
   // Ops whose messages carry facts worth reading on every build (follow residuals, warnings).
   for (const r of res.results) {
-    if (r.ok && (r.op === 'follow' || /WARNING/.test(r.message))) console.log(`note #${r.index} ${r.op}: ${r.message}`);
+    if (r.ok && (r.op === 'follow' || r.op === 'compose' || /WARNING/.test(r.message))) console.log(`note #${r.index} ${r.op}: ${r.message}`);
   }
   const errors = res.diagnostics.filter((d) => d.severity === 'error');
   const warnings = res.diagnostics.filter((d) => d.severity === 'warning');

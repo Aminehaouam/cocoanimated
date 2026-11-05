@@ -1,0 +1,25 @@
+analysis of idle_main (8s loop): 480 frames over t=0..8s after 16s warm-up
+
+PARAMETERS (min..max over the frames, [range])
+  AngleX  -12..14  [-30..30]
+  AngleY  -3..11.5  [-30..30]
+  AngleZ  -2.556..5.5  [-30..30]
+  EyeROpen  0.047..1  [0..1]  reaches max
+  EyeBallX  -0.6..0.7  [-1..1]
+  EyeBallY  -0.1..0.6  [-1..1]
+  Breath  0..1  [0..1]  reaches min, reaches max
+  BodyAngleX  -2..2  [-10..10]
+  BodyAngleZ  -2.5..2.5  [-10..10]
+  TailSwing  -2.502..2.502  [-30..30]
+  TailLift  0..0.06  [-1..1]
+  constant: EyeRSmile=0, EyeWide=0, BrowRY=0, BrowRAngle=0, MouthOpen=0, MouthForm=0, Blush=0, Squash=0, BodyX=0, BodyY=0, Shadow=1, WingRRaise=0, WingRSpread=0, WingRCurl=0, WingLRaise=0, WingLSpread=0, TailFan=0, FootRX=0, FootRY=0, FootLX=0, ... (+2)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw -2.502 at t=2.367s vs range -30..30
+
+LOOP SEAM (end of the loop extrapolated to t=8 vs t=0)
+  parameters and bones close the loop
+  pixels: 0% differ between t=0 and one loop later (threshold 8, max delta 0)
+
+BOUNDS
+  visible parts over all frames: [334.5, 249.9, 415.2, 658.1] (canvas 1024x1024)
