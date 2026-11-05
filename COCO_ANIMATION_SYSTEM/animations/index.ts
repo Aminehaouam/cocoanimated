@@ -3,9 +3,11 @@
  * (they bake layers of the clips above with Rev2D's compose op).
  */
 import { IDLE_CLIPS, IDLE_COMPOSED } from './idle/idle.ts';
+import { COMMUNICATION_CLIPS } from './communication/communication.ts';
+import { EDUCATION_CLIPS } from './education/education.ts';
 import type { Clip, ComposedClip } from './lib.ts';
 
-export const CLIPS: Clip[] = [...IDLE_CLIPS];
+export const CLIPS: Clip[] = [...IDLE_CLIPS, ...COMMUNICATION_CLIPS, ...EDUCATION_CLIPS];
 export const COMPOSED: ComposedClip[] = [...IDLE_COMPOSED];
 
 const ids = new Set<string>();

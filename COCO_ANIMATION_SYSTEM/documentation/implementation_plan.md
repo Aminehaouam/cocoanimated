@@ -171,9 +171,9 @@ reach, loop seam, parts leaving the canvas) → 6. loop seam check for loops →
 | 1 | Inspection, source-art assessment, master spec, layered vector master | ✅ |
 | 2 | Master rig: parameters, bindings, physics; sweep sheets per parameter | ✅ |
 | 3 | Expressions + idle clips | ✅ |
-| 4 | Communication + education clips | ⏳ next |
-| 5 | Travel, rewards, reactions | ⏳ |
-| 6 | Accessory library | ⏳ |
+| 4 | Communication + education clips | ✅ |
+| 5 | Travel, rewards, reactions | ⏳ next |
+| 6 | Accessory library | 🔄 framework, education props and marks done |
 | 7 | Export pipeline + web player + integration into the app (needs the app repo) | ⏳ |
 | 8 | Scenario tests + final visual catalogue | ⏳ |
 

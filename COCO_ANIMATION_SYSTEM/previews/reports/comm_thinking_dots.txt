@@ -1,0 +1,18 @@
+analysis of comm_thinking_dots (1.8s loop): 108 frames over t=0..1.8s after 9s warm-up
+
+PARAMETERS (min..max over the frames, [range])
+  WingRCurl  0.66..0.8  [0..1]
+  FxDot1  0..1  [0..1]  reaches min, reaches max
+  FxDot2  0..1  [0..1]  reaches min, reaches max
+  FxDot3  0..1  [0..1]  reaches min, reaches max
+  constant: AngleX=0, AngleY=12, AngleZ=-8, EyeROpen=1, EyeRSmile=0, EyeWide=0, EyeBallX=-0.3, EyeBallY=0.9, BrowRY=0.5, BrowRAngle=0.4, MouthOpen=0, MouthForm=-0.2, Blush=0, Breath=0, BodyAngleX=0, BodyAngleZ=0, Squash=0, BodyX=0, BodyY=0, Shadow=1, ... (+27)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 0 at t=0s vs range -30..30
+
+LOOP SEAM (end of the loop extrapolated to t=1.8 vs t=0)
+  parameters and bones close the loop
+  pixels: 0% differ between t=0 and one loop later (threshold 8, max delta 0)
+
+BOUNDS
+  visible parts over all frames: [337, 195.9, 401.6, 712.1] (canvas 1024x1024)

@@ -13,6 +13,7 @@
  *   oneshot  plays once and returns to rest (or hands over to `next`)
  */
 import { PARAMETERS } from '../rev2d/rigs/controls.ts';
+import { ACCESSORIES } from '../accessories/index.ts';
 
 export type Ease =
   | 'linear' | 'step' | 'inSine' | 'outSine' | 'inOutSine' | 'inQuad' | 'outQuad' | 'inOutQuad' | 'inCubic' | 'outCubic'
@@ -44,6 +45,8 @@ export interface ClipMeta {
   next?: string;
   /** The state a one-shot starts from when it is not the rest pose (e.g. "idle_sleep"). */
   from?: string;
+  /** The state a one-shot ends in when it is not the rest pose (e.g. "holding the card"). */
+  to?: string;
 }
 
 export interface Clip extends ClipMeta {
@@ -68,7 +71,11 @@ export interface ComposedClip extends ClipMeta {
   fps?: number;
 }
 
-export const DEFAULTS: Record<string, number> = Object.fromEntries(PARAMETERS.map((p) => [p.id, p.default ?? 0]));
+/** Defaults of every rig, accessory and effect parameter (accessories are hidden at 0). */
+export const DEFAULTS: Record<string, number> = {
+  ...Object.fromEntries(PARAMETERS.map((p) => [p.id, p.default ?? 0])),
+  ...Object.fromEntries(ACCESSORIES.flatMap((a) => [a.param, ...(a.extraParams ?? []).map((p) => p.id)]).map((id) => [id, 0])),
+};
 
 const r = (v: number): number => Math.round(v * 1000) / 1000;
 

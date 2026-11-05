@@ -18,28 +18,40 @@ import { controlOps } from '../rigs/controls.ts';
 import { skeletonOps } from '../rigs/skeleton.ts';
 import { CLIPS, COMPOSED } from '../../animations/index.ts';
 import { animationOp, composeOp } from '../../animations/lib.ts';
+import { ACCESSORIES } from '../../accessories/index.ts';
+import { accessoryOps } from '../../accessories/lib.ts';
 
 type Op = Record<string, unknown> & { op: string };
 
 export const MODEL_FILE = sys('rev2d', 'models', 'coco.r2d.json');
 
-export function modelOps(): Op[] {
-  return [
+const EMPTY_DOC = {
+  format: 'rev2d',
+  version: 1,
+  meta: { name: 'coco', width: CANVAS.width, height: CANVAS.height, background: 'transparent', fps: 30 },
+};
+
+/**
+ * All ops of the model. Two passes: the base rig (skeleton, parts, controls) is compiled first so
+ * every accessory can be placed from the real pose of the bone it rides on.
+ */
+export async function modelOps(): Promise<Op[]> {
+  const baseOps: Op[] = [
     ...(skeletonOps() as Op[]),
     ...characterParts().map((value) => ({ op: 'add', kind: 'part', value })),
     ...(controlOps() as Op[]),
-    ...(CLIPS.map(animationOp) as Op[]),
-    ...(COMPOSED.map(composeOp) as Op[]),
   ];
+  const base = R.applyOps(EMPTY_DOC, baseOps as never);
+  if (!base.ok) return baseOps; // main() reports the failures
+  const loaded = await R.loadModelObject(base.doc, path.dirname(MODEL_FILE), MODEL_FILE);
+  if (!loaded.rig) throw new Error(`base rig does not compile:\n${R.formatDiagnostics(loaded.diagnostics)}`);
+  const accOps = ACCESSORIES.flatMap((a) => accessoryOps(a, loaded.rig as never, R as never)) as Op[];
+  return [...baseOps, ...accOps, ...(CLIPS.map(animationOp) as Op[]), ...(COMPOSED.map(composeOp) as Op[])];
 }
 
 async function main(): Promise<number> {
-  const doc = {
-    format: 'rev2d',
-    version: 1,
-    meta: { name: 'coco', width: CANVAS.width, height: CANVAS.height, background: 'transparent', fps: 30 },
-  };
-  const ops = modelOps();
+  const doc = EMPTY_DOC;
+  const ops = await modelOps();
   const res = R.applyOps(doc, ops as never);
   const failed = res.results.filter((r) => !r.ok);
   if (failed.length) {

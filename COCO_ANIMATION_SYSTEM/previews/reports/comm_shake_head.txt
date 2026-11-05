@@ -1,0 +1,14 @@
+analysis of comm_shake_head (1.2s): 73 frames over t=0..1.2s
+
+PARAMETERS (min..max over the frames, [range])
+  AngleX  -14..14  [-30..30]
+  EyeBallX  -0.3..0.3  [-1..1]
+  BrowRAngle  0..0.5  [-1..1]
+  MouthForm  -0.4..0  [-1..1]
+  constant: AngleY=0, AngleZ=0, EyeROpen=1, EyeRSmile=0, EyeWide=0, EyeBallY=0, BrowRY=0, MouthOpen=0, Blush=0, Breath=0, BodyAngleX=0, BodyAngleZ=0, Squash=0, BodyX=0, BodyY=0, Shadow=1, WingRRaise=0, WingRSpread=0, WingRCurl=0, WingLRaise=0, ... (+27)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 0 at t=0s vs range -30..30
+
+BOUNDS
+  visible parts over all frames: [337, 257.5, 392.8, 650.5] (canvas 1024x1024)

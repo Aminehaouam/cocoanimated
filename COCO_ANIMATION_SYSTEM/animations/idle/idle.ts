@@ -103,8 +103,9 @@ export const IDLE_CLIPS: Clip[] = [
       scenarios: ['app inactive', 'night time', 'daily goal done'],
     },
     (tl) => {
-      tl.at(0, { ...expr('asleep'), Breath: 0, Squash: 0.1, BodyAngleZ: 1 });
+      tl.at(0, { ...expr('asleep'), Breath: 0, Squash: 0.1, BodyAngleZ: 1, FxZzz: 0 }, 'linear');
       tl.at(2.2, { AngleY: -16, Breath: 1, Squash: 0.13 });
+      tl.at(3.8, { FxZzz: 1 }).at(4.5, { FxZzz: 1 }).at(4.9, { FxZzz: 0 });
     },
   ),
   clip(

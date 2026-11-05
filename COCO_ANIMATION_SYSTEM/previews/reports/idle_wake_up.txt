@@ -14,7 +14,7 @@ PARAMETERS (min..max over the frames, [range])
   WingLSpread  0..0.5  [0..1]  reaches min
   TailSwing  -0.092..0.314  [-30..30]
   TailFan  0..0.6  [0..1]  reaches min
-  constant: AngleX=0, EyeWide=0, EyeBallX=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, MouthForm=0, Blush=0, Breath=0, BodyAngleX=0, BodyX=0, BodyY=0, Shadow=1, WingRCurl=0, TailLift=0, FootRX=0, FootRY=0, FootLX=0, FootLY=0, LegTuck=0
+  constant: AngleX=0, EyeWide=0, EyeBallX=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, MouthForm=0, Blush=0, Breath=0, BodyAngleX=0, BodyX=0, BodyY=0, Shadow=1, WingRCurl=0, TailLift=0, FootRX=0, FootRY=0, FootLX=0, FootLY=0, LegTuck=0, ... (+18)
 
 PHYSICS (raw output before clamping)
   tailPhysics: TailSwing never clamped, peak raw 0.314 at t=1.167s vs range -30..30

@@ -183,7 +183,7 @@ async function anims(): Promise<void> {
     for (const p of an.physics) if (p.clampedShare > 0.05) issues.push(`physics ${p.param} clamped in ${Math.round(p.clampedShare * 100)}% of frames`);
     for (const o of an.outsideCanvas) if (!o.always) issues.push(`${o.part} leaves the canvas (${o.maxOverflow.toFixed(0)} px)`);
     if (!a.loop && 'tracks' in c) {
-      if (!c.next?.startsWith('hold:')) issues.push(...restIssues(c, 'end').map((s) => `does not end at rest: ${s}`));
+      if (!c.to) issues.push(...restIssues(c, 'end').map((s) => `does not end at rest: ${s}`));
       if (!c.from) issues.push(...restIssues(c, 'start').map((s) => `does not start at rest: ${s}`));
     }
     reports.push({
@@ -226,7 +226,30 @@ function catalog(reports: ClipReport[]): string {
   return lines.join('\n');
 }
 
-const jobs: Record<string, () => Promise<void>> = { master, layers, rig, expressions, anims };
+/** Review sheets: one row per clip (5 moments), 6 clips per sheet, per category (previews/review/). */
+async function review(): Promise<void> {
+  const m = await R.loadModelFile(MODEL_FILE);
+  if (!m.rig || !m.model) throw new Error(R.formatDiagnostics(m.diagnostics));
+  const all: Array<Clip | ComposedClip> = [...CLIPS, ...COMPOSED];
+  for (const cat of [...new Set(all.map((c) => c.category))]) {
+    const clips = all.filter((c) => c.category === cat);
+    for (let i = 0; i < clips.length; i += 6) {
+      const cells = [];
+      for (const c of clips.slice(i, i + 6)) {
+        const a = m.model.animations.find((x) => x.id === c.id)!;
+        for (let k = 0; k < 5; k++) {
+          const time = (a.duration * k) / (a.loop ? 5 : 4);
+          const image = R.renderFrame(m, { animations: [c.id], time: time + (a.loop ? a.duration * 2 : 0), viewBox: [230, 120, 760, 790], scale: 0.2, background: '#ffffff' } as never).image;
+          cells.push({ image, caption: k === 0 ? `${c.id}` : `t=${time.toFixed(2)}s` });
+        }
+      }
+      const sheet = R.composeSheet(cells, { columns: 5, padding: 6, title: `${cat} ${i / 6 + 1}`, background: R.resolveColor('#f4f4f7') } as never);
+      write(sys('previews', 'review', `${cat}_${i / 6 + 1}.png`), R.encodePNG(sheet));
+    }
+  }
+}
+
+const jobs: Record<string, () => Promise<void>> = { master, layers, rig, expressions, anims, review };
 
 async function main(): Promise<number> {
   // `qc anims idle_main idle_blink` = only those clips; other jobs take no arguments.

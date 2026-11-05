@@ -1,0 +1,19 @@
+analysis of edu_present_word (2.4s): 145 frames over t=0..2.4s
+
+PARAMETERS (min..max over the frames, [range])
+  EyeRSmile  0..0.3  [0..1]  reaches min
+  EyeWide  0..0.5  [0..1]  reaches min
+  BrowRY  0..0.7  [-1..1]
+  MouthOpen  0..0.849  [0..1]  reaches min
+  MouthForm  0..1  [-1..1]  reaches max
+  Squash  -0.15..0.2  [-1..1]
+  WingLRaise  0..0.95  [-0.5..1]
+  AccCard  0..1  [0..1]  reaches min, reaches max
+  FxSparkle  0..1  [0..1]  reaches min, reaches max
+  constant: AngleX=0, AngleY=0, AngleZ=0, EyeROpen=1, EyeBallX=0, EyeBallY=0, BrowRAngle=0, Blush=0, Breath=0, BodyAngleX=0, BodyAngleZ=0, BodyX=0, BodyY=0, Shadow=1, WingRRaise=0, WingRSpread=0, WingRCurl=0, WingLSpread=0, TailSwing=0, TailLift=0, ... (+22)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 0 at t=0s vs range -30..30
+
+BOUNDS
+  visible parts over all frames: [332.8, 199.4, 654.7, 708.6] (canvas 1024x1024)

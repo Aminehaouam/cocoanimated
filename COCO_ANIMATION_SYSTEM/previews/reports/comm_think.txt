@@ -1,0 +1,18 @@
+analysis of comm_think (4s loop): 240 frames over t=0..4s after 8s warm-up
+
+PARAMETERS (min..max over the frames, [range])
+  AngleZ  -11..-8  [-30..30]
+  EyeROpen  0.047..1  [0..1]  reaches max
+  EyeBallX  -0.3..0.25  [-1..1]
+  WingRCurl  0.62..0.8  [0..1]
+  constant: AngleX=0, AngleY=12, EyeRSmile=0, EyeWide=0, EyeBallY=0.9, BrowRY=0.5, BrowRAngle=0.4, MouthOpen=0, MouthForm=-0.2, Blush=0, Breath=0, BodyAngleX=0, BodyAngleZ=0, Squash=0, BodyX=0, BodyY=0, Shadow=1, WingRRaise=-1.2, WingRSpread=0.1, WingLRaise=0, ... (+27)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 0 at t=0s vs range -30..30
+
+LOOP SEAM (end of the loop extrapolated to t=4 vs t=0)
+  parameters and bones close the loop
+  pixels: 0% differ between t=0 and one loop later (threshold 8, max delta 0)
+
+BOUNDS
+  visible parts over all frames: [337, 254.5, 404.4, 653.5] (canvas 1024x1024)

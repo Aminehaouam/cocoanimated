@@ -1,0 +1,17 @@
+analysis of edu_pronounce (2.8s loop): 168 frames over t=0..2.8s after 8.4s warm-up
+
+PARAMETERS (min..max over the frames, [range])
+  AngleY  -3..5  [-30..30]
+  MouthOpen  0..1  [0..1]  reaches min, reaches max
+  MouthForm  -0.6..1  [-1..1]  reaches max
+  constant: AngleX=6, AngleZ=0, EyeROpen=1, EyeRSmile=0, EyeWide=0.2, EyeBallX=0, EyeBallY=0, BrowRY=0.5, BrowRAngle=0, Blush=0, Breath=0, BodyAngleX=0, BodyAngleZ=0, Squash=0, BodyX=0, BodyY=0, Shadow=1, WingRRaise=0, WingRSpread=0, WingRCurl=0, ... (+28)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 0 at t=0s vs range -30..30
+
+LOOP SEAM (end of the loop extrapolated to t=2.8 vs t=0)
+  parameters and bones close the loop
+  pixels: 0% differ between t=0 and one loop later (threshold 8, max delta 0)
+
+BOUNDS
+  visible parts over all frames: [337, 256.4, 573.3, 651.6] (canvas 1024x1024)

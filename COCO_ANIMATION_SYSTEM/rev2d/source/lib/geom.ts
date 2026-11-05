@@ -58,6 +58,19 @@ export function ellipse(cx: number, cy: number, rx: number, ry: number): string 
   ].join(' ');
 }
 
+/** Rounded rectangle (M / L / C / Z), optionally rotated by `deg` about its centre. */
+export function roundRect(cx: number, cy: number, w: number, h: number, r: number, deg = 0): string {
+  const x0 = cx - w / 2, y0 = cy - h / 2, x1 = cx + w / 2, y1 = cy + h / 2;
+  const k = r * (1 - KAPPA);
+  const d = [
+    `M ${fmt(x0 + r, y0)}`, `L ${fmt(x1 - r, y0)}`, `C ${fmt(x1 - k, y0)} ${fmt(x1, y0 + k)} ${fmt(x1, y0 + r)}`,
+    `L ${fmt(x1, y1 - r)}`, `C ${fmt(x1, y1 - k)} ${fmt(x1 - k, y1)} ${fmt(x1 - r, y1)}`,
+    `L ${fmt(x0 + r, y1)}`, `C ${fmt(x0 + k, y1)} ${fmt(x0, y1 - k)} ${fmt(x0, y1 - r)}`,
+    `L ${fmt(x0, y0 + r)}`, `C ${fmt(x0, y0 + k)} ${fmt(x0 + k, y0)} ${fmt(x0 + r, y0)}`, 'Z',
+  ].join(' ');
+  return deg ? rotatePath(d, [cx, cy], deg) : d;
+}
+
 /** Several closed subpaths in one path (Rev2D fills each subpath on its own). */
 export function compound(...paths: string[]): string {
   return paths.join(' ');

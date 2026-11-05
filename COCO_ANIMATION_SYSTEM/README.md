@@ -46,9 +46,9 @@ then `rev2d_validate`, `rev2d_render`, `rev2d_sheet`, `rev2d_inspect`, `rev2d_an
 | 1 | Inspection, source-art assessment, master spec, layered vector master | ✅ done | `documentation/character_specification.md`, `character/master/coco_master_compare.png`, `character/parts/coco_layers.png` |
 | 2 | Master rig: parameters, bindings, physics | ✅ done | `documentation/rig_reference.md`, `previews/rig/*.png` |
 | 3 | Expressions + idle animations | ✅ done | `character/expressions/coco_expressions.png`, `documentation/animation_catalog.md`, `previews/contact_sheets/idle/`, `exports/gifs/` |
-| 4 | Communication + education | ⏳ next | |
-| 5 | Travel, rewards, reactions | ⏳ | |
-| 6 | Accessories | ⏳ | |
+| 4 | Communication + education | ✅ done | `previews/review/communication_*.png`, `previews/review/education_*.png`, catalogue |
+| 5 | Travel, rewards, reactions | ⏳ next | |
+| 6 | Accessories | 🔄 framework + education props + marks done; travel / clothing / rewards next | `accessories/` |
 | 7 | Exports + web player + app integration | ⏳ (needs the app repository) | |
 | 8 | Scenario tests + final catalogue | ⏳ | |
 
@@ -93,6 +93,24 @@ then `rev2d_validate`, `rev2d_render`, `rev2d_sheet`, `rev2d_inspect`, `rev2d_an
   writes `documentation/animation_catalog.md`. All 9 pass.
 - Found and fixed by the QC: Rev2D holds a track's first key before it, so one-shot tracks now get
   an explicit rest key at t = 0 (the wake-up showed its stretch pose from the start).
+
+### Phase 4 notes
+
+- **Accessory framework** (`accessories/lib.ts`): every prop is a separate set of parts on its own
+  bone, hidden by default and shown by its `Acc*` parameter. Art is drawn in world coordinates of the
+  pose it is held in; the build poses the rig there and maps it onto the hand bone, so the prop lands
+  exactly in the hand and then follows it. Head-worn items can use Rev2D `follow` instead.
+- **Education props**: book (with the reference's globe emblem), dictionary, pointer, chalk, pencil,
+  vocabulary card, notepad, blackboard on an easel with "Aa" that writes itself stroke by stroke
+  (`AccBoardText`).
+- **Expression marks** (`character/expressions/marks.ts`): "?", alert lines, light bulb, thinking
+  dots (lit one by one), sparkles, "Zzz"; they pop in as their `Fx*` parameter rises.
+- **18 communication clips**: talk (normal / soft / excited), listen, think, thinking dots, wait,
+  explain, nod, shake head, ask (with "?"), idea (light bulb), greet (waves with the far wing like the
+  reference), goodbye, point right / left / up (direct attention to UI elements), encourage,
+  introduce. **10 education clips**: read book, teach, hold card, write, point at the board, explain
+  grammar, pronounce ("ee" / "oo" / "ah" shapes), present a new word, correct an answer, celebrate a
+  correct answer. 38 animations in total, all passing the automatic QC.
 
 See `documentation/implementation_plan.md` for the architecture, the rig controls, the animation
 naming convention, the app presets and the export/integration evaluation.

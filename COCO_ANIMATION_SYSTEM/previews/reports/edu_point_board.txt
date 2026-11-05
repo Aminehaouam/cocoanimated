@@ -1,0 +1,17 @@
+analysis of edu_point_board (2.4s): 145 frames over t=0..2.4s
+
+PARAMETERS (min..max over the frames, [range])
+  AngleX  -2..13.198  [-30..30]
+  EyeBallX  -0.2..0.88  [-1..1]
+  BrowRY  0..0.44  [-1..1]
+  MouthOpen  0..0.699  [0..1]  reaches min
+  MouthForm  0..0.77  [-1..1]
+  WingRRaise  -1.1..0  [-1.5..1]
+  WingRSpread  0..0.11  [0..1]  reaches min
+  constant: AngleY=0, AngleZ=0, EyeROpen=1, EyeRSmile=0, EyeWide=0, EyeBallY=0, BrowRAngle=0, Blush=0, Breath=0, BodyAngleX=0, BodyAngleZ=0, Squash=0, BodyX=0, BodyY=0, Shadow=1, WingRCurl=0, WingLRaise=0, WingLSpread=0, TailSwing=0, TailLift=0, ... (+24)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 0 at t=0s vs range -30..30
+
+BOUNDS
+  visible parts over all frames: [337, 257.5, 630, 656.3] (canvas 1024x1024)

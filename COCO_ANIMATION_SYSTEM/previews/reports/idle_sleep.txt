@@ -5,7 +5,8 @@ PARAMETERS (min..max over the frames, [range])
   Breath  0..1  [0..1]  reaches min, reaches max
   Squash  0.1..0.13  [-1..1]
   TailSwing  -1.2..-1.2  [-30..30]
-  constant: AngleX=0, AngleZ=9, EyeROpen=0, EyeRSmile=0, EyeWide=0, EyeBallX=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, MouthOpen=0, MouthForm=0, Blush=0, BodyAngleX=0, BodyAngleZ=1, BodyX=0, BodyY=0, Shadow=1, WingRRaise=0, WingRSpread=0, WingRCurl=0, ... (+9)
+  FxZzz  0..1  [0..1]  reaches min, reaches max
+  constant: AngleX=0, AngleZ=9, EyeROpen=0, EyeRSmile=0, EyeWide=0, EyeBallX=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, MouthOpen=0, MouthForm=0, Blush=0, BodyAngleX=0, BodyAngleZ=1, BodyX=0, BodyY=0, Shadow=1, WingRRaise=0, WingRSpread=0, WingRCurl=0, ... (+26)
 
 PHYSICS (raw output before clamping)
   tailPhysics: TailSwing never clamped, peak raw -1.2 at t=4.967s vs range -30..30
@@ -15,4 +16,4 @@ LOOP SEAM (end of the loop extrapolated to t=5 vs t=0)
   pixels: 0% differ between t=0 and one loop later (threshold 8, max delta 0)
 
 BOUNDS
-  visible parts over all frames: [334.5, 268.8, 382.4, 639.2] (canvas 1024x1024)
+  visible parts over all frames: [334.5, 240.3, 442.4, 667.7] (canvas 1024x1024)

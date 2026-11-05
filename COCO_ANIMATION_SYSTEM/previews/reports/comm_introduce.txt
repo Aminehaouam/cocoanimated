@@ -1,0 +1,19 @@
+analysis of comm_introduce (3.6s): 217 frames over t=0..3.6s
+
+PARAMETERS (min..max over the frames, [range])
+  AngleY  0..6  [-30..30]
+  AngleZ  0..8  [-30..30]
+  EyeRSmile  0..1  [0..1]  reaches min, reaches max
+  MouthOpen  0..0.75  [0..1]  reaches min
+  MouthForm  0..1  [-1..1]  reaches max
+  WingRRaise  -0.62..0  [-1.5..1]
+  WingRCurl  0..0.95  [0..1]  reaches min
+  WingLRaise  0..0.95  [-0.5..1]
+  WingLSpread  0..1  [0..1]  reaches min, reaches max
+  constant: AngleX=0, EyeROpen=1, EyeWide=0, EyeBallX=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, Blush=0, Breath=0, BodyAngleX=0, BodyAngleZ=0, Squash=0, BodyX=0, BodyY=0, Shadow=1, WingRSpread=0, TailSwing=0, TailLift=0, TailFan=0, FootRX=0, ... (+22)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 0 at t=0s vs range -30..30
+
+BOUNDS
+  visible parts over all frames: [337, 256.4, 547, 651.6] (canvas 1024x1024)

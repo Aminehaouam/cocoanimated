@@ -1,0 +1,13 @@
+analysis of comm_nod (1s): 61 frames over t=0..1s
+
+PARAMETERS (min..max over the frames, [range])
+  AngleY  -10..3  [-30..30]
+  EyeRSmile  0..0.5  [0..1]  reaches min
+  MouthForm  0..0.6  [-1..1]
+  constant: AngleX=0, AngleZ=0, EyeROpen=1, EyeWide=0, EyeBallX=0, EyeBallY=0, BrowRY=0, BrowRAngle=0, MouthOpen=0, Blush=0, Breath=0, BodyAngleX=0, BodyAngleZ=0, Squash=0, BodyX=0, BodyY=0, Shadow=1, WingRRaise=0, WingRSpread=0, WingRCurl=0, ... (+28)
+
+PHYSICS (raw output before clamping)
+  tailPhysics: TailSwing never clamped, peak raw 0 at t=0s vs range -30..30
+
+BOUNDS
+  visible parts over all frames: [337, 256.9, 365.1, 651.1] (canvas 1024x1024)
