@@ -1,0 +1,1703 @@
+{
+  "format": "coco-spritesheets",
+  "version": 1,
+  "canvas": {
+    "width": 1024,
+    "height": 1024,
+    "anchor": [
+      512,
+      893
+    ]
+  },
+  "scale": 0.375,
+  "clips": {
+    "idle_breathe": {
+      "file": "idle_breathe.webp",
+      "category": "idle",
+      "kind": "base",
+      "title": "Breathing",
+      "frames": 80,
+      "columns": 28,
+      "frameWidth": 144,
+      "frameHeight": 252,
+      "fps": 20,
+      "loop": true,
+      "duration": 4,
+      "poster": 0,
+      "origin": [
+        326,
+        244
+      ]
+    },
+    "idle_blink": {
+      "file": "idle_blink.webp",
+      "category": "idle",
+      "kind": "overlay",
+      "title": "Blinking",
+      "frames": 120,
+      "columns": 24,
+      "frameWidth": 164,
+      "frameHeight": 253,
+      "fps": 15,
+      "loop": true,
+      "duration": 8,
+      "poster": 0,
+      "origin": [
+        320,
+        241
+      ]
+    },
+    "idle_look_around": {
+      "file": "idle_look_around.webp",
+      "category": "idle",
+      "kind": "base",
+      "title": "Looking around",
+      "frames": 120,
+      "columns": 26,
+      "frameWidth": 154,
+      "frameHeight": 251,
+      "fps": 15,
+      "loop": true,
+      "duration": 8,
+      "poster": 0,
+      "origin": [
+        329,
+        247
+      ]
+    },
+    "idle_head_tilt": {
+      "file": "idle_head_tilt.webp",
+      "category": "idle",
+      "kind": "base",
+      "title": "Curious head tilt",
+      "frames": 90,
+      "columns": 27,
+      "frameWidth": 147,
+      "frameHeight": 250,
+      "fps": 15,
+      "loop": true,
+      "duration": 6,
+      "poster": 0,
+      "origin": [
+        329,
+        249
+      ]
+    },
+    "idle_sway": {
+      "file": "idle_sway.webp",
+      "category": "idle",
+      "kind": "overlay",
+      "title": "Relaxed sway",
+      "frames": 120,
+      "columns": 23,
+      "frameWidth": 175,
+      "frameHeight": 253,
+      "fps": 15,
+      "loop": true,
+      "duration": 8,
+      "poster": 0,
+      "origin": [
+        310,
+        242
+      ]
+    },
+    "idle_feather_ruffle": {
+      "file": "idle_feather_ruffle.webp",
+      "category": "idle",
+      "kind": "oneshot",
+      "title": "Feather ruffle",
+      "frames": 31,
+      "columns": 25,
+      "frameWidth": 160,
+      "frameHeight": 253,
+      "fps": 20,
+      "loop": false,
+      "duration": 1.5,
+      "poster": 15,
+      "origin": [
+        308,
+        242
+      ],
+      "next": "idle_main"
+    },
+    "idle_sleep": {
+      "file": "idle_sleep.webp",
+      "category": "idle",
+      "kind": "base",
+      "title": "Sleeping",
+      "frames": 75,
+      "columns": 23,
+      "frameWidth": 172,
+      "frameHeight": 257,
+      "fps": 15,
+      "loop": true,
+      "duration": 5,
+      "poster": 0,
+      "origin": [
+        326,
+        232
+      ]
+    },
+    "idle_wake_up": {
+      "file": "idle_wake_up.webp",
+      "category": "idle",
+      "kind": "oneshot",
+      "title": "Waking up",
+      "frames": 61,
+      "columns": 17,
+      "frameWidth": 239,
+      "frameHeight": 269,
+      "fps": 20,
+      "loop": false,
+      "duration": 3,
+      "poster": 30,
+      "origin": [
+        201,
+        200
+      ],
+      "next": "idle_main",
+      "from": "idle_sleep"
+    },
+    "comm_talk": {
+      "file": "comm_talk.webp",
+      "category": "communication",
+      "kind": "overlay",
+      "title": "Talking",
+      "frames": 120,
+      "columns": 24,
+      "frameWidth": 166,
+      "frameHeight": 253,
+      "fps": 15,
+      "loop": true,
+      "duration": 8,
+      "poster": 0,
+      "origin": [
+        320,
+        241
+      ]
+    },
+    "comm_talk_soft": {
+      "file": "comm_talk_soft.webp",
+      "category": "communication",
+      "kind": "overlay",
+      "title": "Talking softly",
+      "frames": 120,
+      "columns": 24,
+      "frameWidth": 165,
+      "frameHeight": 253,
+      "fps": 15,
+      "loop": true,
+      "duration": 8,
+      "poster": 0,
+      "origin": [
+        320,
+        241
+      ]
+    },
+    "comm_talk_excited": {
+      "file": "comm_talk_excited.webp",
+      "category": "communication",
+      "kind": "overlay",
+      "title": "Talking excitedly",
+      "frames": 120,
+      "columns": 24,
+      "frameWidth": 168,
+      "frameHeight": 255,
+      "fps": 15,
+      "loop": true,
+      "duration": 8,
+      "poster": 0,
+      "origin": [
+        319,
+        237
+      ]
+    },
+    "comm_listen": {
+      "file": "comm_listen.webp",
+      "category": "communication",
+      "kind": "base",
+      "title": "Listening",
+      "frames": 80,
+      "columns": 29,
+      "frameWidth": 141,
+      "frameHeight": 250,
+      "fps": 20,
+      "loop": true,
+      "duration": 4,
+      "poster": 0,
+      "origin": [
+        329,
+        249
+      ]
+    },
+    "comm_think": {
+      "file": "comm_think.webp",
+      "category": "communication",
+      "kind": "base",
+      "title": "Thinking",
+      "frames": 80,
+      "columns": 25,
+      "frameWidth": 158,
+      "frameHeight": 251,
+      "fps": 20,
+      "loop": true,
+      "duration": 4,
+      "poster": 0,
+      "origin": [
+        329,
+        246
+      ]
+    },
+    "comm_wait": {
+      "file": "comm_wait.webp",
+      "category": "communication",
+      "kind": "base",
+      "title": "Waiting patiently",
+      "frames": 90,
+      "columns": 27,
+      "frameWidth": 149,
+      "frameHeight": 250,
+      "fps": 15,
+      "loop": true,
+      "duration": 6,
+      "poster": 0,
+      "origin": [
+        316,
+        249
+      ]
+    },
+    "comm_explain": {
+      "file": "comm_explain.webp",
+      "category": "communication",
+      "kind": "base",
+      "title": "Explaining",
+      "frames": 64,
+      "columns": 26,
+      "frameWidth": 154,
+      "frameHeight": 250,
+      "fps": 20,
+      "loop": true,
+      "duration": 3.2,
+      "poster": 0,
+      "origin": [
+        329,
+        249
+      ]
+    },
+    "comm_nod": {
+      "file": "comm_nod.webp",
+      "category": "communication",
+      "kind": "oneshot",
+      "title": "Nodding",
+      "frames": 21,
+      "columns": 21,
+      "frameWidth": 143,
+      "frameHeight": 251,
+      "fps": 20,
+      "loop": false,
+      "duration": 1,
+      "poster": 10,
+      "origin": [
+        329,
+        248
+      ],
+      "next": "idle_main"
+    },
+    "comm_shake_head": {
+      "file": "comm_shake_head.webp",
+      "category": "communication",
+      "kind": "oneshot",
+      "title": "Shaking the head",
+      "frames": 25,
+      "columns": 25,
+      "frameWidth": 153,
+      "frameHeight": 250,
+      "fps": 20,
+      "loop": false,
+      "duration": 1.2,
+      "poster": 12,
+      "origin": [
+        329,
+        249
+      ],
+      "next": "idle_main"
+    },
+    "comm_ask": {
+      "file": "comm_ask.webp",
+      "category": "communication",
+      "kind": "oneshot",
+      "title": "Asking a question",
+      "frames": 37,
+      "columns": 24,
+      "frameWidth": 167,
+      "frameHeight": 257,
+      "fps": 20,
+      "loop": false,
+      "duration": 1.8,
+      "poster": 18,
+      "origin": [
+        326,
+        231
+      ],
+      "next": "comm_wait"
+    },
+    "comm_idea": {
+      "file": "comm_idea.webp",
+      "category": "communication",
+      "kind": "oneshot",
+      "title": "Having an idea",
+      "frames": 37,
+      "columns": 21,
+      "frameWidth": 194,
+      "frameHeight": 312,
+      "fps": 20,
+      "loop": false,
+      "duration": 1.8,
+      "poster": 18,
+      "origin": [
+        196,
+        84
+      ],
+      "next": "idle_main"
+    },
+    "comm_thinking_dots": {
+      "file": "comm_thinking_dots.webp",
+      "category": "communication",
+      "kind": "base",
+      "title": "Thinking (dots)",
+      "frames": 36,
+      "columns": 26,
+      "frameWidth": 157,
+      "frameHeight": 273,
+      "fps": 20,
+      "loop": true,
+      "duration": 1.8,
+      "poster": 0,
+      "origin": [
+        329,
+        187
+      ]
+    },
+    "comm_greet": {
+      "file": "comm_greet.webp",
+      "category": "communication",
+      "kind": "oneshot",
+      "title": "Greeting",
+      "frames": 53,
+      "columns": 19,
+      "frameWidth": 214,
+      "frameHeight": 269,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.6,
+      "poster": 26,
+      "origin": [
+        323,
+        200
+      ],
+      "next": "idle_main"
+    },
+    "comm_goodbye": {
+      "file": "comm_goodbye.webp",
+      "category": "communication",
+      "kind": "oneshot",
+      "title": "Saying goodbye",
+      "frames": 57,
+      "columns": 19,
+      "frameWidth": 208,
+      "frameHeight": 250,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.8,
+      "poster": 28,
+      "origin": [
+        156,
+        249
+      ],
+      "next": "idle_main"
+    },
+    "comm_point_right": {
+      "file": "comm_point_right.webp",
+      "category": "communication",
+      "kind": "oneshot",
+      "title": "Pointing right",
+      "frames": 45,
+      "columns": 23,
+      "frameWidth": 173,
+      "frameHeight": 250,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.2,
+      "poster": 22,
+      "origin": [
+        329,
+        249
+      ],
+      "next": "idle_main"
+    },
+    "comm_point_left": {
+      "file": "comm_point_left.webp",
+      "category": "communication",
+      "kind": "oneshot",
+      "title": "Pointing left",
+      "frames": 45,
+      "columns": 20,
+      "frameWidth": 197,
+      "frameHeight": 250,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.2,
+      "poster": 22,
+      "origin": [
+        183,
+        249
+      ],
+      "next": "idle_main"
+    },
+    "comm_point_up": {
+      "file": "comm_point_up.webp",
+      "category": "communication",
+      "kind": "oneshot",
+      "title": "Pointing up",
+      "frames": 45,
+      "columns": 21,
+      "frameWidth": 191,
+      "frameHeight": 251,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.2,
+      "poster": 22,
+      "origin": [
+        201,
+        246
+      ],
+      "next": "idle_main"
+    },
+    "comm_encourage": {
+      "file": "comm_encourage.webp",
+      "category": "communication",
+      "kind": "oneshot",
+      "title": "Encouraging",
+      "frames": 45,
+      "columns": 28,
+      "frameWidth": 145,
+      "frameHeight": 250,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.2,
+      "poster": 22,
+      "origin": [
+        329,
+        249
+      ],
+      "next": "idle_main"
+    },
+    "comm_introduce": {
+      "file": "comm_introduce.webp",
+      "category": "communication",
+      "kind": "oneshot",
+      "title": "Introducing itself",
+      "frames": 73,
+      "columns": 19,
+      "frameWidth": 211,
+      "frameHeight": 251,
+      "fps": 20,
+      "loop": false,
+      "duration": 3.6,
+      "poster": 36,
+      "origin": [
+        329,
+        248
+      ],
+      "next": "idle_main"
+    },
+    "edu_read_book": {
+      "file": "edu_read_book.webp",
+      "category": "education",
+      "kind": "base",
+      "title": "Reading a book",
+      "frames": 80,
+      "columns": 25,
+      "frameWidth": 161,
+      "frameHeight": 249,
+      "fps": 20,
+      "loop": true,
+      "duration": 4,
+      "poster": 0,
+      "origin": [
+        329,
+        251
+      ]
+    },
+    "edu_teach": {
+      "file": "edu_teach.webp",
+      "category": "education",
+      "kind": "base",
+      "title": "Teaching",
+      "frames": 64,
+      "columns": 16,
+      "frameWidth": 242,
+      "frameHeight": 252,
+      "fps": 20,
+      "loop": true,
+      "duration": 3.2,
+      "poster": 0,
+      "origin": [
+        329,
+        249
+      ]
+    },
+    "edu_hold_card": {
+      "file": "edu_hold_card.webp",
+      "category": "education",
+      "kind": "base",
+      "title": "Holding a vocabulary card",
+      "frames": 60,
+      "columns": 18,
+      "frameWidth": 223,
+      "frameHeight": 250,
+      "fps": 20,
+      "loop": true,
+      "duration": 3,
+      "poster": 0,
+      "origin": [
+        329,
+        249
+      ]
+    },
+    "edu_write": {
+      "file": "edu_write.webp",
+      "category": "education",
+      "kind": "oneshot",
+      "title": "Writing",
+      "frames": 69,
+      "columns": 16,
+      "frameWidth": 242,
+      "frameHeight": 252,
+      "fps": 20,
+      "loop": false,
+      "duration": 3.4,
+      "poster": 34,
+      "origin": [
+        329,
+        249
+      ],
+      "next": "edu_teach",
+      "from": "blackboard",
+      "to": "blackboard with text"
+    },
+    "edu_point_board": {
+      "file": "edu_point_board.webp",
+      "category": "education",
+      "kind": "oneshot",
+      "title": "Pointing at the board",
+      "frames": 49,
+      "columns": 16,
+      "frameWidth": 242,
+      "frameHeight": 252,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.4,
+      "poster": 24,
+      "origin": [
+        329,
+        249
+      ],
+      "next": "edu_teach",
+      "from": "blackboard with text",
+      "to": "blackboard with text"
+    },
+    "edu_explain_grammar": {
+      "file": "edu_explain_grammar.webp",
+      "category": "education",
+      "kind": "base",
+      "title": "Explaining grammar",
+      "frames": 80,
+      "columns": 16,
+      "frameWidth": 242,
+      "frameHeight": 252,
+      "fps": 20,
+      "loop": true,
+      "duration": 4,
+      "poster": 0,
+      "origin": [
+        329,
+        249
+      ]
+    },
+    "edu_pronounce": {
+      "file": "edu_pronounce.webp",
+      "category": "education",
+      "kind": "base",
+      "title": "Demonstrating pronunciation",
+      "frames": 56,
+      "columns": 18,
+      "frameWidth": 223,
+      "frameHeight": 251,
+      "fps": 20,
+      "loop": true,
+      "duration": 2.8,
+      "poster": 0,
+      "origin": [
+        329,
+        248
+      ]
+    },
+    "edu_present_word": {
+      "file": "edu_present_word.webp",
+      "category": "education",
+      "kind": "oneshot",
+      "title": "Presenting a new word",
+      "frames": 49,
+      "columns": 16,
+      "frameWidth": 255,
+      "frameHeight": 272,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.4,
+      "poster": 24,
+      "origin": [
+        324,
+        191
+      ],
+      "next": "edu_hold_card",
+      "to": "holding the card"
+    },
+    "edu_correct_answer": {
+      "file": "edu_correct_answer.webp",
+      "category": "education",
+      "kind": "oneshot",
+      "title": "Correcting an answer",
+      "frames": 53,
+      "columns": 25,
+      "frameWidth": 163,
+      "frameHeight": 250,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.6,
+      "poster": 26,
+      "origin": [
+        329,
+        249
+      ],
+      "next": "idle_main"
+    },
+    "edu_celebrate_correct": {
+      "file": "edu_celebrate_correct.webp",
+      "category": "education",
+      "kind": "oneshot",
+      "title": "Celebrating a correct answer",
+      "frames": 45,
+      "columns": 14,
+      "frameWidth": 280,
+      "frameHeight": 303,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.2,
+      "poster": 22,
+      "origin": [
+        153,
+        108
+      ],
+      "next": "idle_main"
+    },
+    "emo_happy": {
+      "file": "emo_happy.webp",
+      "category": "emotions",
+      "kind": "oneshot",
+      "title": "Happy",
+      "frames": 49,
+      "columns": 22,
+      "frameWidth": 184,
+      "frameHeight": 264,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.4,
+      "poster": 24,
+      "origin": [
+        223,
+        213
+      ],
+      "next": "idle_main"
+    },
+    "emo_excited": {
+      "file": "emo_excited.webp",
+      "category": "emotions",
+      "kind": "oneshot",
+      "title": "Excited",
+      "frames": 49,
+      "columns": 14,
+      "frameWidth": 284,
+      "frameHeight": 263,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.4,
+      "poster": 24,
+      "origin": [
+        145,
+        216
+      ],
+      "next": "idle_main"
+    },
+    "emo_proud": {
+      "file": "emo_proud.webp",
+      "category": "emotions",
+      "kind": "oneshot",
+      "title": "Proud",
+      "frames": 53,
+      "columns": 27,
+      "frameWidth": 147,
+      "frameHeight": 257,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.6,
+      "poster": 26,
+      "origin": [
+        329,
+        231
+      ],
+      "next": "idle_main"
+    },
+    "emo_curious": {
+      "file": "emo_curious.webp",
+      "category": "emotions",
+      "kind": "oneshot",
+      "title": "Curious",
+      "frames": 53,
+      "columns": 24,
+      "frameWidth": 169,
+      "frameHeight": 250,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.6,
+      "poster": 26,
+      "origin": [
+        329,
+        249
+      ],
+      "next": "idle_main"
+    },
+    "emo_confused": {
+      "file": "emo_confused.webp",
+      "category": "emotions",
+      "kind": "oneshot",
+      "title": "Confused",
+      "frames": 57,
+      "columns": 20,
+      "frameWidth": 198,
+      "frameHeight": 274,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.8,
+      "poster": 28,
+      "origin": [
+        329,
+        185
+      ],
+      "next": "idle_main"
+    },
+    "emo_surprised": {
+      "file": "emo_surprised.webp",
+      "category": "emotions",
+      "kind": "oneshot",
+      "title": "Surprised",
+      "frames": 37,
+      "columns": 18,
+      "frameWidth": 224,
+      "frameHeight": 281,
+      "fps": 20,
+      "loop": false,
+      "duration": 1.8,
+      "poster": 18,
+      "origin": [
+        191,
+        168
+      ],
+      "next": "idle_main"
+    },
+    "emo_worried": {
+      "file": "emo_worried.webp",
+      "category": "emotions",
+      "kind": "oneshot",
+      "title": "Worried",
+      "frames": 57,
+      "columns": 28,
+      "frameWidth": 143,
+      "frameHeight": 250,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.8,
+      "poster": 28,
+      "origin": [
+        329,
+        249
+      ],
+      "next": "idle_main"
+    },
+    "emo_disappointed": {
+      "file": "emo_disappointed.webp",
+      "category": "emotions",
+      "kind": "oneshot",
+      "title": "Disappointed",
+      "frames": 53,
+      "columns": 27,
+      "frameWidth": 147,
+      "frameHeight": 250,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.6,
+      "poster": 26,
+      "origin": [
+        317,
+        249
+      ],
+      "next": "idle_main"
+    },
+    "emo_embarrassed": {
+      "file": "emo_embarrassed.webp",
+      "category": "emotions",
+      "kind": "oneshot",
+      "title": "Embarrassed",
+      "frames": 57,
+      "columns": 23,
+      "frameWidth": 176,
+      "frameHeight": 250,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.8,
+      "poster": 28,
+      "origin": [
+        329,
+        249
+      ],
+      "next": "idle_main"
+    },
+    "emo_playful": {
+      "file": "emo_playful.webp",
+      "category": "emotions",
+      "kind": "oneshot",
+      "title": "Playful",
+      "frames": 49,
+      "columns": 26,
+      "frameWidth": 152,
+      "frameHeight": 254,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.4,
+      "poster": 24,
+      "origin": [
+        313,
+        239
+      ],
+      "next": "idle_main"
+    },
+    "emo_reassuring": {
+      "file": "emo_reassuring.webp",
+      "category": "emotions",
+      "kind": "oneshot",
+      "title": "Reassuring",
+      "frames": 49,
+      "columns": 28,
+      "frameWidth": 145,
+      "frameHeight": 250,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.4,
+      "poster": 24,
+      "origin": [
+        329,
+        249
+      ],
+      "next": "idle_main"
+    },
+    "emo_mischievous": {
+      "file": "emo_mischievous.webp",
+      "category": "emotions",
+      "kind": "oneshot",
+      "title": "Mischievous",
+      "frames": 53,
+      "columns": 27,
+      "frameWidth": 148,
+      "frameHeight": 251,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.6,
+      "poster": 26,
+      "origin": [
+        329,
+        247
+      ],
+      "next": "idle_main"
+    },
+    "emo_sad": {
+      "file": "emo_sad.webp",
+      "category": "emotions",
+      "kind": "oneshot",
+      "title": "Sad",
+      "frames": 57,
+      "columns": 28,
+      "frameWidth": 144,
+      "frameHeight": 250,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.8,
+      "poster": 28,
+      "origin": [
+        326,
+        249
+      ],
+      "next": "idle_main"
+    },
+    "emo_love": {
+      "file": "emo_love.webp",
+      "category": "emotions",
+      "kind": "oneshot",
+      "title": "Love",
+      "frames": 57,
+      "columns": 24,
+      "frameWidth": 167,
+      "frameHeight": 288,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.8,
+      "poster": 28,
+      "origin": [
+        317,
+        147
+      ],
+      "next": "idle_main"
+    },
+    "trv_backpack": {
+      "file": "trv_backpack.webp",
+      "category": "travel",
+      "kind": "base",
+      "title": "Wearing a backpack",
+      "frames": 60,
+      "columns": 24,
+      "frameWidth": 166,
+      "frameHeight": 253,
+      "fps": 20,
+      "loop": true,
+      "duration": 3,
+      "poster": 0,
+      "origin": [
+        287,
+        241
+      ]
+    },
+    "trv_passport": {
+      "file": "trv_passport.webp",
+      "category": "travel",
+      "kind": "base",
+      "title": "Holding a passport",
+      "frames": 60,
+      "columns": 25,
+      "frameWidth": 161,
+      "frameHeight": 250,
+      "fps": 20,
+      "loop": true,
+      "duration": 3,
+      "poster": 0,
+      "origin": [
+        329,
+        249
+      ]
+    },
+    "trv_map": {
+      "file": "trv_map.webp",
+      "category": "travel",
+      "kind": "base",
+      "title": "Looking at a map",
+      "frames": 80,
+      "columns": 23,
+      "frameWidth": 173,
+      "frameHeight": 251,
+      "fps": 20,
+      "loop": true,
+      "duration": 4,
+      "poster": 0,
+      "origin": [
+        329,
+        248
+      ]
+    },
+    "trv_suitcase": {
+      "file": "trv_suitcase.webp",
+      "category": "travel",
+      "kind": "base",
+      "title": "With a suitcase",
+      "frames": 60,
+      "columns": 20,
+      "frameWidth": 197,
+      "frameHeight": 250,
+      "fps": 20,
+      "loop": true,
+      "duration": 3,
+      "poster": 0,
+      "origin": [
+        209,
+        249
+      ]
+    },
+    "trv_photo": {
+      "file": "trv_photo.webp",
+      "category": "travel",
+      "kind": "oneshot",
+      "title": "Taking a photograph",
+      "frames": 53,
+      "columns": 25,
+      "frameWidth": 162,
+      "frameHeight": 250,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.6,
+      "poster": 26,
+      "origin": [
+        327,
+        249
+      ],
+      "next": "idle_main"
+    },
+    "trv_binoculars": {
+      "file": "trv_binoculars.webp",
+      "category": "travel",
+      "kind": "base",
+      "title": "Using binoculars",
+      "frames": 80,
+      "columns": 26,
+      "frameWidth": 154,
+      "frameHeight": 250,
+      "fps": 20,
+      "loop": true,
+      "duration": 4,
+      "poster": 0,
+      "origin": [
+        326,
+        249
+      ]
+    },
+    "trv_boarding_pass": {
+      "file": "trv_boarding_pass.webp",
+      "category": "travel",
+      "kind": "base",
+      "title": "Holding a boarding pass",
+      "frames": 60,
+      "columns": 17,
+      "frameWidth": 228,
+      "frameHeight": 253,
+      "fps": 20,
+      "loop": true,
+      "duration": 3,
+      "poster": 0,
+      "origin": [
+        329,
+        241
+      ]
+    },
+    "trv_explore": {
+      "file": "trv_explore.webp",
+      "category": "travel",
+      "kind": "base",
+      "title": "Exploring",
+      "frames": 80,
+      "columns": 22,
+      "frameWidth": 181,
+      "frameHeight": 281,
+      "fps": 20,
+      "loop": true,
+      "duration": 4,
+      "poster": 0,
+      "origin": [
+        301,
+        166
+      ]
+    },
+    "trv_raincoat": {
+      "file": "trv_raincoat.webp",
+      "category": "travel",
+      "kind": "base",
+      "title": "Wearing a raincoat",
+      "frames": 60,
+      "columns": 16,
+      "frameWidth": 245,
+      "frameHeight": 299,
+      "fps": 20,
+      "loop": true,
+      "duration": 3,
+      "poster": 0,
+      "origin": [
+        323,
+        120
+      ]
+    },
+    "trv_compass": {
+      "file": "trv_compass.webp",
+      "category": "travel",
+      "kind": "base",
+      "title": "Looking at a compass",
+      "frames": 60,
+      "columns": 24,
+      "frameWidth": 165,
+      "frameHeight": 250,
+      "fps": 20,
+      "loop": true,
+      "duration": 3,
+      "poster": 0,
+      "origin": [
+        324,
+        249
+      ]
+    },
+    "trv_take_off": {
+      "file": "trv_take_off.webp",
+      "category": "travel",
+      "kind": "oneshot",
+      "title": "Taking off",
+      "frames": 33,
+      "columns": 14,
+      "frameWidth": 291,
+      "frameHeight": 314,
+      "fps": 20,
+      "loop": false,
+      "duration": 1.6,
+      "poster": 16,
+      "origin": [
+        172,
+        79
+      ],
+      "next": "trv_fly",
+      "to": "trv_fly"
+    },
+    "trv_fly": {
+      "file": "trv_fly.webp",
+      "category": "travel",
+      "kind": "base",
+      "title": "Flying",
+      "frames": 16,
+      "columns": 14,
+      "frameWidth": 283,
+      "frameHeight": 313,
+      "fps": 20,
+      "loop": true,
+      "duration": 0.8,
+      "poster": 0,
+      "origin": [
+        192,
+        79
+      ],
+      "from": "flight"
+    },
+    "trv_land": {
+      "file": "trv_land.webp",
+      "category": "travel",
+      "kind": "oneshot",
+      "title": "Landing",
+      "frames": 33,
+      "columns": 14,
+      "frameWidth": 289,
+      "frameHeight": 314,
+      "fps": 20,
+      "loop": false,
+      "duration": 1.6,
+      "poster": 16,
+      "origin": [
+        140,
+        79
+      ],
+      "next": "idle_main",
+      "from": "trv_fly"
+    },
+    "trv_fly_in": {
+      "file": "trv_fly_in.webp",
+      "category": "travel",
+      "kind": "oneshot",
+      "title": "Flying in",
+      "frames": 49,
+      "columns": 7,
+      "frameWidth": 528,
+      "frameHeight": 318,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.4,
+      "poster": 48,
+      "origin": [
+        -532,
+        69
+      ],
+      "next": "idle_main",
+      "from": "off-screen left"
+    },
+    "trv_fly_out": {
+      "file": "trv_fly_out.webp",
+      "category": "travel",
+      "kind": "oneshot",
+      "title": "Flying out",
+      "frames": 49,
+      "columns": 7,
+      "frameWidth": 562,
+      "frameHeight": 344,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.4,
+      "poster": 0,
+      "origin": [
+        200,
+        -1
+      ],
+      "next": "trv_fly_in",
+      "to": "off-screen right"
+    },
+    "trv_new_landmark": {
+      "file": "trv_new_landmark.webp",
+      "category": "travel",
+      "kind": "oneshot",
+      "title": "New landmark",
+      "frames": 57,
+      "columns": 22,
+      "frameWidth": 183,
+      "frameHeight": 302,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.8,
+      "poster": 28,
+      "origin": [
+        280,
+        112
+      ],
+      "next": "trv_explore",
+      "from": "explorer outfit",
+      "to": "explorer outfit"
+    },
+    "rew_jump": {
+      "file": "rew_jump.webp",
+      "category": "rewards",
+      "kind": "oneshot",
+      "title": "Jumping",
+      "frames": 29,
+      "columns": 26,
+      "frameWidth": 155,
+      "frameHeight": 305,
+      "fps": 20,
+      "loop": false,
+      "duration": 1.4,
+      "poster": 14,
+      "origin": [
+        305,
+        102
+      ],
+      "next": "idle_main"
+    },
+    "rew_fly_excited": {
+      "file": "rew_fly_excited.webp",
+      "category": "rewards",
+      "kind": "base",
+      "title": "Flying with excitement",
+      "frames": 32,
+      "columns": 13,
+      "frameWidth": 306,
+      "frameHeight": 344,
+      "fps": 20,
+      "loop": true,
+      "duration": 1.6,
+      "poster": 0,
+      "origin": [
+        161,
+        -4
+      ]
+    },
+    "rew_celebrate": {
+      "file": "rew_celebrate.webp",
+      "category": "rewards",
+      "kind": "oneshot",
+      "title": "Celebrating",
+      "frames": 61,
+      "columns": 14,
+      "frameWidth": 289,
+      "frameHeight": 338,
+      "fps": 20,
+      "loop": false,
+      "duration": 3,
+      "poster": 30,
+      "origin": [
+        138,
+        16
+      ],
+      "next": "idle_main"
+    },
+    "rew_trophy": {
+      "file": "rew_trophy.webp",
+      "category": "rewards",
+      "kind": "base",
+      "title": "Holding a trophy",
+      "frames": 60,
+      "columns": 18,
+      "frameWidth": 225,
+      "frameHeight": 269,
+      "fps": 20,
+      "loop": true,
+      "duration": 3,
+      "poster": 0,
+      "origin": [
+        329,
+        199
+      ]
+    },
+    "rew_medal": {
+      "file": "rew_medal.webp",
+      "category": "rewards",
+      "kind": "base",
+      "title": "Wearing a medal",
+      "frames": 60,
+      "columns": 26,
+      "frameWidth": 155,
+      "frameHeight": 269,
+      "fps": 20,
+      "loop": true,
+      "duration": 3,
+      "poster": 0,
+      "origin": [
+        329,
+        198
+      ]
+    },
+    "rew_crown": {
+      "file": "rew_crown.webp",
+      "category": "rewards",
+      "kind": "base",
+      "title": "Wearing a crown",
+      "frames": 60,
+      "columns": 26,
+      "frameWidth": 157,
+      "frameHeight": 284,
+      "fps": 20,
+      "loop": true,
+      "duration": 3,
+      "poster": 0,
+      "origin": [
+        329,
+        158
+      ]
+    },
+    "rew_heart": {
+      "file": "rew_heart.webp",
+      "category": "rewards",
+      "kind": "base",
+      "title": "Showing a heart",
+      "frames": 60,
+      "columns": 24,
+      "frameWidth": 165,
+      "frameHeight": 284,
+      "fps": 20,
+      "loop": true,
+      "duration": 3,
+      "poster": 0,
+      "origin": [
+        329,
+        158
+      ]
+    },
+    "rew_confetti": {
+      "file": "rew_confetti.webp",
+      "category": "rewards",
+      "kind": "oneshot",
+      "title": "Throwing confetti",
+      "frames": 53,
+      "columns": 15,
+      "frameWidth": 257,
+      "frameHeight": 305,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.6,
+      "poster": 26,
+      "origin": [
+        172,
+        104
+      ],
+      "next": "idle_main"
+    },
+    "rew_gift": {
+      "file": "rew_gift.webp",
+      "category": "rewards",
+      "kind": "oneshot",
+      "title": "Receiving a gift",
+      "frames": 61,
+      "columns": 25,
+      "frameWidth": 163,
+      "frameHeight": 268,
+      "fps": 20,
+      "loop": false,
+      "duration": 3,
+      "poster": 30,
+      "origin": [
+        329,
+        202
+      ],
+      "next": "idle_main",
+      "to": "holding the gift"
+    },
+    "rew_streak": {
+      "file": "rew_streak.webp",
+      "category": "rewards",
+      "kind": "oneshot",
+      "title": "Celebrating a streak",
+      "frames": 57,
+      "columns": 14,
+      "frameWidth": 282,
+      "frameHeight": 318,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.8,
+      "poster": 28,
+      "origin": [
+        211,
+        67
+      ],
+      "next": "idle_main"
+    },
+    "rew_level_up": {
+      "file": "rew_level_up.webp",
+      "category": "rewards",
+      "kind": "oneshot",
+      "title": "Level up",
+      "frames": 57,
+      "columns": 14,
+      "frameWidth": 279,
+      "frameHeight": 294,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.8,
+      "poster": 28,
+      "origin": [
+        153,
+        133
+      ],
+      "next": "idle_main"
+    },
+    "rx_startled": {
+      "file": "rx_startled.webp",
+      "category": "reactions",
+      "kind": "oneshot",
+      "title": "Startled",
+      "frames": 29,
+      "columns": 15,
+      "frameWidth": 268,
+      "frameHeight": 275,
+      "fps": 20,
+      "loop": false,
+      "duration": 1.4,
+      "poster": 14,
+      "origin": [
+        159,
+        184
+      ],
+      "next": "idle_main"
+    },
+    "rx_suspicious": {
+      "file": "rx_suspicious.webp",
+      "category": "reactions",
+      "kind": "base",
+      "title": "Suspicious",
+      "frames": 64,
+      "columns": 26,
+      "frameWidth": 153,
+      "frameHeight": 250,
+      "fps": 20,
+      "loop": true,
+      "duration": 3.2,
+      "poster": 0,
+      "origin": [
+        329,
+        249
+      ]
+    },
+    "rx_hide": {
+      "file": "rx_hide.webp",
+      "category": "reactions",
+      "kind": "oneshot",
+      "title": "Hiding",
+      "frames": 53,
+      "columns": 22,
+      "frameWidth": 186,
+      "frameHeight": 250,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.6,
+      "poster": 26,
+      "origin": [
+        322,
+        249
+      ],
+      "next": "idle_main"
+    },
+    "rx_peek": {
+      "file": "rx_peek.webp",
+      "category": "reactions",
+      "kind": "oneshot",
+      "title": "Peeking",
+      "frames": 61,
+      "columns": 16,
+      "frameWidth": 246,
+      "frameHeight": 392,
+      "fps": 20,
+      "loop": false,
+      "duration": 3,
+      "poster": 30,
+      "origin": [
+        -8,
+        -11
+      ],
+      "next": "rx_peek",
+      "from": "behind the wall",
+      "to": "behind the wall"
+    },
+    "rx_lose_balance": {
+      "file": "rx_lose_balance.webp",
+      "category": "reactions",
+      "kind": "oneshot",
+      "title": "Losing balance",
+      "frames": 49,
+      "columns": 13,
+      "frameWidth": 311,
+      "frameHeight": 251,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.4,
+      "poster": 24,
+      "origin": [
+        105,
+        248
+      ],
+      "next": "idle_main"
+    },
+    "rx_dizzy": {
+      "file": "rx_dizzy.webp",
+      "category": "reactions",
+      "kind": "base",
+      "title": "Dizzy",
+      "frames": 48,
+      "columns": 23,
+      "frameWidth": 171,
+      "frameHeight": 289,
+      "fps": 20,
+      "loop": true,
+      "duration": 2.4,
+      "poster": 0,
+      "origin": [
+        313,
+        145
+      ]
+    },
+    "rx_fall_asleep": {
+      "file": "rx_fall_asleep.webp",
+      "category": "reactions",
+      "kind": "oneshot",
+      "title": "Falling asleep",
+      "frames": 73,
+      "columns": 27,
+      "frameWidth": 151,
+      "frameHeight": 250,
+      "fps": 20,
+      "loop": false,
+      "duration": 3.6,
+      "poster": 36,
+      "origin": [
+        326,
+        249
+      ],
+      "next": "idle_sleep",
+      "to": "idle_sleep"
+    },
+    "rx_disappointed": {
+      "file": "rx_disappointed.webp",
+      "category": "reactions",
+      "kind": "oneshot",
+      "title": "Looking disappointed",
+      "frames": 57,
+      "columns": 27,
+      "frameWidth": 148,
+      "frameHeight": 250,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.8,
+      "poster": 28,
+      "origin": [
+        314,
+        249
+      ],
+      "next": "idle_main"
+    },
+    "rx_dramatic_surprise": {
+      "file": "rx_dramatic_surprise.webp",
+      "category": "reactions",
+      "kind": "oneshot",
+      "title": "Dramatic surprise",
+      "frames": 49,
+      "columns": 15,
+      "frameWidth": 273,
+      "frameHeight": 297,
+      "fps": 20,
+      "loop": false,
+      "duration": 2.4,
+      "poster": 24,
+      "origin": [
+        154,
+        125
+      ],
+      "next": "idle_main"
+    },
+    "rx_dance": {
+      "file": "rx_dance.webp",
+      "category": "reactions",
+      "kind": "base",
+      "title": "Playful dancing",
+      "frames": 40,
+      "columns": 15,
+      "frameWidth": 270,
+      "frameHeight": 286,
+      "fps": 20,
+      "loop": true,
+      "duration": 2,
+      "poster": 0,
+      "origin": [
+        150,
+        153
+      ]
+    },
+    "rx_offline": {
+      "file": "rx_offline.webp",
+      "category": "reactions",
+      "kind": "base",
+      "title": "Offline / confused",
+      "frames": 64,
+      "columns": 24,
+      "frameWidth": 170,
+      "frameHeight": 273,
+      "fps": 20,
+      "loop": true,
+      "duration": 3.2,
+      "poster": 0,
+      "origin": [
+        329,
+        188
+      ]
+    },
+    "idle_main": {
+      "file": "idle_main.webp",
+      "category": "idle",
+      "kind": "base",
+      "title": "Main idle",
+      "frames": 120,
+      "columns": 24,
+      "frameWidth": 164,
+      "frameHeight": 253,
+      "fps": 15,
+      "loop": true,
+      "duration": 8,
+      "poster": 0,
+      "origin": [
+        320,
+        241
+      ]
+    }
+  }
+}

@@ -1,0 +1,383 @@
+coco.png
+	size: 2048, 2048
+	filter: Linear, Linear
+	pma: true
+fxGlow
+	bounds: 2, 1038, 666, 666
+boardLegs
+	bounds: 670, 1088, 202, 299
+boardFrame
+	bounds: 1088, 820, 254, 194
+boardSurface
+	bounds: 960, 1503, 228, 164
+boardTray
+	bounds: 874, 1353, 236, 14
+chalkA1
+	bounds: 1073, 2, 39, 106
+chalkA2
+	bounds: 1073, 110, 39, 106
+chalkA3
+	bounds: 1112, 1353, 42, 14
+chalka1
+	bounds: 1117, 578, 36, 42
+chalka2
+	bounds: 2024, 1979, 22, 28
+chalka3
+	bounds: 2032, 596, 14, 56
+chalkLine
+	bounds: 670, 1692, 130, 12
+shadow
+	bounds: 670, 1654, 270, 36
+tailF3
+	bounds: 1964, 138, 62, 132
+tailF2
+	bounds: 1946, 857, 91, 152
+tailF1
+	bounds: 1513, 1794, 135, 146
+wingL
+	bounds: 948, 489, 167, 312
+wingLCovert
+	bounds: 1157, 595, 302, 223
+legL
+	bounds: 2018, 1847, 27, 65
+footL
+	bounds: 762, 1989, 105, 41
+legR
+	bounds: 2017, 1434, 29, 72
+footR
+	bounds: 1663, 1443, 96, 38
+backpackBody
+	bounds: 1461, 581, 174, 224
+backpackFlap
+	bounds: 1391, 1537, 156, 74
+backpackPocket
+	bounds: 1938, 1936, 84, 84
+backpackBuckle
+	bounds: 1117, 2, 35, 114
+body
+	bounds: 1157, 192, 244, 401
+thighShade
+	bounds: 1073, 306, 66, 86
+chestScallops
+	bounds: 670, 909, 110, 173
+backpackStrap
+	bounds: 1528, 807, 57, 206
+raincoatBody
+	bounds: 1710, 2, 252, 412
+raincoatButtons
+	bounds: 2017, 1308, 26, 124
+suitcaseHandle
+	bounds: 1034, 1989, 64, 38
+suitcaseBody
+	bounds: 1443, 1613, 154, 124
+suitcaseStraps
+	bounds: 1549, 1484, 88, 124
+suitcaseSticker1
+	bounds: 1821, 1643, 34, 32
+suitcaseSticker2
+	bounds: 1668, 2015, 36, 28
+pencilEraser
+	bounds: 1994, 1650, 26, 26
+pencilFerrule
+	bounds: 1595, 1767, 27, 25
+pencilWood
+	bounds: 1711, 1878, 26, 29
+pointerStick
+	bounds: 1157, 1669, 134, 220
+chalkStick
+	bounds: 1459, 1992, 30, 52
+pencilLead
+	bounds: 577, 1940, 14, 20
+pointerTip
+	bounds: 1140, 1686, 15, 15
+wingR
+	bounds: 1403, 192, 249, 336
+wingRCovert
+	bounds: 1654, 416, 304, 257
+bookPages
+	bounds: 1604, 1138, 158, 156
+dictionaryPages
+	bounds: 1765, 1017, 159, 157
+bookCover
+	bounds: 1785, 857, 159, 158
+dictionaryCover
+	bounds: 1604, 978, 159, 158
+passportCover
+	bounds: 1887, 1443, 128, 119
+mapPaper
+	bounds: 1196, 1316, 195, 219
+compassCase
+	bounds: 1940, 1756, 89, 89
+heartBig
+	bounds: 1599, 1643, 120, 122
+giftBox
+	bounds: 1763, 1430, 122, 130
+mapFolds
+	bounds: 1164, 1016, 202, 226
+bookSpine
+	bounds: 1347, 1955, 110, 71
+dictionarySpine
+	bounds: 1629, 1942, 110, 71
+passportGlobe
+	bounds: 1114, 163, 39, 39
+mapSea
+	bounds: 1761, 1755, 85, 99
+heartShine
+	bounds: 1627, 1296, 23, 33
+giftLid
+	bounds: 1964, 272, 82, 116
+mapLand
+	bounds: 1960, 416, 84, 178
+bookEmblem
+	bounds: 1293, 1796, 51, 50
+passportGlobeIn
+	bounds: 2017, 1508, 29, 29
+mapRoute
+	bounds: 1368, 1039, 16, 136
+compassNorth
+	bounds: 1117, 735, 38, 28
+compassSouth
+	bounds: 1117, 765, 37, 29
+giftRibbon
+	bounds: 1763, 1323, 132, 105
+bookEmblemLand
+	bounds: 1459, 1955, 52, 35
+dictionaryLabelText
+	bounds: 1117, 482, 35, 46
+passportLines
+	bounds: 1100, 1989, 63, 55
+mapPin
+	bounds: 1393, 1303, 35, 27
+compassPin
+	bounds: 942, 1654, 13, 13
+mapPinDot
+	bounds: 1857, 1663, 13, 13
+scarfTail
+	bounds: 1975, 596, 55, 147
+medalRibbonL
+	bounds: 1650, 1484, 100, 130
+medalRibbonR
+	bounds: 1964, 2, 68, 134
+scarfBand
+	bounds: 1403, 530, 249, 49
+scarfStripes
+	bounds: 438, 909, 211, 120
+medalDisc
+	bounds: 1650, 1878, 59, 58
+medalStar
+	bounds: 1211, 1989, 36, 35
+napeLobes
+	bounds: 1911, 1308, 94, 133
+head
+	bounds: 874, 1088, 288, 263
+crownLight
+	bounds: 670, 1389, 288, 263
+headScallops
+	bounds: 1926, 1170, 117, 136
+raincoatHood
+	bounds: 787, 803, 299, 283
+facePatch
+	bounds: 1388, 1039, 214, 207
+blush
+	bounds: 1964, 390, 40, 24
+eyeRing
+	bounds: 1721, 1643, 98, 110
+eyeHighlight
+	bounds: 1994, 1594, 26, 26
+eyeHighlight2
+	bounds: 1114, 204, 12, 12
+brow
+	bounds: 874, 1369, 70, 17
+mouthInside
+	bounds: 1850, 1875, 72, 59
+sunglassesLens
+	bounds: 1940, 1678, 92, 76
+sunglassesFrame
+	bounds: 787, 764, 137, 26
+sunglassesShine
+	bounds: 1994, 1564, 30, 28
+tongue
+	bounds: 1211, 2028, 37, 18
+explorerBrim
+	bounds: 276, 1983, 246, 62
+pilotCrown
+	bounds: 1190, 1537, 199, 85
+gradCapBody
+	bounds: 1443, 1739, 150, 53
+headphonesBand
+	bounds: 1587, 807, 196, 169
+crownBody
+	bounds: 1443, 1248, 156, 82
+explorerDome
+	bounds: 1157, 1891, 188, 96
+pilotBand
+	bounds: 942, 1669, 196, 32
+gradCapBoard
+	bounds: 1164, 1244, 222, 70
+headphonesCup
+	bounds: 1073, 218, 67, 86
+crownBalls
+	bounds: 1637, 763, 144, 35
+explorerBand
+	bounds: 276, 1940, 186, 34
+pilotVisor
+	bounds: 464, 1940, 111, 34
+gradCapTassel
+	bounds: 1850, 1936, 86, 85
+headphonesPad
+	bounds: 1741, 1985, 35, 60
+crownGemR
+	bounds: 926, 764, 20, 18
+crownGemB
+	bounds: 2024, 2009, 22, 20
+crownGemG
+	bounds: 1857, 1643, 20, 18
+pilotBadge
+	bounds: 1599, 1616, 86, 24
+mouthLine
+	bounds: 1190, 1624, 71, 35
+beakUpper
+	bounds: 1926, 1017, 110, 151
+beakSheen
+	bounds: 961, 1989, 71, 49
+nostril
+	bounds: 577, 1962, 14, 14
+umbrellaShaft
+	bounds: 960, 1369, 234, 132
+umbrellaHook
+	bounds: 1117, 530, 32, 46
+trophyHandles
+	bounds: 1663, 1296, 98, 145
+cardBase
+	bounds: 1785, 675, 188, 180
+notepadPaper
+	bounds: 1347, 1796, 164, 157
+ticketBase
+	bounds: 1293, 1624, 148, 170
+umbrellaCanopy
+	bounds: 1368, 820, 158, 217
+trophyCup
+	bounds: 1741, 1878, 107, 105
+streakBadge
+	bounds: 1650, 1767, 109, 109
+cardHeader
+	bounds: 1393, 1332, 128, 151
+notepadLines
+	bounds: 1523, 1332, 138, 150
+ticketStub
+	bounds: 1513, 1942, 114, 99
+umbrellaTip
+	bounds: 1765, 978, 18, 15
+trophyStar
+	bounds: 1117, 664, 38, 38
+streakFlame
+	bounds: 1088, 1016, 74, 56
+cardPicture
+	bounds: 1249, 1989, 35, 35
+cardLines
+	bounds: 1848, 1678, 90, 97
+notepadSpiral
+	bounds: 1073, 394, 64, 86
+ticketPlane
+	bounds: 1114, 118, 40, 43
+ticketLines
+	bounds: 1393, 1248, 46, 53
+streakFlameIn
+	bounds: 1629, 2015, 37, 29
+cameraTop
+	bounds: 2006, 390, 40, 24
+binocularsBack
+	bounds: 643, 1989, 117, 44
+cameraButton
+	bounds: 1088, 803, 23, 15
+cameraBody
+	bounds: 1752, 1562, 125, 79
+binocularsFront
+	bounds: 524, 1989, 117, 45
+cameraLensRing
+	bounds: 1778, 1985, 59, 59
+binocularsBridge
+	bounds: 1706, 2015, 32, 27
+cameraLens
+	bounds: 1293, 1848, 40, 41
+binocularsLenses
+	bounds: 2024, 1914, 21, 63
+cameraGlint
+	bounds: 1140, 1669, 15, 15
+fxBulbGlow
+	bounds: 1879, 1564, 113, 112
+fxHearts
+	bounds: 2, 1940, 272, 100
+fxQuestion
+	bounds: 1975, 745, 66, 99
+fxBulbRays
+	bounds: 1637, 675, 144, 86
+fxDot1
+	bounds: 1624, 1767, 24, 24
+fxDot2
+	bounds: 1994, 1622, 26, 26
+fxDot3
+	bounds: 1711, 1909, 28, 26
+fxSparkle
+	bounds: 438, 764, 347, 143
+fxZ1
+	bounds: 1263, 1624, 26, 30
+fxZ2
+	bounds: 1117, 622, 34, 40
+fxZ3
+	bounds: 1165, 1989, 44, 50
+fxSweat
+	bounds: 1164, 1316, 30, 43
+fxTear
+	bounds: 1601, 1296, 24, 34
+fxDizzy
+	bounds: 869, 1989, 90, 48
+fxNotes
+	bounds: 1848, 1777, 79, 96
+fxSweatShine
+	bounds: 946, 1369, 12, 16
+fxDizzyStars
+	bounds: 1393, 1485, 137, 47
+fxBulbBase
+	bounds: 1117, 704, 38, 29
+fxStars
+	bounds: 438, 2, 633, 485
+fxConfettiR
+	bounds: 1157, 2, 551, 188
+fxConfettiY
+	bounds: 438, 489, 508, 273
+fxConfettiB
+	bounds: 2, 1706, 589, 232
+fxConfettiG
+	bounds: 593, 1706, 562, 275
+fxFlashGlow
+	bounds: 1764, 1176, 145, 145
+fxFlashStar
+	bounds: 1929, 1847, 87, 87
+wallPanel
+	bounds: 2, 2, 414, 1034
+wallEdge
+	bounds: 418, 2, 18, 1034
+
+coco_2.png
+	size: 256, 256
+	filter: Linear, Linear
+	pma: true
+pencilBody
+	bounds: 2, 82, 56, 81
+compassFace
+	bounds: 122, 77, 69, 69
+dictionaryLabel
+	bounds: 2, 165, 62, 76
+eye
+	bounds: 60, 82, 60, 76
+beakLower
+	bounds: 85, 2, 75, 73
+trophyStem
+	bounds: 66, 160, 72, 75
+ticketBars
+	bounds: 193, 67, 55, 58
+fxAlert
+	bounds: 2, 2, 81, 78
+fxBulbGlass
+	bounds: 162, 2, 62, 63

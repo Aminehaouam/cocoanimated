@@ -1,0 +1,245 @@
+{
+  "command": "rev2d export spine rev2d/models/coco.r2d.json -o exports/spine --name coco --anim idle_main,emo_happy,comm_greet,edu_celebrate_correct",
+  "report": {
+    "format": "spine",
+    "direction": "export",
+    "issues": [
+      {
+        "severity": "info",
+        "code": "spine-root-renamed",
+        "message": "the synthetic Spine root bone is \"rev2d-root\" because a Rev2D bone is already called \"root\"",
+        "where": "bones"
+      },
+      {
+        "severity": "info",
+        "code": "spine-morph-baked",
+        "message": "shape animation of part \"wingL\" is baked into deform timelines (the texture is drawn from its largest state)",
+        "where": "parts.wingL"
+      },
+      {
+        "severity": "info",
+        "code": "spine-gradient-morph",
+        "message": "part \"wingL\" has a gradient fill and a changing shape: Rev2D evaluates the gradient at the moved vertices, Spine stretches the texture with the mesh, so colors near the moving edges differ slightly",
+        "where": "parts.wingL",
+        "hint": "use a solid fill (or a texture) on parts whose shape is animated for an exact match"
+      },
+      {
+        "severity": "info",
+        "code": "spine-morph-baked",
+        "message": "shape animation of part \"wingLCovert\" is baked into deform timelines (the texture is drawn from its largest state)",
+        "where": "parts.wingLCovert"
+      },
+      {
+        "severity": "info",
+        "code": "spine-morph-baked",
+        "message": "shape animation of part \"wingR\" is baked into deform timelines (the texture is drawn from its largest state)",
+        "where": "parts.wingR"
+      },
+      {
+        "severity": "info",
+        "code": "spine-gradient-morph",
+        "message": "part \"wingR\" has a gradient fill and a changing shape: Rev2D evaluates the gradient at the moved vertices, Spine stretches the texture with the mesh, so colors near the moving edges differ slightly",
+        "where": "parts.wingR",
+        "hint": "use a solid fill (or a texture) on parts whose shape is animated for an exact match"
+      },
+      {
+        "severity": "info",
+        "code": "spine-morph-baked",
+        "message": "shape animation of part \"wingRCovert\" is baked into deform timelines (the texture is drawn from its largest state)",
+        "where": "parts.wingRCovert"
+      },
+      {
+        "severity": "info",
+        "code": "spine-gradient-morph",
+        "message": "part \"wingRCovert\" has a gradient fill and a changing shape: Rev2D evaluates the gradient at the moved vertices, Spine stretches the texture with the mesh, so colors near the moving edges differ slightly",
+        "where": "parts.wingRCovert",
+        "hint": "use a solid fill (or a texture) on parts whose shape is animated for an exact match"
+      },
+      {
+        "severity": "info",
+        "code": "spine-morph-baked",
+        "message": "shape animation of part \"eye\" is baked into deform timelines (the texture is drawn from its largest state)",
+        "where": "parts.eye"
+      },
+      {
+        "severity": "info",
+        "code": "spine-morph-baked",
+        "message": "shape animation of part \"eyeHighlight\" is baked into deform timelines (the texture is drawn from its largest state)",
+        "where": "parts.eyeHighlight"
+      },
+      {
+        "severity": "info",
+        "code": "spine-morph-baked",
+        "message": "shape animation of part \"mouthInside\" is baked into deform timelines (the texture is drawn from its largest state)",
+        "where": "parts.mouthInside"
+      },
+      {
+        "severity": "info",
+        "code": "spine-morph-baked",
+        "message": "shape animation of part \"mouthLine\" is baked into deform timelines (the texture is drawn from its largest state)",
+        "where": "parts.mouthLine"
+      },
+      {
+        "severity": "info",
+        "code": "spine-mask-clipping",
+        "message": "mask \"wingL\" of \"wingLCovert\" is a clipping attachment traced from its coverage (hard edge at 50% alpha)",
+        "where": "parts.wingLCovert"
+      },
+      {
+        "severity": "info",
+        "code": "spine-mask-clipping",
+        "message": "mask \"body\" of \"thighShade\", \"chestScallops\" is a clipping attachment traced from its coverage (hard edge at 50% alpha)",
+        "where": "parts.thighShade,chestScallops"
+      },
+      {
+        "severity": "info",
+        "code": "spine-mask-clipping",
+        "message": "mask \"wingR\" of \"wingRCovert\" is a clipping attachment traced from its coverage (hard edge at 50% alpha)",
+        "where": "parts.wingRCovert"
+      },
+      {
+        "severity": "info",
+        "code": "spine-mask-clipping",
+        "message": "mask \"mapPaper\" of \"mapFolds\" is a clipping attachment traced from its coverage (hard edge at 50% alpha)",
+        "where": "parts.mapFolds"
+      },
+      {
+        "severity": "info",
+        "code": "spine-mask-clipping",
+        "message": "mask \"mapPaper\" of \"mapSea\" is a clipping attachment traced from its coverage (hard edge at 50% alpha)",
+        "where": "parts.mapSea"
+      },
+      {
+        "severity": "info",
+        "code": "spine-mask-clipping",
+        "message": "mask \"mapPaper\" of \"mapLand\" is a clipping attachment traced from its coverage (hard edge at 50% alpha)",
+        "where": "parts.mapLand"
+      },
+      {
+        "severity": "info",
+        "code": "spine-mask-clipping",
+        "message": "mask \"bookEmblem\" of \"bookEmblemLand\" is a clipping attachment traced from its coverage (hard edge at 50% alpha)",
+        "where": "parts.bookEmblemLand"
+      },
+      {
+        "severity": "warning",
+        "code": "spine-mask-union",
+        "message": "\"scarfStripes\" are masked by several parts (\"scarfBand\", \"scarfTail\"); Spine clips to one polygon, so only \"scarfBand\" (the largest) is used",
+        "where": "parts.scarfStripes",
+        "hint": "merge the mask parts into one"
+      },
+      {
+        "severity": "info",
+        "code": "spine-mask-clipping",
+        "message": "mask \"scarfBand\" of \"scarfStripes\" is a clipping attachment traced from its coverage (hard edge at 50% alpha)",
+        "where": "parts.scarfStripes"
+      },
+      {
+        "severity": "info",
+        "code": "spine-mask-clipping",
+        "message": "mask \"head\" of \"headScallops\" is a clipping attachment traced from its coverage (hard edge at 50% alpha)",
+        "where": "parts.headScallops"
+      },
+      {
+        "severity": "info",
+        "code": "spine-mask-clipping",
+        "message": "mask \"head\" of \"facePatch\" is a clipping attachment traced from its coverage (hard edge at 50% alpha)",
+        "where": "parts.facePatch"
+      },
+      {
+        "severity": "info",
+        "code": "spine-mask-clipping",
+        "message": "mask \"eye\" of \"eyeHighlight\", \"eyeHighlight2\" is a clipping attachment traced from its coverage (hard edge at 50% alpha)",
+        "where": "parts.eyeHighlight,eyeHighlight2"
+      },
+      {
+        "severity": "info",
+        "code": "spine-mask-clipping",
+        "message": "mask \"mouthInside\" of \"tongue\" is a clipping attachment traced from its coverage (hard edge at 50% alpha)",
+        "where": "parts.tongue"
+      },
+      {
+        "severity": "info",
+        "code": "spine-mask-clipping",
+        "message": "mask \"beakUpper\" of \"beakSheen\" is a clipping attachment traced from its coverage (hard edge at 50% alpha)",
+        "where": "parts.beakSheen"
+      },
+      {
+        "severity": "info",
+        "code": "spine-mask-clipping",
+        "message": "mask \"cardBase\" of \"cardHeader\" is a clipping attachment traced from its coverage (hard edge at 50% alpha)",
+        "where": "parts.cardHeader"
+      },
+      {
+        "severity": "info",
+        "code": "spine-mask-clipping",
+        "message": "mask \"notepadPaper\" of \"notepadLines\" is a clipping attachment traced from its coverage (hard edge at 50% alpha)",
+        "where": "parts.notepadLines"
+      },
+      {
+        "severity": "info",
+        "code": "spine-mask-clipping",
+        "message": "mask \"ticketBase\" of \"ticketStub\" is a clipping attachment traced from its coverage (hard edge at 50% alpha)",
+        "where": "parts.ticketStub"
+      },
+      {
+        "severity": "info",
+        "code": "spine-morph-unweighted",
+        "message": "part \"eye\" morphs inside a warp; it is exported as an unweighted mesh whose deform timelines carry both the warp and the morph (smaller than per-influence offsets)",
+        "where": "parts.eye"
+      },
+      {
+        "severity": "info",
+        "code": "spine-morph-unweighted",
+        "message": "part \"eyeHighlight\" morphs inside a warp; it is exported as an unweighted mesh whose deform timelines carry both the warp and the morph (smaller than per-influence offsets)",
+        "where": "parts.eyeHighlight"
+      },
+      {
+        "severity": "info",
+        "code": "spine-physics-baked",
+        "message": "1 physics group(s) are baked into the animations (looping animations start in the steady state: idle_main after 1 cycle(s)); Spine gets no physics constraints",
+        "where": "physics"
+      },
+      {
+        "severity": "info",
+        "code": "spine-warp-bones",
+        "message": "10 warp deformer(s) have no Spine equivalent: their 115 used lattice point(s) are exported as bones, and the 38 part(s) inside warps as meshes weighted with the bilinear weights (exact); warp motion is baked into those bones' translate timelines",
+        "where": "warps"
+      },
+      {
+        "severity": "info",
+        "code": "spine-parameters-baked",
+        "message": "89 parameter(s) are not Spine runtime controls; their effect exists only in the baked animations (export with paramPoses for one-frame min/max poses)",
+        "where": "parameters"
+      },
+      {
+        "severity": "info",
+        "code": "spine-animations-sampled",
+        "message": "animations are sampled at 30 fps plus their key times and reduced to linear / B\u00e9zier keys within 0.05 px or degrees",
+        "where": "animations"
+      },
+      {
+        "severity": "info",
+        "code": "spine-animation-once",
+        "message": "Spine animations have no loop flag; play emo_happy, comm_greet, edu_celebrate_correct without looping",
+        "where": "animations"
+      }
+    ],
+    "stats": {
+      "animations": 4,
+      "attachments": 187,
+      "bones": 176,
+      "clippingAttachments": 16,
+      "deformKeys": 748,
+      "deformTimelines": 42,
+      "events": 0,
+      "ik": 0,
+      "keys": 3584,
+      "keysSampled": 100598,
+      "latticeBones": 115,
+      "morphedParts": 8,
+      "pages": 2,
+      "slots": 203
+    }
+  }
+}

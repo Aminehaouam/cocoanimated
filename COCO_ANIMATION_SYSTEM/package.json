@@ -7,7 +7,10 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "node ${REV2D_HOME:-../../Rev2D}/node_modules/tsx/dist/cli.mjs rev2d/source/build.ts",
-    "qc": "node ${REV2D_HOME:-../../Rev2D}/node_modules/tsx/dist/cli.mjs rev2d/source/qc.ts"
+    "qc": "node ${REV2D_HOME:-../../Rev2D}/node_modules/tsx/dist/cli.mjs rev2d/source/qc.ts",
+    "export": "node ${REV2D_HOME:-../../Rev2D}/node_modules/tsx/dist/cli.mjs rev2d/source/export.ts",
+    "webp": "python3 rev2d/source/to_webp.py",
+    "test:scenarios": "node web/scenario-test.mjs"
   },
   "engines": {
     "node": ">=22"

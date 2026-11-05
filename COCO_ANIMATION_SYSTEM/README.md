@@ -13,9 +13,10 @@ character/        master/ (palette, landmarks, references, renders) · parts/ (l
 accessories/      education/ · travel/ · clothing/ · rewards/            props as separate rig parts
 animations/       idle/ · emotions/ · communication/ · education/ · travel/ · rewards/ · reactions/
 rev2d/            models/coco.r2d.json (generated) · rigs/ (skeleton, controls) · source/ (build, qc, export)
-exports/          png_sequences/ · spritesheets/ · gifs/ · spine/
-previews/         contact_sheets/
-documentation/    implementation_plan.md · character_specification.md · animation_catalog.md · integration_guide.md
+exports/          spritesheets/ (WebP + manifest, used by the app) · gifs/ (previews) · spine/ (evaluation sample) · png_sequences/ (on demand)
+web/              coco-player.js (+ .d.ts) · presets.json · demo.html · scenario-test.mjs
+previews/         contact_sheets/ · rig/ · review/ · reports/ · scenarios/
+documentation/    implementation_plan.md · character_specification.md · rig_reference.md · animation_catalog.md · integration_guide.md
 ```
 
 Sources are TypeScript; the model is generated. Never hand-edit `rev2d/models/coco.r2d.json`.
@@ -33,8 +34,30 @@ git clone https://github.com/RevStudio/Rev2D.git ../Rev2D && (cd ../Rev2D && npm
 cd COCO_ANIMATION_SYSTEM && npm run build && npm run qc
 ```
 
+```bash
+npm run export && npm run webp && npm run test:scenarios
+```
+
 `build` assembles the model with Rev2D's edit ops and refuses to write it with validation errors;
-`qc` renders the evidence images (master comparison, layers, and later sweeps and contact sheets).
+`qc` renders the evidence (master comparison, layers, rig sweeps, contact sheets, GIF previews,
+`analyze` reports) and rewrites the animation catalogue; `export` renders the spritesheets and their
+manifest, `webp` converts them, and `test:scenarios` plays every app preset in headless Chromium
+(Python 3 with Pillow for `webp`; Playwright for the test).
+
+## Use in the app
+
+```js
+import { CocoPlayer } from './coco-player.js';
+const coco = await CocoPlayer.create(document.querySelector('#coco'), {
+  manifestUrl: '/coco/v1/spritesheets/manifest.json',
+  presetsUrl: '/coco/v1/presets.json',
+});
+coco.play('correct');
+```
+
+Everything else (files to ship, all presets, API, React and Vue examples, sizing, accessibility,
+loading, testing, the export formats evaluated) is in `documentation/integration_guide.md`. To try
+it: run `python3 -m http.server` in this folder and open `http://localhost:8000/web/demo.html`.
 
 The Rev2D MCP server can inspect the model too (`claude mcp add rev2d -- node <Rev2D>/bin/rev2d.js mcp`,
 then `rev2d_validate`, `rev2d_render`, `rev2d_sheet`, `rev2d_inspect`, `rev2d_analyze`).
@@ -49,8 +72,8 @@ then `rev2d_validate`, `rev2d_render`, `rev2d_sheet`, `rev2d_inspect`, `rev2d_an
 | 4 | Communication + education | ✅ done | `previews/review/communication_*.png`, `previews/review/education_*.png`, catalogue |
 | 5 | Emotions, travel, rewards, reactions | ✅ done | `previews/review/*.png`, catalogue (90 animations, all verified) |
 | 6 | Accessories | ✅ done (47 accessories, effects and scene props) | `accessories/`, `character/expressions/marks.ts` |
-| 7 | Exports + web player + app integration | ⏳ (needs the app repository) | |
-| 8 | Scenario tests + final catalogue | ⏳ | |
+| 7 | Exports, web player, app presets, integration guide | ✅ done (wiring into the app's own screens needs its repository) | `exports/spritesheets/`, `web/`, `documentation/integration_guide.md`, `exports/spine/` |
+| 8 | Scenario tests + final visual catalogue | ✅ done (31/31 presets, 7 player checks, 2 stages) | `previews/scenarios/overview.png`, `previews/scenarios/results.json` |
 
 ### Phase 1 notes
 
@@ -129,6 +152,41 @@ then `rev2d_validate`, `rev2d_render`, `rev2d_sheet`, `rev2d_inspect`, `rev2d_an
   the body and head warps.
 - Tuned with `analyze`: the tail pendulum's inputs and output scale were set so even the fastest
   clip (flying in from off-screen) never pins the tail at its limit.
+
+### Phase 7 notes
+
+- **Spritesheets:** every clip rendered by Rev2D (`npm run export`), cropped to its own bounds with
+  its canvas offset in the manifest, so all clips share Coco's ground anchor. Loops are pre-rolled
+  for physics and drop their duplicate end frame; overlay clips (talk) are baked over the idle. 90
+  WebP sheets, 17.3 MB in all, 54–474 KB each; first paint (manifest + idle) ≈ 370 KB. Each clip
+  also names a **poster frame** for reduced motion.
+- **Player** (`web/coco-player.js`, 15 KB, no dependencies, TypeScript declarations): presets or
+  clip ids, sequences with follow-ups, safe interruption (the previous clip keeps playing while the
+  next sheet loads), running loops are not restarted, mirroring, reduced motion, accessible label,
+  events, a bounded sheet cache, and a renderer interface for another technology later.
+- **Presets** (`web/presets.json`, 31): the 16 scenarios of the brief (voice chat as listen, think
+  and talk) plus 13 more, such as `show_correction`, `level_up`, `hint`, `sleep` and `wake_up`, as data.
+- **Formats evaluated with real exports:** WebP spritesheets chosen; PNG sequences on demand; GIFs
+  for previews; a Spine 4.2 sample (`exports/spine/`) measured at 6.9 MB of JSON for 4 clips,
+  hard-edged masks and a licence requirement, so not adopted; Live2D motions do not apply (no
+  Cubism model).
+- **Not done:** wiring Coco into the app's real screens. No app repository was available; the
+  guide has drop-in React, Vue and plain JavaScript examples.
+
+### Phase 8 notes
+
+- `npm run test:scenarios` drives the real player in headless Chromium: all **31 presets** start
+  their clips in order, draw Coco and hand over to the right follow-up. Seven player checks pass
+  (interruption, keeping a running loop, `then: false`, mirroring, reduced motion, events on one
+  pass and across a loop, a missing sheet), and so do the bust and character stages, with no page
+  or console errors.
+- Final visual catalogue: `previews/scenarios/overview.png` (one key pose per app scenario), plus
+  the per-category contact sheets and review sheets from earlier phases and
+  `documentation/animation_catalog.md`.
+- Found and fixed in review and testing: an interrupted `play()` promise never settled; asking again for the
+  running loop restarted it with a visible jump; a failed sheet stayed cached and broke later
+  plays; with reduced motion every clip showed its first frame, the rest pose, so every scenario
+  looked the same.
 
 See `documentation/implementation_plan.md` for the architecture, the rig controls, the animation
 naming convention, the app presets and the export/integration evaluation.

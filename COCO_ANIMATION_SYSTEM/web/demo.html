@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coco player demo</title>
+  <style>
+    :root { --bg: #f4f4f7; --fg: #23252e; --muted: #6b6e7e; --card: #ffffff; --line: #c8cbd6; --accent: #3d8ef0; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #17181d; --fg: #ecedf2; --muted: #a2a5b4; --card: #23252e; --line: #4a4d5a; } }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 16px; font: 15px/1.4 system-ui, sans-serif; background: var(--bg); color: var(--fg); }
+    main { max-width: 920px; margin: 0 auto; display: grid; gap: 16px; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); }
+    @media (max-width: 700px) { main { grid-template-columns: minmax(0, 1fr); } }
+    #coco { background: var(--card); border-radius: 16px; padding: 8px; align-self: start; }
+    section { background: var(--card); border-radius: 16px; padding: 12px 16px; min-width: 0; }
+    h1 { font-size: 20px; margin: 0 0 4px; }
+    h2 { font-size: 14px; color: var(--muted); margin: 14px 0 6px; font-weight: 600; }
+    .buttons { display: flex; flex-wrap: wrap; gap: 6px; }
+    .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    button, select { font: inherit; border-radius: 8px; border: 1px solid var(--line); background: transparent; color: inherit; padding: 6px 10px; cursor: pointer; max-width: 100%; }
+    button:hover, button:focus-visible { border-color: var(--accent); }
+    #scenario { color: var(--muted); min-height: 1.4em; margin: 0; }
+    #log { font: 12px ui-monospace, monospace; color: var(--muted); max-height: 140px; overflow: auto; white-space: pre-wrap; margin: 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div id="coco"></div>
+    <section>
+      <h1>Coco player</h1>
+      <p id="scenario">Pick an app preset or any clip.</p>
+      <h2>App presets</h2>
+      <div class="buttons" id="presets"></div>
+      <h2>Any clip</h2>
+      <div class="row">
+        <select id="clip" aria-label="Clip"></select>
+        <button id="playClip">Play</button>
+        <button id="facing">Face left</button>
+        <label><input type="checkbox" id="reduced"> Reduced motion</label>
+      </div>
+      <h2>Events</h2>
+      <pre id="log"></pre>
+    </section>
+  </main>
+  <script type="module">
+    import { CocoPlayer } from './coco-player.js';
+    const coco = await CocoPlayer.create(document.querySelector('#coco'), {
+      manifestUrl: '../exports/spritesheets/manifest.json',
+      presetsUrl: './presets.json',
+    });
+    window.coco = coco;
+    window.CocoPlayer = CocoPlayer;
+    const log = (msg) => { const el = document.querySelector('#log'); el.textContent = `${msg}\n${el.textContent}`.slice(0, 2000); };
+    coco.on('start', (e) => log(`start ${e.id}${e.loop ? ' (loop)' : ''}`));
+    coco.on('end', (e) => log(`end ${e.id}`));
+    coco.on('event', (e) => log(`event ${e.name} in ${e.id}`));
+    coco.on('error', (e) => log(`error ${e.id}: ${e.error.message}`));
+    const scenario = document.querySelector('#scenario');
+    for (const name of coco.presetNames) {
+      const b = document.createElement('button');
+      b.textContent = name;
+      b.title = coco.presets[name].scenario ?? '';
+      b.onclick = () => { scenario.textContent = `${name}: ${coco.presets[name].scenario ?? ''}`; coco.play(name); };
+      document.querySelector('#presets').append(b);
+    }
+    const select = document.querySelector('#clip');
+    for (const id of coco.clips) select.append(new Option(`${id} (${coco.manifest.clips[id].loop ? 'loop' : 'one-shot'})`, id));
+    document.querySelector('#playClip').onclick = () => { scenario.textContent = coco.manifest.clips[select.value].title; coco.play(select.value); };
+    let left = false;
+    document.querySelector('#facing').onclick = (e) => { left = !left; coco.setFacing(left ? 'left' : 'right'); e.target.textContent = left ? 'Face right' : 'Face left'; };
+    const reduced = document.querySelector('#reduced');
+    reduced.checked = coco.reducedMotion;
+    reduced.onchange = () => coco.setReducedMotion(reduced.checked ? true : 'auto');
+    document.body.dataset.ready = 'true';
+  </script>
+</body>
+</html>

@@ -1,0 +1,512 @@
+{
+  "presets": [
+    {
+      "preset": "welcome",
+      "scenario": "App opening: Coco welcomes the user with a wave.",
+      "clips": [
+        "comm_greet"
+      ],
+      "then": "idle_main",
+      "started": [
+        "comm_greet",
+        "idle_main"
+      ],
+      "keptRunning": false,
+      "opaque": 25237,
+      "ok": true
+    },
+    {
+      "preset": "new_user",
+      "scenario": "New user: Coco introduces itself.",
+      "clips": [
+        "comm_introduce"
+      ],
+      "then": "idle_main",
+      "started": [
+        "comm_introduce",
+        "idle_main"
+      ],
+      "keptRunning": false,
+      "opaque": 21338,
+      "ok": true
+    },
+    {
+      "preset": "returning_user",
+      "scenario": "Returning user: Coco welcomes the learner back.",
+      "clips": [
+        "comm_greet",
+        "emo_happy"
+      ],
+      "then": "idle_main",
+      "started": [
+        "comm_greet",
+        "emo_happy",
+        "idle_main"
+      ],
+      "keptRunning": false,
+      "opaque": 22684,
+      "ok": true
+    },
+    {
+      "preset": "lesson_start",
+      "scenario": "Lesson start: Coco introduces the activity enthusiastically.",
+      "clips": [
+        "emo_excited",
+        "comm_explain"
+      ],
+      "then": null,
+      "started": [
+        "emo_excited",
+        "comm_explain"
+      ],
+      "keptRunning": false,
+      "opaque": 22304,
+      "ok": true
+    },
+    {
+      "preset": "question",
+      "scenario": "Question displayed: Coco looks at the question and thinks.",
+      "clips": [
+        "comm_think"
+      ],
+      "then": null,
+      "started": [
+        "comm_think"
+      ],
+      "keptRunning": false,
+      "opaque": 22248,
+      "ok": true
+    },
+    {
+      "preset": "answer_selected",
+      "scenario": "Answer selected: Coco waits for the check.",
+      "clips": [
+        "comm_wait"
+      ],
+      "then": null,
+      "started": [
+        "comm_wait"
+      ],
+      "keptRunning": false,
+      "opaque": 22507,
+      "ok": true
+    },
+    {
+      "preset": "correct",
+      "scenario": "Correct answer: Coco celebrates.",
+      "clips": [
+        "edu_celebrate_correct"
+      ],
+      "then": "idle_main",
+      "started": [
+        "edu_celebrate_correct",
+        "idle_main"
+      ],
+      "keptRunning": false,
+      "opaque": 27216,
+      "ok": true
+    },
+    {
+      "preset": "incorrect",
+      "scenario": "Incorrect answer: a supportive reaction.",
+      "clips": [
+        "comm_encourage"
+      ],
+      "then": "idle_main",
+      "started": [
+        "comm_encourage",
+        "idle_main"
+      ],
+      "keptRunning": false,
+      "opaque": 21558,
+      "ok": true
+    },
+    {
+      "preset": "show_correction",
+      "scenario": "After a mistake: Coco points to the right answer.",
+      "clips": [
+        "edu_correct_answer"
+      ],
+      "then": "idle_main",
+      "started": [
+        "edu_correct_answer",
+        "idle_main"
+      ],
+      "keptRunning": false,
+      "opaque": 22382,
+      "ok": true
+    },
+    {
+      "preset": "lesson_complete",
+      "scenario": "Lesson completed: celebration with stars and confetti.",
+      "clips": [
+        "rew_celebrate"
+      ],
+      "then": "idle_main",
+      "started": [
+        "rew_celebrate",
+        "idle_main"
+      ],
+      "keptRunning": false,
+      "opaque": 30456,
+      "ok": true
+    },
+    {
+      "preset": "new_landmark",
+      "scenario": "New landmark: Coco arrives in explorer gear.",
+      "clips": [
+        "trv_fly_in",
+        "trv_new_landmark"
+      ],
+      "then": "trv_explore",
+      "started": [
+        "trv_fly_in",
+        "trv_new_landmark",
+        "trv_explore"
+      ],
+      "keptRunning": false,
+      "opaque": 28837,
+      "ok": true
+    },
+    {
+      "preset": "explore",
+      "scenario": "Explore mode.",
+      "clips": [
+        "trv_explore"
+      ],
+      "then": null,
+      "started": [
+        "trv_explore"
+      ],
+      "keptRunning": true,
+      "opaque": 27418,
+      "ok": true
+    },
+    {
+      "preset": "vocabulary",
+      "scenario": "Vocabulary: Coco presents a new word.",
+      "clips": [
+        "edu_present_word"
+      ],
+      "then": "edu_hold_card",
+      "started": [
+        "edu_present_word",
+        "edu_hold_card"
+      ],
+      "keptRunning": false,
+      "opaque": 27146,
+      "ok": true
+    },
+    {
+      "preset": "pronunciation",
+      "scenario": "Pronunciation: listen and repeat.",
+      "clips": [
+        "edu_pronounce"
+      ],
+      "then": null,
+      "started": [
+        "edu_pronounce"
+      ],
+      "keptRunning": false,
+      "opaque": 27006,
+      "ok": true
+    },
+    {
+      "preset": "voice_listen",
+      "scenario": "Voice chat: the learner speaks.",
+      "clips": [
+        "comm_listen"
+      ],
+      "then": null,
+      "started": [
+        "comm_listen"
+      ],
+      "keptRunning": false,
+      "opaque": 22368,
+      "ok": true
+    },
+    {
+      "preset": "voice_think",
+      "scenario": "Voice chat: Coco prepares an answer.",
+      "clips": [
+        "comm_thinking_dots"
+      ],
+      "then": null,
+      "started": [
+        "comm_thinking_dots"
+      ],
+      "keptRunning": false,
+      "opaque": 22383,
+      "ok": true
+    },
+    {
+      "preset": "voice_talk",
+      "scenario": "Voice chat: Coco talks.",
+      "clips": [
+        "comm_talk"
+      ],
+      "then": null,
+      "started": [
+        "comm_talk"
+      ],
+      "keptRunning": false,
+      "opaque": 23038,
+      "ok": true
+    },
+    {
+      "preset": "ai_processing",
+      "scenario": "AI processing: Coco thinks while waiting.",
+      "clips": [
+        "comm_thinking_dots"
+      ],
+      "then": null,
+      "started": [
+        "comm_thinking_dots"
+      ],
+      "keptRunning": false,
+      "opaque": 22383,
+      "ok": true
+    },
+    {
+      "preset": "offline",
+      "scenario": "No internet: Coco is confused.",
+      "clips": [
+        "rx_offline"
+      ],
+      "then": null,
+      "started": [
+        "rx_offline"
+      ],
+      "keptRunning": false,
+      "opaque": 24139,
+      "ok": true
+    },
+    {
+      "preset": "empty_chat",
+      "scenario": "Empty chat: Coco waits patiently.",
+      "clips": [
+        "comm_wait"
+      ],
+      "then": null,
+      "started": [
+        "comm_wait"
+      ],
+      "keptRunning": false,
+      "opaque": 22510,
+      "ok": true
+    },
+    {
+      "preset": "daily_streak",
+      "scenario": "Daily streak: Coco celebrates the achievement.",
+      "clips": [
+        "rew_streak"
+      ],
+      "then": "idle_main",
+      "started": [
+        "rew_streak",
+        "idle_main"
+      ],
+      "keptRunning": false,
+      "opaque": 26560,
+      "ok": true
+    },
+    {
+      "preset": "level_up",
+      "scenario": "Level up.",
+      "clips": [
+        "rew_level_up"
+      ],
+      "then": "idle_main",
+      "started": [
+        "rew_level_up",
+        "idle_main"
+      ],
+      "keptRunning": false,
+      "opaque": 44326,
+      "ok": true
+    },
+    {
+      "preset": "hint",
+      "scenario": "A hint is available.",
+      "clips": [
+        "comm_idea"
+      ],
+      "then": "idle_main",
+      "started": [
+        "comm_idea",
+        "idle_main"
+      ],
+      "keptRunning": false,
+      "opaque": 24748,
+      "ok": true
+    },
+    {
+      "preset": "goodbye",
+      "scenario": "End of session.",
+      "clips": [
+        "comm_goodbye"
+      ],
+      "then": "idle_main",
+      "started": [
+        "comm_goodbye",
+        "idle_main"
+      ],
+      "keptRunning": false,
+      "opaque": 24192,
+      "ok": true
+    },
+    {
+      "preset": "sleep",
+      "scenario": "App inactive for a long time.",
+      "clips": [
+        "rx_fall_asleep",
+        "idle_sleep"
+      ],
+      "then": null,
+      "started": [
+        "rx_fall_asleep",
+        "idle_sleep"
+      ],
+      "keptRunning": false,
+      "opaque": 22403,
+      "ok": true
+    },
+    {
+      "preset": "wake_up",
+      "scenario": "Back after inactivity.",
+      "clips": [
+        "idle_wake_up"
+      ],
+      "then": "idle_main",
+      "started": [
+        "idle_wake_up",
+        "idle_main"
+      ],
+      "keptRunning": false,
+      "opaque": 27534,
+      "ok": true
+    },
+    {
+      "preset": "idle",
+      "scenario": "Default state.",
+      "clips": [
+        "idle_main"
+      ],
+      "then": null,
+      "started": [
+        "idle_main"
+      ],
+      "keptRunning": true,
+      "opaque": 23098,
+      "ok": true
+    },
+    {
+      "preset": "happy",
+      "scenario": "Generic positive reaction.",
+      "clips": [
+        "emo_happy"
+      ],
+      "then": "idle_main",
+      "started": [
+        "emo_happy",
+        "idle_main"
+      ],
+      "keptRunning": false,
+      "opaque": 22684,
+      "ok": true
+    },
+    {
+      "preset": "thinking",
+      "scenario": "Generic thinking.",
+      "clips": [
+        "comm_think"
+      ],
+      "then": null,
+      "started": [
+        "comm_think"
+      ],
+      "keptRunning": false,
+      "opaque": 22238,
+      "ok": true
+    },
+    {
+      "preset": "celebrate",
+      "scenario": "Generic celebration.",
+      "clips": [
+        "rew_celebrate"
+      ],
+      "then": "idle_main",
+      "started": [
+        "rew_celebrate",
+        "idle_main"
+      ],
+      "keptRunning": false,
+      "opaque": 29526,
+      "ok": true
+    },
+    {
+      "preset": "listening",
+      "scenario": "Generic listening.",
+      "clips": [
+        "comm_listen"
+      ],
+      "then": null,
+      "started": [
+        "comm_listen"
+      ],
+      "keptRunning": false,
+      "opaque": 22368,
+      "ok": true
+    }
+  ],
+  "behaviour": {
+    "interrupt": {
+      "ra": false,
+      "rb": true,
+      "started": [
+        "rew_celebrate",
+        "comm_think"
+      ],
+      "looping": "comm_think"
+    },
+    "keepLoop": {
+      "again": true,
+      "startedAgain": [],
+      "restart": true,
+      "startedRestart": [
+        "comm_think"
+      ]
+    },
+    "thenFalse": {
+      "held": true,
+      "started": [
+        "emo_happy"
+      ],
+      "looping": null
+    },
+    "reducedMotion": {
+      "still": true,
+      "resolved": true,
+      "started": [
+        "edu_celebrate_correct",
+        "idle_main"
+      ],
+      "opaque": 22491
+    },
+    "events": [
+      "emo_happy:begin",
+      "emo_happy:middle",
+      "idle_main:beat",
+      "idle_main:wrap",
+      "idle_main:beat"
+    ],
+    "missing": {
+      "missing": false,
+      "errors": [
+        "__missing"
+      ],
+      "looping": "idle_main"
+    }
+  },
+  "problems": []
+}

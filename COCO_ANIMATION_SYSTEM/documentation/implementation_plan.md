@@ -13,7 +13,8 @@ Status legend: ✅ done · 🔄 in progress · ⏳ planned. The progress report 
 
 Docs read before implementing: `rev2d_guide`, `AGENTS.md`, `docs/SPEC.md`, `docs/OPS.md`,
 `docs/RECIPES.md`, `docs/AVATAR.md` (scope and limits), `rev2d_schema` (Part, Fill), `llms.txt`;
-`docs/MCP.md`, `docs/CLI.md` and `docs/INTEROP.md` are consulted per phase (exports in Phase 7).
+`docs/MCP.md`, `docs/CLI.md` and `docs/INTEROP.md` were consulted per phase (INTEROP for the
+Spine / Live2D evaluation in Phase 7).
 
 ## 2. Architecture
 
@@ -26,9 +27,11 @@ animations/     clips per category + metadata (TS)           ─┘      schema-
                        rev2d/source/qc.ts ◄──────────────────────────────────────────────────────────┤
                        renders, sweep sheets, contact sheets, analyze reports → previews/, character/  │
                                                                                                      ▼
-                       rev2d/source/export.ts ──► exports/png_sequences | spritesheets | gifs | spine
+                       rev2d/source/export.ts ──► exports/spritesheets (WebP + manifest), png_sequences
+                       rev2d/source/qc.ts     ──► exports/gifs (previews)
+                       rev2d export spine     ──► exports/spine (evaluation sample)
                                                                                                      ▼
-                       web/ (CocoPlayer + manifest) ──► coco.play("happy")
+                       web/ (CocoPlayer + presets.json) ──► coco.play("happy")
 ```
 
 - **One master model** (`coco.r2d.json`) holds the rig, every accessory (hidden by default) and
@@ -38,8 +41,9 @@ animations/     clips per category + metadata (TS)           ─┘      schema-
 - **Rev2D's ops do the rig maths**: bones by world position (`world`/`worldRotation`), pseudo-3D
   head turns (`bind_warp`), rigid accessories on a deforming head (`follow`), baking layered clips
   into single clips for export (`compose`).
-- Run everything from `COCO_ANIMATION_SYSTEM/`: `npm run build`, `npm run qc`
-  (Rev2D's `tsx` runs the TS; `REV2D_HOME` points at the checkout, default `../Rev2D` next to the repo).
+- Run everything from `COCO_ANIMATION_SYSTEM/`: `npm run build`, `npm run qc`, `npm run export`,
+  `npm run webp`, `npm run test:scenarios` (Rev2D's `tsx` runs the TS; `REV2D_HOME` points at the
+  checkout, default `../Rev2D` next to the repo).
 
 ## 3. Master rig
 
@@ -73,7 +77,7 @@ in Rev2D SPEC §3.1.
 Physics: tail swing from body motion; head-feather ruffle from head motion. Verified with
 `analyze --warmup` (no clamping, closed loop seams).
 
-### 3.3 Accessories ⏳ (Phase 6)
+### 3.3 Accessories ✅ (Phase 6, `accessories/`: 47 accessories, effects and scene props)
 
 Each accessory is a set of parts on **its own bone or small warp** attached next to what it rides on
 (a hat on the head bone + `follow` onto the face warp; a backpack on the chest; a book on the
@@ -115,45 +119,33 @@ skeptical, …) live in `character/expressions/` and are reused by the clips.
 
 ## 5. App presets (`coco.play(id)`)
 
-A preset maps an **app scenario** to clips, accessories and what plays next:
-
-| Preset | Plays | Then |
-| --- | --- | --- |
-| `welcome` (app opening) | `comm_greet` (wave) | `idle_main` |
-| `new_user` | `comm_greet` + introduction talk | `idle_main` |
-| `returning_user` | `comm_greet` + `emo_happy` | `idle_main` |
-| `lesson_start` | `emo_excited` → `comm_explain` | `idle_main` |
-| `question` / `thinking` | `comm_think` (loop) | — |
-| `answer_selected` | `comm_wait` (loop) | — |
-| `correct` / `celebrate` | `edu_celebrate_correct` | `idle_main` |
-| `incorrect` | `comm_encourage` (supportive) | `idle_main` |
-| `lesson_complete` | `rew_celebrate` + stars | `idle_main` |
-| `new_landmark` / `explore` | `trv_explore` with explorer hat + backpack | `idle_main` (keeps the hat) |
-| `vocabulary` | `edu_present_word` (vocabulary card) | `idle_main` |
-| `voice_listen` / `listening`, `voice_think`, `voice_talk` | `comm_listen`, `comm_think`, `comm_talk` | — |
-| `ai_processing` | `comm_thinking_dots` | — |
-| `offline` | `rx_offline` | `comm_wait` |
-| `empty_chat` | `comm_wait` | — |
-| `daily_streak` | `rew_streak` | `idle_main` |
-| `happy` | `emo_happy` | `idle_main` |
-
-The table is data (`web/presets.json`), so product can tune it without touching code.
+A preset maps an **app scenario** to clips and what plays next. Implemented in `web/presets.json`
+(✅ Phase 7): 31 presets covering every scenario of the brief (app opening, lesson start,
+question, answer selected, correct, incorrect, lesson completed, new landmark, vocabulary, voice
+chat, AI processing, no internet, empty chat, daily streak, new user, returning user) plus
+`show_correction`, `pronunciation`, `level_up`, `hint`, `goodbye`, `sleep`, `wake_up`, `explore`
+and the aliases `idle`, `happy`, `thinking`, `celebrate`, `listening`. The full table (clips,
+follow-ups, download sizes) is in `integration_guide.md` §3. It is data, so product can tune it
+without touching code.
 
 ## 6. Export and frontend integration (Phase 7)
 
 `.r2d.json` is an authoring format: the browser is **not** expected to evaluate it. Options
-evaluated:
+evaluated (measured in Phase 7; details in `integration_guide.md` §10):
 
 | Option | Pros | Cons | Verdict |
 | --- | --- | --- | --- |
-| **A. Spritesheets** (WebP/PNG, per clip) + JSON manifest + ~3 KB canvas player | No runtime dependency or licence; exactly the Rev2D render; trivial to cache and lazy-load; works in every framework | Bigger downloads (frames × resolution); no live parametric control (lip sync to arbitrary audio, look-at) | **Default.** Exported at 2× the display size, loaded per scenario. |
-| **B. Spine export** (`rev2d export spine`: Spine 4.x JSON + atlas) + Spine web runtime | Tiny, smooth at any size/fps, runtime cross-fades and track layering | The Spine runtimes require a **Spine Editor licence** (Esoteric Software); Rev2D bakes parameters/warps/physics into sampled timelines; must be verified in a Spine runtime | **Optional upgrade** if the team holds a Spine licence; the player's renderer adapter is designed for it. |
-| **C. Rev2D core in the browser** (`rev2d/core` + `rev2d/render` are browser-safe; software raster) | Full parametric control, smallest payload | v0.1.0 library, CPU rendering per frame, not built as a production runtime | **Experimental**, not recommended for production now. |
-| GIF | Universal previews | 256 colours, 1-bit alpha, large | **Previews only** (catalogue, docs). |
+| **A. Spritesheets** (WebP per clip) + JSON manifest + 15 KB canvas player | No runtime dependency or licence; the Rev2D render of the QC'd model; trivial to cache and lazy-load; works in every framework | 17.3 MB for all 90 clips (54–474 KB each, first paint ≈ 370 KB, a lesson's presets 1.8 MB); no live parametric control (lip sync to arbitrary audio, look-at) | ✅ **Chosen.** Exported at 0.375 × the canvas (a 2× set costs ≈ 2.2× the bytes), loaded per scenario. |
+| **B. Spine export** (`rev2d export spine`: Spine 4.2 JSON + atlas) + Spine web runtime | Runtime cross-fades and track layering, resolution-independent bones | Measured on 4 clips: 176 bones, 203 slots, 16 clipping attachments, 6.9 MB JSON (3.8 MB setup + 0.5–1.3 MB per clip, because parameters, warps and physics are baked into keys), so **not smaller** than the spritesheets; masks become hard-edged clips; the Spine runtimes require a **Spine Editor licence**; unverified without one | **Not adopted.** Sample and report in `exports/spine/`; the player's renderer interface leaves room for it. |
+| **C. Rev2D core in the browser** (`rev2d/core` + `rev2d/render` are browser-safe; software raster) | Full parametric control, smallest payload | v0.1.0 library, CPU rendering per frame, not built as a production runtime | **Not used** (the brief rules it out too). |
+| PNG sequences | Any tool can read frames | One request per frame | **For other tools** (video, engines): `npm run export -- --sequence <ids>`. |
+| GIF | Universal previews | 256 colours, 1-bit alpha, large | **Previews only** (`exports/gifs/`, catalogue, docs). |
 
-The player exposes a renderer-agnostic API (`load`, `play(id, {loop, then})`, `stop`, `on('event')`,
-`setFacing('left'|'right')`) with one renderer adapter (spritesheets) and room for others, so the
-rendering technology can change without touching app code.
+The player (`web/coco-player.js`, typed by `coco-player.d.ts`) exposes a renderer-agnostic API:
+`CocoPlayer.create(container, options)`, `play(name, {then, loop, restart})`, `stop`, `preload`,
+`setFacing('left'|'right')`, `setReducedMotion`, `setLabel`, `on('start'|'end'|'event'|'error')`,
+`destroy`. The spritesheet renderer sits behind a small interface (`load`, `draw` and a `facing`
+property), so the rendering technology can change without touching app code.
 
 ## 7. Quality control (every clip)
 
@@ -174,16 +166,22 @@ reach, loop seam, parts leaving the canvas) → 6. loop seam check for loops →
 | 4 | Communication + education clips | ✅ |
 | 5 | Emotions, travel, rewards, reactions | ✅ |
 | 6 | Accessory library | ✅ |
-| 7 | Export pipeline + web player + integration into the app (needs the app repo) | ⏳ |
-| 8 | Scenario tests + final visual catalogue | ⏳ |
+| 7 | Export pipeline, web player, app presets, integration guide | ✅ (wiring it into the app's own code needs the app repository) |
+| 8 | Scenario tests + final visual catalogue | ✅ |
 
 ## 9. Risks and open questions
 
-1. **Where is the app?** Phase 7 needs the frontend repository (framework, existing mascot
-   component, screens). Until then the player ships with a standalone demo.
-2. **Spine licence** — decide before choosing option B.
-3. **Payload size** of spritesheets — mitigated by per-scenario lazy loading, WebP, and frame rates
-   per clip (12–24 fps).
+1. **Where is the app?** Still open: no frontend repository was available, so the player, presets
+   and guide are framework-agnostic (React and Vue examples, TypeScript types, a demo page). Wiring
+   them into the real screens, and matching an existing mascot component if there is one, needs
+   that repository.
+2. **Spine** — measured and not adopted (§6); only worth revisiting if the team already holds a
+   Spine licence and needs runtime cross-fades.
+3. **Payload size** — measured: first paint ≈ 370 KB, a lesson's presets 1.8 MB, everything 17.3 MB
+   (never needed at once); mitigated by per-clip lazy loading, preloading per screen, WebP and
+   15–20 fps.
 4. **Art fidelity** — the vector master matches the reference closely
    (`character/master/coco_master_compare.png`); a painted texture pass is possible later from the
    optional artwork listed in the character specification.
+5. **Sharpness on large high-DPI displays** — the default export is sharp up to about 190 CSS px
+   wide for the full stage on 2× screens; a 2× export is one command (integration guide §6).
