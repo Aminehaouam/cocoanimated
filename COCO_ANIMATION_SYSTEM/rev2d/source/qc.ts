@@ -73,7 +73,43 @@ async function layers(): Promise<void> {
   write(sys('character', 'parts', 'coco_layers.png'), R.encodePNG(sheet));
 }
 
-const jobs: Record<string, () => Promise<void>> = { master, layers };
+/** Parameter groups for the rig overview sheets. */
+const OVERVIEW_GROUPS: Record<string, string[]> = {
+  head: ['AngleX', 'AngleY', 'AngleZ'],
+  eye: ['EyeROpen', 'EyeRSmile', 'EyeWide', 'EyeBallX', 'EyeBallY'],
+  face: ['BrowRY', 'BrowRAngle', 'MouthOpen', 'MouthForm', 'Blush'],
+  body: ['Breath', 'BodyAngleX', 'BodyAngleZ', 'Squash', 'BodyY'],
+  wings: ['WingRRaise', 'WingRSpread', 'WingRCurl', 'WingLRaise', 'WingLSpread'],
+  tail_legs: ['TailSwing', 'TailLift', 'TailFan', 'FootRY', 'LegTuck'],
+};
+
+/** 2-D grids worth checking together: [columns sweep, rows sweep, view box, scale]. */
+const GRIDS: Array<{ name: string; sweeps: [string, string]; viewBox: [number, number, number, number] | 'fit'; scale: number }> = [
+  { name: 'head_turn', sweeps: ['AngleX=-30,0,30', 'AngleY=30,0,-30'], viewBox: [360, 230, 370, 320], scale: 0.9 },
+  { name: 'eye', sweeps: ['EyeROpen=0,0.5,1', 'EyeRSmile=0,0.5,1'], viewBox: [470, 330, 120, 130], scale: 2 },
+  { name: 'beak', sweeps: ['MouthOpen=0,0.5,1', 'MouthForm=-1,0,1'], viewBox: [580, 290, 140, 190], scale: 1.6 },
+  { name: 'brow', sweeps: ['BrowRAngle=-1,0,1', 'BrowRY=-1,0,1'], viewBox: [460, 300, 150, 160], scale: 1.6 },
+  { name: 'wing_near', sweeps: ['WingRRaise=-1.5,-1,0,0.5,1', 'WingRSpread=0,1'], viewBox: 'fit', scale: 0.4 },
+  { name: 'wing_far', sweeps: ['WingLRaise=0,0.5,1', 'WingLSpread=0,1'], viewBox: 'fit', scale: 0.4 },
+];
+
+/** Rig evidence: one overview sheet per parameter group and the 2-D grids (physics off: values show as set). */
+async function rig(): Promise<void> {
+  const m = await R.loadModelFile(MODEL_FILE);
+  if (!m.rig || !m.model) throw new Error(`model has errors:\n${R.formatDiagnostics(m.diagnostics)}`);
+  const model = m.model;
+  for (const [group, params] of Object.entries(OVERVIEW_GROUPS)) {
+    const sheet = R.renderSheet(m, { overview: { params, steps: 5 }, scale: 0.28, physics: false, viewBox: 'fit', background: '#ffffff' } as never);
+    write(sys('previews', 'rig', `overview_${group}.png`), R.encodePNG(sheet.image ?? sheet));
+  }
+  for (const g of GRIDS) {
+    const sweeps = g.sweeps.map((s) => R.parseSweep(model, s));
+    const sheet = R.renderSheet(m, { sweeps, viewBox: g.viewBox, scale: g.scale, physics: false, background: '#ffffff' } as never);
+    write(sys('previews', 'rig', `grid_${g.name}.png`), R.encodePNG(sheet.image ?? sheet));
+  }
+}
+
+const jobs: Record<string, () => Promise<void>> = { master, layers, rig };
 
 async function main(): Promise<number> {
   const names = process.argv.slice(2).filter((a) => !a.startsWith('-'));

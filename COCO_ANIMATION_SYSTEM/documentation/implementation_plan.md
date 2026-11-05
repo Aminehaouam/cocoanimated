@@ -50,7 +50,7 @@ animations/     clips per category + metadata (TS)           ─┘      schema-
 (thighs) and `footR`, `footL` on `root` (planted feet). Warps: `bodyWarp` (hips), `headWarp` (head)
 ⊃ `faceWarp` ⊃ `eyeWarp`.
 
-### 3.2 Parameters ⏳ (Phase 2)
+### 3.2 Parameters ✅ (Phase 2 — the built set is in `rig_reference.md`; `Sit`, `CrestRuffle`, `Tear`, `Sweat` and the accessory/effect parameters come in later phases)
 
 Live2D-standard names where one exists (so Rev2D's lip sync and Live2D/Spine interop work), signs as
 in Rev2D SPEC §3.1.
@@ -169,8 +169,8 @@ reach, loop seam, parts leaving the canvas) → 6. loop seam check for loops →
 | Phase | Scope | Status |
 | --- | --- | --- |
 | 1 | Inspection, source-art assessment, master spec, layered vector master | ✅ |
-| 2 | Master rig: parameters, bindings, physics; sweep sheets per parameter | ⏳ next |
-| 3 | Expressions + idle clips | ⏳ |
+| 2 | Master rig: parameters, bindings, physics; sweep sheets per parameter | ✅ |
+| 3 | Expressions + idle clips | ⏳ next |
 | 4 | Communication + education clips | ⏳ |
 | 5 | Travel, rewards, reactions | ⏳ |
 | 6 | Accessory library | ⏳ |

@@ -82,6 +82,29 @@ export function frame(o: Pt, deg: number, u: number, v: number): Pt {
   return [o[0] + u * cos - v * sin, o[1] + u * sin + v * cos];
 }
 
+/** Inverse of `frame`: the (u, v) coordinates of p in the frame at `o` facing `deg`. */
+export function unframe(o: Pt, deg: number, p: Pt): Pt {
+  const a = (deg * Math.PI) / 180, cos = Math.cos(a), sin = Math.sin(a);
+  const dx = p[0] - o[0], dy = p[1] - o[1];
+  return [dx * cos + dy * sin, -dx * sin + dy * cos];
+}
+
+/** Map outline points into a frame (keeps corner marks). */
+export function fromFrame(o: Pt, deg: number, pts: readonly OPt[], scale = 1): OPt[] {
+  return pts.map((p) => {
+    const q = frame(o, deg, p[0] * scale, p[1] * scale);
+    return p[2] === 'c' ? [q[0], q[1], 'c'] : q;
+  });
+}
+
+/** Map outline points out of a frame into (u, v) (keeps corner marks). */
+export function toFrame(o: Pt, deg: number, pts: readonly OPt[]): OPt[] {
+  return pts.map((p) => {
+    const q = unframe(o, deg, [p[0], p[1]]);
+    return p[2] === 'c' ? [q[0], q[1], 'c'] : q;
+  });
+}
+
 /** Direction from a to b in degrees, and the distance. */
 export function aim(a: Pt, b: Pt): { deg: number; len: number } {
   return { deg: (Math.atan2(b[1] - a[1], b[0] - a[0]) * 180) / Math.PI, len: Math.hypot(b[0] - a[0], b[1] - a[1]) };

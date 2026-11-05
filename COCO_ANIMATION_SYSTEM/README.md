@@ -44,8 +44,8 @@ then `rev2d_validate`, `rev2d_render`, `rev2d_sheet`, `rev2d_inspect`, `rev2d_an
 | Phase | Scope | Status | Evidence |
 | --- | --- | --- | --- |
 | 1 | Inspection, source-art assessment, master spec, layered vector master | ✅ done | `documentation/character_specification.md`, `character/master/coco_master_compare.png`, `character/parts/coco_layers.png` |
-| 2 | Master rig: parameters, bindings, physics | ⏳ next | |
-| 3 | Expressions + idle animations | ⏳ | |
+| 2 | Master rig: parameters, bindings, physics | ✅ done | `documentation/rig_reference.md`, `previews/rig/*.png` |
+| 3 | Expressions + idle animations | ⏳ next | |
 | 4 | Communication + education | ⏳ | |
 | 5 | Travel, rewards, reactions | ⏳ | |
 | 6 | Accessories | ⏳ | |
@@ -60,6 +60,24 @@ then `rev2d_validate`, `rev2d_render`, `rev2d_sheet`, `rev2d_inspect`, `rev2d_an
   colours sampled from it: 30 parts, 19 bones, 4 warps, validated by Rev2D with 0 errors and 0 warnings.
 - Rev2D's single-illustration avatar builder was evaluated and **not used**: it targets front-facing
   human busts and cannot invent the hidden parts (far wing, body under the wing).
+
+### Phase 2 notes
+
+- **33 parameters** (head turn / pitch / tilt, eye open / smile / wide / gaze, brow, beak open / form,
+  blush, breath, body turn / lean / squash / position, shadow, both wings raise / spread / curl, tail
+  swing / lift / fan, feet, flight tuck), **21 bones, 4 warps, 63 bindings, 1 physics group**.
+  Validated by Rev2D: 0 errors, 0 warnings. The full table is generated into
+  `documentation/rig_reference.md` on every build.
+- Verified with sweep sheets (`previews/rig/`), not just the JSON:
+  `grid_head_turn` (pseudo-3D turn; the face patch is clipped to the head so it never pokes out),
+  `grid_eye` (blink "◡", happy "∩", squint "◠"), `grid_beak` (open beak with tongue, smile/frown),
+  `grid_brow`, `grid_wing_near` / `grid_wing_far` (fold, point, cover face, cheer, spread fingers),
+  and one overview per group.
+- Numbers (`rev2d_inspect`): the rigid beak stays on the turning face within **0.35 px** across the
+  whole AngleX × AngleY range (Rev2D `follow` on a 5 × 5 turn grid); the feet stay exactly planted
+  under breathing, lean and body turn.
+- Deferred to later phases: sitting pose, head-feather ruffle physics, tears / sweat (effects,
+  Phase 5), accessories (Phase 6).
 
 See `documentation/implementation_plan.md` for the architecture, the rig controls, the animation
 naming convention, the app presets and the export/integration evaluation.

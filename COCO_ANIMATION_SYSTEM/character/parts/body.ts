@@ -27,7 +27,7 @@ export function bodyParts(): Part[] {
 
   return [
     {
-      id: 'shadow', parent: 'root', z: 0, tags: ['ground'],
+      id: 'shadow', parent: 'shadowBone', z: 0, tags: ['ground'],
       description: 'Soft contact shadow: stacked translucent ellipses (each subpath is filled on its own, so they build up toward the centre).',
       shape: { type: 'path', d: compound(ellipse(522, 893, 132, 15), ellipse(522, 893, 110, 12.5), ellipse(522, 893, 88, 10), ellipse(522, 893, 64, 7.5)) },
       fill: alpha(C.shadow, 0.055),

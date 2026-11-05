@@ -144,12 +144,13 @@ holes. Parents are bones (rigid) or warps (lattice deformation), see `rev2d/rigs
 | --- | --- | --- | --- |
 | 0 | `shadow` | `root` | 4 stacked translucent ellipses |
 | 1–3 | `tailF3`, `tailF2`, `tailF1` | `tailF1..3` bones | one bone per feather: fan + swing |
-| 4 | `wingL` | skin `wingL_arm`, `wingL_hand` | far wing |
-| 5–8 | `legL`, `footL`, `legR`, `footR` | legs skinned thigh → foot; feet on `root` | feet stay planted |
+| 4–4.5 | `wingL`, `wingLCovert` | skin `wingL_arm`, `wingL_hand` | far wing: the near wing's design at 88 %, behind the body |
+| 5–8 | `legL`, `footL`, `legR`, `footR` | legs skinned thigh → foot; feet on `move` | feet stay planted |
 | 10–12 | `body`, `thighShade`, `chestScallops` | `bodyWarp` | shared feather gradient with the head |
-| 14–15 | `wingR`, `wingRCovert` | skin `wingR_arm`, `wingR_hand` | coverts masked by the wing |
+| 14–15 | `wingR`, `wingRCovert` | skin `wingR_arm`, `wingR_hand` | coverts masked by the wing; both morph folded ↔ spread |
 | 18–20.6 | `napeLobes`, `head`, `crownLight`, `headScallops` | `headWarp` | |
-| 22–25 | `facePatch`, `eyeRing`, `eye`, `eyeHighlight`, `eyeHighlight2` | `faceWarp`; eye parts in `eyeWarp` | eye = 4-segment path (morphable) |
+| 22–25 | `facePatch` (clipped to `head`), `blush`, `eyeRing`, `eye`, `eyeHighlight`, `eyeHighlight2` | `faceWarp`; eye parts in `eyeWarp` | eye = 4-segment path (morphable); blush hidden at rest |
+| 26 | `brow` | `faceWarp` | hidden at rest, appears with BrowRY / BrowRAngle |
 | 26–32 | `mouthInside`, `tongue`, `beakLower`, `mouthLine`, `beakUpper`, `beakSheen`, `nostril` | `beak` / `jaw` bones | the jaw rotates to open the beak |
 
 Accessories are **separate parts on their own bones / warps** (never merged into the body art) and
